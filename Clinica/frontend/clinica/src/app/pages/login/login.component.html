@@ -1,0 +1,40 @@
+<div class="container">
+  <div class="background-image">
+    <div class="overlay-color">
+      <main>
+        <div class="logo-wrapper">
+          <img id="logo" src="/assets/images/logo.png" alt="imagem da logo" />
+        </div>
+        <h1 id="title">Lapri Care</h1>
+        <form class="form-wrapper">
+          <mat-form-field class="example-full-width">
+            <mat-label>CPF</mat-label>
+            <input
+              matInput
+              mask="000.000.000-00"
+              placeholder="Ex. 123.456.789-01"
+              value="cpf"
+            />
+          </mat-form-field>
+
+          <mat-form-field>
+            <mat-label>Digite sua senha</mat-label>
+            <input matInput [type]="hide ? 'password' : 'text'" />
+            <button
+              class="btn-show-password"
+              mat-icon-button
+              matSuffix
+              (click)="hide = !hide"
+              [attr.aria-label]="'Hide password'"
+              [attr.aria-pressed]="hide"
+            >
+              <mat-icon class="icon">{{
+                hide ? "visibility_off" : "visibility"
+              }}</mat-icon>
+            </button>
+          </mat-form-field>
+        </form>
+      </main>
+    </div>
+  </div>
+</div>

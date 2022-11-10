@@ -1,0 +1,61 @@
+.container {
+  min-height: 100vh;
+}
+
+.background-image {
+  background-image: url("src/assets/images/background.png");
+  height: 100vh;
+  width: 100%;
+  background-size: cover;
+  background-position: center;
+  background-repeat: no-repeat;
+}
+
+.overlay-color {
+  background-color: #033653;
+  height: 100vh;
+  width: 100%;
+  opacity: 0.9;
+  display: flex;
+  justify-content: center;
+}
+
+main {
+  margin-top: 5rem;
+}
+
+.logo-wrapper {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  margin-bottom: 1rem;
+}
+
+#logo {
+  width: 50%;
+  height: auto;
+}
+
+#title {
+  color: #fff;
+  font-family: "Rosarivo", serif;
+  letter-spacing: 2px;
+  font-size: 2.5rem;
+}
+
+.form-wrapper {
+  display: flex;
+  flex-direction: column;
+}
+.btn-show-password {
+  background-color: transparent;
+  box-shadow: 0;
+  border: 0;
+}
+.icon {
+  color: #fff;
+}
+
+input {
+  color: #fff;
+}
