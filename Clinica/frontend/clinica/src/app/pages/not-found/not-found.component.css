@@ -1,0 +1,148 @@
+.container {
+  display: flex;
+  gap: 3rem;
+}
+aside {
+  background: linear-gradient(
+    180deg,
+    hsla(202, 93%, 17%, 1) 0%,
+    hsla(183, 82%, 32%, 1) 100%,
+    hsla(256, 83%, 72%, 1) 100%
+  );
+  width: 15%;
+  max-width: 220px;
+  height: 100vh;
+}
+
+main {
+  align-self: center;
+  flex: 1;
+}
+main h2 {
+  margin-top: 8rem;
+  color: hsla(202, 93%, 17%, 1);
+  font-size: 3rem;
+  text-transform: uppercase;
+}
+
+p {
+  font-size: 1.1rem;
+  width: 35%;
+  color: rgb(0, 0, 0);
+  letter-spacing: 1px;
+}
+
+h3 {
+  width: fit-content;
+  color: hsla(202, 93%, 17%, 1);
+  font-size: 12rem;
+  border-bottom: 2px solid hsla(202, 93%, 17%, 1);
+}
+
+.need-help-wrapper {
+  width: fit-content;
+  border-top: 1px solid black;
+  padding: 1rem 0rem;
+  margin-top: 5rem;
+}
+
+.need-help-wrapper p {
+  width: 100%;
+}
+
+a,
+span {
+  color: black;
+}
+span {
+  font-weight: bold;
+}
+
+.logo-wrapper {
+  margin-top: 8rem;
+  width: fit-content;
+  height: auto;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 0.5rem;
+  margin-left: -0.5rem;
+}
+
+#logo {
+  width: 25%;
+  height: auto;
+}
+
+h4 {
+  color: black;
+  font-size: 1.2rem;
+  margin-top: 1rem;
+  text-transform: uppercase;
+}
+.call-us-wrapper {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 1rem;
+}
+.whats-icon-wrapper {
+  display: grid;
+  place-items: center;
+  border-radius: 50%;
+  height: 35px;
+  width: 35px;
+  background: hsla(202, 93%, 17%, 1);
+}
+
+#logo-whats {
+  width: 70%;
+  height: auto;
+}
+
+@media screen and (max-width: 1000px) {
+  .container {
+    flex-direction: column-reverse;
+    height: 100vh;
+    width: 100vw;
+    gap: 0;
+  }
+
+  main {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    padding: 0 1rem;
+  }
+  p {
+    margin: 0 auto;
+    width: 100%;
+    text-align: center;
+  }
+
+  main > h2 {
+    margin-top: 3rem;
+    font-size: 1.5rem;
+  }
+  h3 {
+    font-size: 6rem;
+  }
+
+  .need-help-wrapper {
+    width: 100%;
+    margin-top: 2rem;
+  }
+  .whats-icon-wrapper {
+    height: 28px;
+    width: 28px;
+  }
+
+  .call-us-wrapper {
+    height: 50px;
+  }
+  aside {
+    min-width: 100vw;
+    height: 100px;
+  }
+}

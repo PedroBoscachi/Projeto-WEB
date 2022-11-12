@@ -6,8 +6,9 @@
           <img id="logo" src="/assets/images/logo.png" alt="imagem da logo" />
         </div>
         <h1 id="title">Lapri Care</h1>
+        <h2 id="welcome">Seja bem-vindo!</h2>
         <form class="form-wrapper">
-          <mat-form-field class="example-full-width">
+          <mat-form-field color="accent">
             <mat-label>CPF</mat-label>
             <input
               matInput
@@ -17,12 +18,11 @@
             />
           </mat-form-field>
 
-          <mat-form-field>
+          <mat-form-field color="accent">
             <mat-label>Digite sua senha</mat-label>
             <input matInput [type]="hide ? 'password' : 'text'" />
             <button
               class="btn-show-password"
-              mat-icon-button
               matSuffix
               (click)="hide = !hide"
               [attr.aria-label]="'Hide password'"
@@ -33,7 +33,13 @@
               }}</mat-icon>
             </button>
           </mat-form-field>
+          <button class="btn-submit btn-primary" (click)="goToHome()">
+            Entrar
+          </button>
         </form>
+        <p class="register-text">
+          Não possui conta? <a routerLink="/cadastro">Cadastre-se!</a>
+        </p>
       </main>
     </div>
   </div>

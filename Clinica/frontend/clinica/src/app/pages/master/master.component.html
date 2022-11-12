@@ -1,0 +1,36 @@
+<header>
+  <div class="logo-wrapper">
+    <img id="logo" src="/assets/images/logo.png" alt="imagem da logo" />
+    <h1 id="title">Lapri Care</h1>
+  </div>
+  <nav>
+    <ul>
+      <li>
+        <a routerLink="/agendar-exame" class="hover" routerLinkActive="selected"
+          >Agendar exame</a
+        >
+      </li>
+      <li>
+        <a
+          routerLink="/meus-agendamentos"
+          class="hover"
+          routerLinkActive="selected"
+          >Meus Agendamentos</a
+        >
+      </li>
+      <li>
+        <a routerLink="/resultados" class="hover" routerLinkActive="selected"
+          >Resultados</a
+        >
+      </li>
+    </ul>
+  </nav>
+  <div class="my-profile-wrapper">
+    <a routerLink="/meu-perfil" class="hover" routerLinkActive="selected"
+      >Meu Perfil</a
+    >
+  </div>
+</header>
+<main>
+  <router-outlet></router-outlet>
+</main>

@@ -4,7 +4,44 @@
   margin: 0;
   box-sizing: border-box;
   font-family: "Roboto", sans-serif;
+  color: #fff;
 }
 
-html, body { height: 100%; }
-body { margin: 0; font-family: Roboto, "Helvetica Neue", sans-serif; }
+html,
+body {
+  height: 100%;
+}
+body {
+  margin: 0;
+  font-family: Roboto, "Helvetica Neue", sans-serif;
+}
+
+ul {
+  list-style: none;
+}
+
+a {
+  text-decoration: none;
+}
+
+button {
+  cursor: pointer;
+  transition: all ease 0.2s;
+}
+
+button:hover {
+  filter: brightness(0.9);
+}
+
+.btn-primary {
+  padding: 0.7rem;
+  border-radius: 5px;
+  border: 0;
+  font-size: 1rem;
+  text-transform: uppercase;
+  font-weight: bold;
+  color: #fff;
+  background-color: #226917;
+}
+
+/* background: linear-gradient(180deg, hsla(202, 93%, 17%, 1) 0%, hsla(183, 82%, 32%, 1) 100%, hsla(256, 83%, 72%, 1) 100%); */

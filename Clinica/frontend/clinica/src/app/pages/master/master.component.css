@@ -1,0 +1,84 @@
+header {
+  background: #033653;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 1rem 2rem;
+}
+nav {
+  flex: 1;
+}
+ul {
+  display: flex;
+  justify-content: center;
+  gap: 2rem;
+}
+a {
+  color: white;
+  font-size: 1rem;
+  font-weight: bold;
+  padding: 0.2rem;
+}
+
+#title {
+  color: #fff;
+  font-family: "Rosarivo", serif;
+  letter-spacing: 2px;
+  font-size: 2rem;
+  margin-top: 1.2rem;
+  font-weight: bold;
+}
+#logo {
+  width: 15%;
+  height: auto;
+}
+.logo-wrapper {
+  flex: 1;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 1rem;
+}
+
+.my-profile-wrapper {
+  flex: 1;
+  display: grid;
+  place-items: center;
+}
+
+.hover {
+  --s: 0.1em; /* the thickness of the line */
+  --c: #46e12d; /* the color */
+
+  padding-bottom: var(--s);
+  background: linear-gradient(90deg, var(--c) 50%, #46e12d 0)
+      calc(100% - var(--_p, 0%)) / 200% 100%,
+    linear-gradient(var(--c) 0 0) 0% 100% / var(--_p, 0%) var(--s) no-repeat;
+  -webkit-background-clip: text, padding-box;
+  background-clip: text, padding-box;
+  transition: 0.6s;
+}
+
+.selected {
+  --_p: 100%;
+  --s: 0.1em; /* the thickness of the line */
+  --c: #2fff0f; /* the color */
+  color: var(--c);
+  padding-bottom: var(--s);
+  background: linear-gradient(90deg, var(--c) 50%, #46e12d 0)
+      calc(100% - var(--_p, 0%)) / 200% 100%,
+    linear-gradient(var(--c) 0 0) 0% 100% / var(--_p, 0%) var(--s) no-repeat;
+  -webkit-background-clip: text, padding-box;
+  background-clip: text, padding-box;
+  transition: 0.6s;
+}
+
+.hover:hover {
+  --_p: 100%;
+  color: #46e12d;
+}
+
+main {
+  display: grid;
+  place-items: center;
+}
