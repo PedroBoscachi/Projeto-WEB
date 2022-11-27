@@ -82,3 +82,9 @@ main {
   display: grid;
   place-items: center;
 }
+
+.my-profile-wrapper {
+  display: flex;
+  justify-content: center;
+  gap: 1rem;
+}

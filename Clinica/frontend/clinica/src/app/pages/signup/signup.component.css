@@ -103,3 +103,9 @@ label {
   cursor: pointer;
   text-decoration: 0;
 }
+
+.btn-calendar {
+  background-color: transparent;
+  box-shadow: 0;
+  border: 0;
+}
