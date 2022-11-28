@@ -8,8 +8,12 @@ import { SigninComponent } from './pages/signin/signin.component';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { MatFormFieldModule } from '@angular/material/form-field';
 import { MatInputModule } from '@angular/material/input';
+import { MatDatepickerModule } from '@angular/material/datepicker';
 import { MatButtonModule } from '@angular/material/button';
 import { MatIconModule } from '@angular/material/icon';
+import { FormsModule, ReactiveFormsModule } from '@angular/forms';
+import { MatNativeDateModule } from '@angular/material/core';
+import { HttpClientModule } from '@angular/common/http';
 import { SignupComponent } from './pages/signup/signup.component';
 import { MasterComponent } from './pages/master/master.component';
 import { ScheduleExamComponent } from './pages/schedule-exam/schedule-exam.component';
@@ -20,7 +24,17 @@ import { NotFoundComponent } from './pages/not-found/not-found.component';
 
 export const options: Partial<null | IConfig> | (() => Partial<IConfig>) = null;
 @NgModule({
-  declarations: [AppComponent, SigninComponent, SignupComponent, MasterComponent, ScheduleExamComponent, ResultsComponent, MySchedulesComponent, MyProfileComponent, NotFoundComponent],
+  declarations: [
+    AppComponent,
+    SigninComponent,
+    SignupComponent,
+    MasterComponent,
+    ScheduleExamComponent,
+    ResultsComponent,
+    MySchedulesComponent,
+    MyProfileComponent,
+    NotFoundComponent,
+  ],
   imports: [
     BrowserModule,
     AppRoutingModule,
@@ -29,6 +43,13 @@ export const options: Partial<null | IConfig> | (() => Partial<IConfig>) = null;
     MatInputModule,
     MatIconModule,
     MatButtonModule,
+    MatDatepickerModule,
+    BrowserAnimationsModule,
+    BrowserModule,
+    FormsModule,
+    HttpClientModule,
+    MatNativeDateModule,
+    ReactiveFormsModule,
     NgxMaskModule.forRoot(),
   ],
   providers: [],

@@ -83,3 +83,9 @@ main {
   place-items: center;
   overflow-x: hidden;
 }
+
+.my-profile-wrapper {
+  display: flex;
+  justify-content: center;
+  gap: 1rem;
+}

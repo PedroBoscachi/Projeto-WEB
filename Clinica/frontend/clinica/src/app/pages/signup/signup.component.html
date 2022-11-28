@@ -13,6 +13,10 @@
             <input matInput value="" />
           </mat-form-field>
           <mat-form-field color="accent">
+            <mat-label>Sobrenome</mat-label>
+            <input matInput value="" />
+          </mat-form-field>
+          <mat-form-field color="accent">
             <mat-label>CPF</mat-label>
             <input
               matInput
@@ -29,6 +33,16 @@
               placeholder="Ex. (11)96491-8727"
               value="telephone"
             />
+          </mat-form-field>
+          <mat-form-field>
+            <mat-label>Data de nascimento</mat-label>
+            <input matInput [matDatepicker]="picker" />
+
+            <div class="btn-calendar" matSuffix>
+              <mat-datepicker-toggle matSuffix matIconSuffix [for]="picker">
+              </mat-datepicker-toggle>
+              <mat-datepicker #picker></mat-datepicker>
+            </div>
           </mat-form-field>
           <mat-form-field color="accent">
             <mat-label>Senha</mat-label>
