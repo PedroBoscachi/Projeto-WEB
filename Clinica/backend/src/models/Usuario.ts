@@ -1,4 +1,4 @@
-import { v4 } from "uuid";
+import { v4 as gerarId } from "uuid";
 
 export class Usuario {
   id: string;
@@ -8,7 +8,7 @@ export class Usuario {
   telefone: string;
 
   constructor(nome: string, sobrenome: string, cpf: string, telefone: string) {
-    this.id = v4();
+    this.id = gerarId();
     this.nome = nome;
     this.sobrenome = sobrenome;
     this.cpf = cpf;
