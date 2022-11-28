@@ -1,3 +1,4 @@
+import { DTOMapper } from './../converters/DTOMapper';
 import { UsuarioDTO } from "../Dtos/UsuarioDTO";
 import { Usuario } from "../models/Usuario";
 
@@ -6,6 +7,8 @@ const express = require("express");
 const router = express.Router();
 
 const listUsers: Usuario[] = [];
+
+const dtoMapper: DTOMapper = new DTOMapper;
 
 router.get("/cadastrados", (request, response) => {
   return response.json({
@@ -16,13 +19,7 @@ router.get("/cadastrados", (request, response) => {
 router.post("/cadastrar", (request, response) => {
   const usuarioDto: UsuarioDTO = request.body;
 
-  const usuario = new Usuario(
-    usuarioDto.nome,
-    usuarioDto.sobrenome,
-    usuarioDto.cpf,
-    usuarioDto.telefone,
-    usuarioDto.dataNascimento
-  );
+  const usuario = dtoMapper.usuarioDTOToUsuario(usuarioDto);
 
   listUsers.push(usuario);
 
