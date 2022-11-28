@@ -3,4 +3,5 @@ export class UsuarioDTO {
   sobrenome: string;
   cpf: string;
   telefone: string;
+  dataNascimento: Date;
 }

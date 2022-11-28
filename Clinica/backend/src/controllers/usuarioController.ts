@@ -20,7 +20,8 @@ router.post("/cadastrar", (request, response) => {
     usuarioDto.nome,
     usuarioDto.sobrenome,
     usuarioDto.cpf,
-    usuarioDto.telefone
+    usuarioDto.telefone,
+    usuarioDto.dataNascimento
   );
 
   listUsers.push(usuario);
@@ -32,4 +33,45 @@ router.post("/cadastrar", (request, response) => {
   });
 });
 
+router.put("/editar", (request, response) => {
+  const usuarioDto: UsuarioDTO = request.body;
+
+  let usuario: Usuario;
+
+  listUsers.forEach((user) => {
+    if (user.cpf == usuarioDto.cpf) usuario = user;
+  });
+
+  usuario.nome = usuarioDto.nome;
+  usuario.sobrenome = usuarioDto.sobrenome;
+  usuario.telefone = usuarioDto.telefone;
+  usuario.dataNascimento = usuarioDto.dataNascimento;
+
+  return response.json({
+    error: false,
+    message: "Usuário editado com sucesso",
+    usuario: usuario,
+  });
+});
+
+router.delete("/excluir", (request, response) => {
+  const cpf = response.body;
+
+  excluirUsuario(cpf);
+
+  return response.json({
+    error: false,
+    message: "Usuário deletado com sucesso",
+    usuario: listUsers,
+  });
+});
+
 module.exports = router;
+
+function excluirUsuario(cpf: string) {
+  if (listUsers.length === 0) return null;
+
+  listUsers.forEach((user, index) => {
+    if (user.cpf === cpf) listUsers.splice(index, 1);
+  });
+}
