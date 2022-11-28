@@ -81,4 +81,5 @@ a {
 main {
   display: grid;
   place-items: center;
+  overflow-x: hidden;
 }

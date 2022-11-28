@@ -1,5 +1,101 @@
-p {
-  color: black;
-  font-size: 2rem;
-  margin-top: 2rem;
+.container {
+  min-height: 100vh;
+}
+
+.background-image {
+  height: 100vh;
+  width: 100vw;
+  background-size: cover;
+  background-position: center;
+  background-repeat: no-repeat;
+}
+
+.overlay-color {
+  background-color: #16252D;
+  height: 100vh;
+  width: 100%;
+  display: flex;
+  justify-content: center;
+}
+
+main {
+  margin-top: 7rem;
+  width: 80%;
+  max-width: 300px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+#title {
+  color: #fff;
+  letter-spacing: 2px;
+  font-size: 2.25rem;
+}
+
+.form-wrapper {
+  display: flex;
+  flex-direction: column;
+  width: 100%;
+}
+
+.btn-show-password {
+  background-color: transparent;
+  box-shadow: 0;
+  border: 0;
+}
+
+.icon {
+  cursor: pointer;
+  color: #fff;
+}
+
+input,
+label {
+  color: #f0f0f0;
+  font-size: 1rem;
+}
+
+#welcome {
+  color: #fff;
+  margin-top: 1.5rem;
+}
+
+.btn-submit {
+  margin-top: 1rem;
+  padding: 0.7rem;
+  border-radius: 5px;
+  border: 0;
+  font-size: 1rem;
+  text-transform: uppercase;
+  font-weight: bold;
+  color: #fff;
+  background-color: #226917;
+  cursor: pointer;
+  transition: all ease 0.2s;
+}
+
+.btn-submit:hover {
+  filter: brightness(0.9);
+}
+
+.register-text {
+  margin-top: 1rem;
+  color: #fff;
+  font-size: 1rem;
+}
+
+::ng-deep .mat-focused .mat-form-field-label {
+  /*change color of label*/
+  color: green !important;
+ }
+
+ ::ng-deep.mat-form-field-underline {
+  /*change color of underline*/
+  background-color: green !important;
+} 
+
+::ng-deep.mat-form-field-ripple {
+ /*change color of underline when focused*/
+ background-color: green !important;
 }

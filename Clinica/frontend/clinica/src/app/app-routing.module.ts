@@ -32,6 +32,10 @@ const routes: Routes = [
         path: 'meu-perfil',
         component: MyProfileComponent,
       },
+      {
+        path: 'login',
+        component: SignupComponent,
+      }
     ],
   },
   { path: '**', component: NotFoundComponent },
