@@ -1,3 +1,5 @@
+import { UsuarioRepository} from './../repositories/usuarioRepository';
+import { UsuarioService } from './../services/usuarioService.service';
 import { DTOMapper } from './../converters/DTOMapper';
 import { UsuarioDTO } from "../Dtos/UsuarioDTO";
 import { Usuario } from "../models/Usuario";
@@ -10,23 +12,25 @@ const listUsers: Usuario[] = [];
 
 const dtoMapper: DTOMapper = new DTOMapper;
 
+const usuarioRepository: UsuarioRepository = new UsuarioRepository;
+
+const usuarioService: UsuarioService = new UsuarioService(usuarioRepository,dtoMapper);
+
 router.get("/cadastrados", (request, response) => {
+  let foundListUsers = usuarioService.getUsuarios()
   return response.json({
-    data: listUsers,
+    data: foundListUsers,
   });
 });
 
 router.post("/cadastrar", (request, response) => {
   const usuarioDto: UsuarioDTO = request.body;
-
-  const usuario = dtoMapper.usuarioDTOToUsuario(usuarioDto);
-
-  listUsers.push(usuario);
+  let savedUsuario = usuarioService.saveUsuario(usuarioDto);
 
   return response.json({
     error: false,
     message: "Cadastrado com sucesso",
-    usuarios: usuarioDto,
+    usuarios: savedUsuario,
   });
 });
 
