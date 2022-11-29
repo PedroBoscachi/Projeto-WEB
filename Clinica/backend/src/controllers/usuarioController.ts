@@ -1,7 +1,7 @@
-import { UsuarioRepository} from './../repositories/usuarioRepository';
-import { UsuarioService } from './../services/usuarioService.service';
-import { DTOMapper } from './../converters/DTOMapper';
-import { UsuarioDTO } from "../Dtos/UsuarioDTO";
+import { UsuarioRepository } from "./../repositories/usuarioRepository";
+import { UsuarioService } from "../services/usuarioService";
+import { DTOMapper } from "../helpers/DTOMapper";
+import { UsuarioDTO } from "../dtos/UsuarioDTO";
 import { Usuario } from "../models/Usuario";
 
 const express = require("express");
@@ -10,55 +10,58 @@ const router = express.Router();
 
 const listUsers: Usuario[] = [];
 
-const dtoMapper: DTOMapper = new DTOMapper;
+const dtoMapper: DTOMapper = new DTOMapper();
 
-const usuarioRepository: UsuarioRepository = new UsuarioRepository;
+const usuarioRepository: UsuarioRepository = new UsuarioRepository();
 
-const usuarioService: UsuarioService = new UsuarioService(usuarioRepository,dtoMapper);
+const usuarioService: UsuarioService = new UsuarioService(
+  usuarioRepository,
+  dtoMapper
+);
 
 router.get("/cadastrados", (request, response) => {
-  let foundListUsers = usuarioService.getUsuarios()
+  let foundListUsers = usuarioService.getUsers();
   return response.json({
     data: foundListUsers,
   });
 });
 
 router.post("/cadastrar", (request, response) => {
-  const usuarioDto: UsuarioDTO = request.body;
-  let savedUsuario = usuarioService.saveUsuario(usuarioDto);
+  const userDto: UsuarioDTO = request.body;
+  let savedUser = usuarioService.saveUser(userDto);
 
   return response.json({
     error: false,
     message: "Cadastrado com sucesso",
-    usuarios: savedUsuario,
+    usuarios: savedUser,
   });
 });
 
 router.put("/editar", (request, response) => {
-  const usuarioDto: UsuarioDTO = request.body;
+  const userDto: UsuarioDTO = request.body;
 
-  let usuario: Usuario;
+  let user: Usuario;
 
-  listUsers.forEach((user) => {
-    if (user.cpf == usuarioDto.cpf) usuario = user;
+  listUsers.forEach((existingUser) => {
+    if (existingUser.cpf == userDto.cpf) user = existingUser;
   });
 
-  usuario.nome = usuarioDto.nome;
-  usuario.sobrenome = usuarioDto.sobrenome;
-  usuario.telefone = usuarioDto.telefone;
-  usuario.dataNascimento = usuarioDto.dataNascimento;
+  user.nome = userDto.nome;
+  user.sobrenome = userDto.sobrenome;
+  user.telefone = userDto.telefone;
+  user.dataNascimento = userDto.dataNascimento;
 
   return response.json({
     error: false,
     message: "Usuário editado com sucesso",
-    usuario: usuario,
+    usuario: user,
   });
 });
 
 router.delete("/excluir", (request, response) => {
   const cpf = response.body;
 
-  excluirUsuario(cpf);
+  deleteUser(cpf);
 
   return response.json({
     error: false,
@@ -67,12 +70,12 @@ router.delete("/excluir", (request, response) => {
   });
 });
 
-module.exports = router;
-
-function excluirUsuario(cpf: string) {
+function deleteUser(cpf: string) {
   if (listUsers.length === 0) return null;
 
   listUsers.forEach((user, index) => {
     if (user.cpf === cpf) listUsers.splice(index, 1);
   });
 }
+
+module.exports = router;

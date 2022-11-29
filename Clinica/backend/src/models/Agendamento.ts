@@ -1,4 +1,4 @@
-import { Usuario } from './Usuario';
+import { Usuario } from "./Usuario";
 import { v4 as gerarId } from "uuid";
 
 export class Agendamento {
@@ -8,15 +8,22 @@ export class Agendamento {
   usuario: Usuario;
   medico: string;
   preco: number;
-  data: Date;
+  data: string;
 
-  constructor(tipoExame: string, nomeExame: string, usuario: Usuario, medico: string, preco: number, data: Date) {
+  constructor(
+    tipoExame: string,
+    nomeExame: string,
+    usuario: Usuario,
+    medico: string,
+    preco: number,
+    data: string
+  ) {
     this.id = gerarId();
     this.tipoExame = tipoExame;
     this.nomeExame = nomeExame;
     this.usuario = usuario;
-    this.medico= medico;
-    this.preco =preco;
+    this.medico = medico;
+    this.preco = preco;
     this.data = data;
   }
 }

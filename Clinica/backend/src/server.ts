@@ -1,12 +1,10 @@
 import express from "express";
 
 const UsuarioController = require("./controllers/usuarioController");
+const AgendamentoController = require("./controllers/meusAgendamentosController");
 
-//criação do server
 const app = express();
 
-//essas linhas permitem que nosso server receba e responda requisições
-//em JSON
 app.use(
   express.urlencoded({
     extended: true,
@@ -15,6 +13,6 @@ app.use(
 app.use(express.json());
 
 app.use("/usuario", UsuarioController);
+app.use("/agendamento", AgendamentoController);
 
-//server está nessa porta
 app.listen(3000, () => console.log("Server running..."));

@@ -1,16 +1,28 @@
-import { UsuarioDTO } from './../Dtos/UsuarioDTO';
-import { Usuario } from './../models/Usuario';
+import { Usuario } from "./../models/Usuario";
 
 const listUsers: Usuario[] = [];
 
-export class UsuarioRepository{
-    
-    saveUsuario(usuario: Usuario): Usuario{
-        listUsers.push(usuario);
-        return usuario;
-    }
+export class UsuarioRepository {
+  saveUser(user: Usuario): Usuario {
+    listUsers.push(user);
+    return user;
+  }
 
-    getUsuarios(): Usuario[]{
-        return listUsers
-    }
+  getUsers(): Usuario[] {
+    return listUsers;
+  }
+
+  getUserByCpf(cpf: string): Usuario {
+    return listUsers.find((user) => user.cpf === cpf);
+  }
+
+  deleteUser(cpf: string): boolean {
+    listUsers.forEach((user, index) => {
+      if (user.cpf === cpf) {
+        listUsers.splice(index, 1);
+        return true;
+      }
+    });
+    return false;
+  }
 }

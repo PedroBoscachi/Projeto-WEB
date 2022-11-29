@@ -1,18 +1,25 @@
-import { Usuario } from './../models/Usuario';
+import { Usuario } from "../models/Usuario";
 export class AgendamentoDTO {
   tipoExame: string;
   nomeExame: string;
   usuario: Usuario;
   medico: string;
   preco: number;
-  data: Date;
+  data: string;
 
-  constructor(tipoExame: string, nomeExame: string, usuario: Usuario, medico: string, preco: number, data: Date) {
+  constructor(
+    tipoExame: string,
+    nomeExame: string,
+    usuario: Usuario,
+    medico: string,
+    preco: number,
+    data: string
+  ) {
     this.tipoExame = tipoExame;
     this.nomeExame = nomeExame;
     this.usuario = usuario;
-    this.medico= medico;
-    this.preco =preco;
+    this.medico = medico;
+    this.preco = preco;
     this.data = data;
   }
 }
