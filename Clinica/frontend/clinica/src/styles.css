@@ -10,6 +10,7 @@
 html,
 body {
   height: 100%;
+  background-color: #ededed;
 }
 body {
   margin: 0;
@@ -42,6 +43,27 @@ button:hover {
   font-weight: bold;
   color: #fff;
   background-color: #226917;
+}
+
+.container {
+  max-width: 1440px !important;
+  padding: 10px !important;
+}
+
+.titulo {
+  text-align: center;
+  margin: 5vh 0 7vh 0 !important;
+  color: #004AAD;
+  font-size: 2rem !important;
+  font-weight: bold;
+}
+
+.editar {
+  background-color: #08C792;
+}
+
+.cancelar {
+  background-color: #B41E2A;
 }
 
 /* background: linear-gradient(180deg, hsla(202, 93%, 17%, 1) 0%, hsla(183, 82%, 32%, 1) 100%, hsla(256, 83%, 72%, 1) 100%); */

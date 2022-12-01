@@ -1,4 +1,4 @@
-.container {
+.content {
   min-height: 100vh;
 }
 
@@ -12,7 +12,7 @@
 }
 
 .overlay-color {
-  background-color: #033653;
+  background-color: #004aad;
   height: 100vh;
   width: 100%;
   opacity: 0.9;
@@ -21,11 +21,11 @@
 }
 
 main {
-  margin-top: 7rem;
   width: 80%;
   max-width: 300px;
   display: flex;
   flex-direction: column;
+  justify-content: center;
   align-items: center;
 }
 
@@ -37,7 +37,7 @@ main {
 }
 
 #logo {
-  width: 100%;
+  width: 50%;
   height: auto;
 }
 
@@ -83,7 +83,7 @@ label {
   text-transform: uppercase;
   font-weight: bold;
   color: #fff;
-  background-color: #226917;
+  background-color: #012657;
   cursor: pointer;
   transition: all ease 0.2s;
 }
@@ -98,7 +98,7 @@ label {
 }
 
 .register-text a {
-  color: #46e12d;
+  color: #bdd2f5;
   font-weight: bold;
   cursor: pointer;
   text-decoration: 0;

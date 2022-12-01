@@ -5,7 +5,7 @@ import { SignupComponent } from './pages/signup/signup.component';
 import { MasterComponent } from './pages/master/master.component';
 import { ScheduleExamComponent } from './pages/schedule-exam/schedule-exam.component';
 import { ResultsComponent } from './pages/results/results.component';
-import { MySchedulesComponent } from './pages/my-schedules/my-schedules.component';
+import { MySchedulesComponent } from './pages/my-consultation/my-schedules.component';
 import { NotFoundComponent } from './pages/not-found/not-found.component';
 import { MyProfileComponent } from './pages/my-profile/my-profile.component';
 const routes: Routes = [
@@ -35,7 +35,7 @@ const routes: Routes = [
       {
         path: 'login',
         component: SignupComponent,
-      }
+      },
     ],
   },
   { path: '**', component: NotFoundComponent },

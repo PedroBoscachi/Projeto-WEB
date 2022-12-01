@@ -1,5 +1,6 @@
 header {
-  background: #033653;
+  background: #004AAD;
+  color: #ededed;
   display: flex;
   align-items: center;
   justify-content: space-between;
@@ -16,12 +17,12 @@ ul {
 a {
   color: white;
   font-size: 1rem;
-  font-weight: bold;
+  font-weight: 400;
   padding: 0.2rem;
 }
 
 #title {
-  color: #fff;
+  color: #BFD7FF;
   font-family: "Rosarivo", serif;
   letter-spacing: 2px;
   font-size: 2rem;
@@ -29,7 +30,7 @@ a {
   font-weight: bold;
 }
 #logo {
-  width: 15%;
+  width: 10%;
   height: auto;
 }
 .logo-wrapper {
@@ -48,10 +49,10 @@ a {
 
 .hover {
   --s: 0.1em; /* the thickness of the line */
-  --c: #46e12d; /* the color */
+  --c: #bfd7ff; /* the color */
 
   padding-bottom: var(--s);
-  background: linear-gradient(90deg, var(--c) 50%, #46e12d 0)
+  background: linear-gradient(90deg, var(--c) 50%, #bfd7ff 0)
       calc(100% - var(--_p, 0%)) / 200% 100%,
     linear-gradient(var(--c) 0 0) 0% 100% / var(--_p, 0%) var(--s) no-repeat;
   -webkit-background-clip: text, padding-box;
@@ -62,10 +63,10 @@ a {
 .selected {
   --_p: 100%;
   --s: 0.1em; /* the thickness of the line */
-  --c: #2fff0f; /* the color */
+  --c: #bfd7ff; /* the color */
   color: var(--c);
   padding-bottom: var(--s);
-  background: linear-gradient(90deg, var(--c) 50%, #46e12d 0)
+  background: linear-gradient(90deg, var(--c) 50%, #bfd7ff 0)
       calc(100% - var(--_p, 0%)) / 200% 100%,
     linear-gradient(var(--c) 0 0) 0% 100% / var(--_p, 0%) var(--s) no-repeat;
   -webkit-background-clip: text, padding-box;
@@ -75,7 +76,7 @@ a {
 
 .hover:hover {
   --_p: 100%;
-  color: #46e12d;
+  color: #bfd7ff;
 }
 
 main {

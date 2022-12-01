@@ -12,7 +12,7 @@
 }
 
 .overlay-color {
-  background-color: #033653;
+  background-color: #004aad;
   height: 100vh;
   width: 100%;
   opacity: 0.9;
@@ -20,8 +20,12 @@
   justify-content: center;
 }
 
+.btn-login {
+ background-color: #012657 !important;
+}
+
 main {
-  margin-top: 7rem;
+  justify-content: center;
   width: 80%;
   max-width: 300px;
   display: flex;
@@ -37,7 +41,7 @@ main {
 }
 
 #logo {
-  width: 100%;
+  width: 50%;
   height: auto;
 }
 
@@ -85,7 +89,7 @@ label {
 }
 
 .register-text a {
-  color: #46e12d;
+  color: #BDD2F5;
   font-weight: bold;
   cursor: pointer;
   text-decoration: 0;

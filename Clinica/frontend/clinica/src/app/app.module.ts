@@ -18,9 +18,11 @@ import { SignupComponent } from './pages/signup/signup.component';
 import { MasterComponent } from './pages/master/master.component';
 import { ScheduleExamComponent } from './pages/schedule-exam/schedule-exam.component';
 import { ResultsComponent } from './pages/results/results.component';
-import { MySchedulesComponent } from './pages/my-schedules/my-schedules.component';
+import { MySchedulesComponent } from './pages/my-consultation/my-schedules.component';
 import { MyProfileComponent } from './pages/my-profile/my-profile.component';
 import { NotFoundComponent } from './pages/not-found/not-found.component';
+import { MatCardModule } from '@angular/material/card';
+import {MatDividerModule} from '@angular/material/divider';
 
 export const options: Partial<null | IConfig> | (() => Partial<IConfig>) = null;
 @NgModule({
@@ -36,6 +38,8 @@ export const options: Partial<null | IConfig> | (() => Partial<IConfig>) = null;
     NotFoundComponent,
   ],
   imports: [
+    MatDividerModule,
+    MatCardModule,
     BrowserModule,
     AppRoutingModule,
     BrowserAnimationsModule,
