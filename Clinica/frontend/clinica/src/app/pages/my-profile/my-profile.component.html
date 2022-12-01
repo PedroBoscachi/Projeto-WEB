@@ -5,36 +5,36 @@
 
                 <h1 id="title">Meu Perfil</h1>
 
-                <form class="form-wrapper">
+                <form class="form-wrapper" [formGroup]="profileForm" (ngSubmit)="onSubmit()">
 
                     <mat-form-field color="accent">
                         <mat-label>Nome</mat-label>
-                        <input matInput value="" />
+                        <input matInput value="" formControlName="firstName" [readonly]= "disable" />
                     </mat-form-field>
 
                     <mat-form-field color="accent">
                         <mat-label>Sobrenome</mat-label>
-                        <input matInput value="" />
+                        <input matInput value="" formControlName="lastName" [readonly]= "disable" />
                     </mat-form-field>
 
                     <mat-form-field color="accent">
                         <mat-label>CPF</mat-label>
-                        <input matInput mask="000.000.000-00" placeholder="Ex. 123.456.789-01" value="cpf" />
+                        <input matInput mask="000.000.000-00" placeholder="Ex. 123.456.789-01" value="cpf" formControlName="cpf" [readonly]= "disable" />
                     </mat-form-field>
 
                     <mat-form-field color="accent">
                         <mat-label>Celular</mat-label>
-                        <input matInput mask="(00) 00000-0000" placeholder="Ex. (11) 96491-8727" value="telephone" />
+                        <input matInput mask="(00) 00000-0000" placeholder="Ex. (11) 96491-8727" value="telephone" formControlName="telephone" [readonly]= "disable" />
                     </mat-form-field>
 
                     <mat-form-field color="accent">
                         <mat-label>Data de Nascimento</mat-label>
-                        <input matInput mask="00/00/0000" placeholder="Ex. 01/10/2002" value="birth" />
+                        <input matInput mask="00/00/0000" placeholder="Ex. 01/10/2002" value="birth" formControlName="birth" [readonly]= "disable" />
                     </mat-form-field>
 
-                    <mat-form-field color="accent">
+                    <mat-form-field color="accent" *ngIf="disable == 'false'">
                         <mat-label>Senha</mat-label>
-                        <input matInput [type]="hidePassword ? 'password' : 'text'" />
+                        <input matInput [type]="hidePassword ? 'password' : 'text'" formControlName="password" />
                         <button class="btn-show-password" matSuffix (click)="hidePassword = !hidePassword"
                             [attr.aria-label]="'Hide password'" [attr.aria-pressed]="hidePassword">
                             <mat-icon class="icon">{{
@@ -43,9 +43,9 @@
                         </button>
                     </mat-form-field>
 
-                    <mat-form-field color="accent">
+                    <mat-form-field color="accent" *ngIf="disable == 'false'">
                         <mat-label>Confirmar senha</mat-label>
-                        <input matInput [type]="hideConfirmPassword ? 'password' : 'text'" />
+                        <input matInput [type]="hideConfirmPassword ? 'password' : 'text'" formControlName="confirmPassword" />
                         <button class="btn-show-password" matSuffix (click)="hideConfirmPassword = !hideConfirmPassword"
                             [attr.aria-label]="'Hide password'" [attr.aria-pressed]="hideConfirmPassword">
                             <mat-icon class="icon">{{
@@ -54,9 +54,9 @@
                         </button>
 
                     </mat-form-field>
-                    <button class="btn-submit">Atualizar</button>
+                    <button type="submit" class="btn-submit" *ngIf="disable == 'false'">Atualizar</button>
+                    <button class="btn-submit" (click)="enableEdit()" *ngIf="disable == 'true'">Alterar</button>
                 </form>
-
             </main>
         </div>
     </div>
