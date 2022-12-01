@@ -1,6 +1,7 @@
-import { AgendamentoDTO } from "../dtos/AgendamentoDTO";
+import { AgendamentoFormDTO } from './../Dtos/AgendamentoFormDTO';
+import { AgendamentoDTO } from "../Dtos/AgendamentoDTO";
 import { Agendamento } from "../models/Agendamento";
-import { UsuarioDTO } from "../dtos/UsuarioDTO";
+import { UsuarioDTO } from "../Dtos/UsuarioDTO";
 import { Usuario } from "../models/Usuario";
 export class DTOMapper {
   usuarioDTOToUsuario(usuarioDTO: UsuarioDTO): Usuario {
@@ -25,6 +26,7 @@ export class DTOMapper {
 
   agendamentoToAgendamentoDTO(agendamento: Agendamento): AgendamentoDTO {
     return new AgendamentoDTO(
+      agendamento.id,
       agendamento.tipoExame,
       agendamento.nomeExame,
       agendamento.usuario,
@@ -42,6 +44,17 @@ export class DTOMapper {
       agendamentoDTO.medico,
       agendamentoDTO.preco,
       agendamentoDTO.data
+    );
+  }
+
+  agendamentoFormDTOToAgendamento(agendamentoFormDTO: AgendamentoFormDTO, foundUser: Usuario): Agendamento{
+    return new Agendamento(
+      agendamentoFormDTO.tipoExame,
+      agendamentoFormDTO.nomeExame,
+      foundUser,
+      agendamentoFormDTO.medico,
+      agendamentoFormDTO.preco,
+      agendamentoFormDTO.data
     );
   }
 }

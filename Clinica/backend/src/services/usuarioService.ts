@@ -1,6 +1,7 @@
+import { Usuario } from './../models/Usuario';
 import { DTOMapper } from "../helpers/DTOMapper";
 import { UsuarioRepository } from "../repositories/usuarioRepository";
-import { UsuarioDTO } from "../dtos/UsuarioDTO";
+import { UsuarioDTO } from "../Dtos/UsuarioDTO";
 
 export class UsuarioService {
   constructor(

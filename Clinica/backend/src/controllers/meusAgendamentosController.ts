@@ -1,7 +1,10 @@
+import { UsuarioRepository } from './../repositories/usuarioRepository';
+import { Usuario } from './../models/Usuario';
+import { AgendamentoFormDTO } from './../Dtos/AgendamentoFormDTO';
 import { AgendamentoRepository } from "./../repositories/agendamentoRepository";
 import { AgendamentoService } from "../services/agendamentoService";
 import { DTOMapper } from "../helpers/DTOMapper";
-import { AgendamentoDTO } from "../dtos/AgendamentoDTO";
+import { AgendamentoDTO } from "../Dtos/AgendamentoDTO";
 
 const express = require("express");
 
@@ -12,9 +15,12 @@ const dtoMapper: DTOMapper = new DTOMapper();
 const agendamentoRepository: AgendamentoRepository =
   new AgendamentoRepository();
 
+const userRepository: UsuarioRepository = new UsuarioRepository();
+
 const agendamentoService: AgendamentoService = new AgendamentoService(
   agendamentoRepository,
-  dtoMapper
+  userRepository,
+  dtoMapper,
 );
 
 router.get("/cadastrados", (request, response) => {
@@ -25,8 +31,8 @@ router.get("/cadastrados", (request, response) => {
 });
 
 router.post("/cadastrar", (request, response) => {
-  const schedulingDto: AgendamentoDTO = request.body;
-  let savedScheduling = agendamentoService.saveScheduling(schedulingDto);
+  const schedulingFormDto: AgendamentoFormDTO = request.body;
+  let savedScheduling = agendamentoService.saveScheduling(schedulingFormDto);
 
   return response.json({
     error: false,
@@ -36,9 +42,9 @@ router.post("/cadastrar", (request, response) => {
 });
 
 router.put("/editar", (request, response) => {
-  const schedulingDto: AgendamentoDTO = request.body;
+  const schedulingFormDto: AgendamentoFormDTO = request.body;
 
-  let updatedScheduling = agendamentoService.updateScheduling(schedulingDto);
+  let updatedScheduling = agendamentoService.updateScheduling(schedulingFormDto);
 
   return response.json({
     error: false,

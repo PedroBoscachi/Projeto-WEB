@@ -1,9 +1,9 @@
 import { Usuario } from "../models/Usuario";
-export class AgendamentoDTO {
+export class AgendamentoFormDTO {
   id: string;
   tipoExame: string;
   nomeExame: string;
-  usuario: Usuario;
+  usuario: string;
   medico: string;
   preco: number;
   data: string;
@@ -12,7 +12,7 @@ export class AgendamentoDTO {
     id: string,
     tipoExame: string,
     nomeExame: string,
-    usuario: Usuario,
+    usuario: string,
     medico: string,
     preco: number,
     data: string
@@ -26,3 +26,10 @@ export class AgendamentoDTO {
     this.data = data;
   }
 }
+/* "id": "1",
+"tipoExame": "exame",
+"nomeExame": "a",
+"usuario": "123456",
+"medico": "sergio",
+"preco": "12",
+"data": "12" */

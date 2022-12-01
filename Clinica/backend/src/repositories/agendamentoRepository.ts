@@ -21,6 +21,7 @@ export class AgendamentoRepository {
       if (existingScheduling.id === scheduling.id) {
         existingScheduling.data = scheduling.data;
         existingScheduling.medico = scheduling.medico;
+        existingScheduling.usuario = scheduling.usuario;
         existingScheduling.nomeExame = scheduling.nomeExame;
         existingScheduling.preco = scheduling.preco;
         existingScheduling.tipoExame = scheduling.tipoExame;

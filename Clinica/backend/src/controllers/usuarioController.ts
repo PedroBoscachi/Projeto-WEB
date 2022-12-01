@@ -1,7 +1,7 @@
 import { UsuarioRepository } from "./../repositories/usuarioRepository";
 import { UsuarioService } from "../services/usuarioService";
 import { DTOMapper } from "../helpers/DTOMapper";
-import { UsuarioDTO } from "../dtos/UsuarioDTO";
+import { UsuarioDTO } from "../Dtos/UsuarioDTO";
 import { Usuario } from "../models/Usuario";
 
 const express = require("express");
