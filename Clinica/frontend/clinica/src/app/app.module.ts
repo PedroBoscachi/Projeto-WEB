@@ -23,6 +23,7 @@ import { MyProfileComponent } from './pages/my-profile/my-profile.component';
 import { NotFoundComponent } from './pages/not-found/not-found.component';
 import { MatCardModule } from '@angular/material/card';
 import {MatDividerModule} from '@angular/material/divider';
+import { CommonModule } from '@angular/common';
 
 export const options: Partial<null | IConfig> | (() => Partial<IConfig>) = null;
 @NgModule({
@@ -55,6 +56,7 @@ export const options: Partial<null | IConfig> | (() => Partial<IConfig>) = null;
     MatNativeDateModule,
     ReactiveFormsModule,
     NgxMaskModule.forRoot(),
+    CommonModule,
   ],
   providers: [],
   bootstrap: [AppComponent],
