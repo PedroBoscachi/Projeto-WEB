@@ -33,11 +33,13 @@ export class AgendamentoService {
 
   updateScheduling(schedulingFormDTO: AgendamentoFormDTO): AgendamentoDTO {
     let foundUser = this.userRepository.getUserByCpf(schedulingFormDTO.usuario)
-    
     let scheduling = this.dtoMapper.agendamentoFormDTOToAgendamento(schedulingFormDTO, foundUser);
-    console.log(scheduling)
+    
     let updatedScheduling =
       this.agendamentoRepository.updateScheduling(scheduling);
+    if(updatedScheduling==null){
+      return null;
+    }
     return this.dtoMapper.agendamentoToAgendamentoDTO(updatedScheduling);
   }
 

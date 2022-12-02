@@ -26,13 +26,13 @@ export class DTOMapper {
 
   agendamentoToAgendamentoDTO(agendamento: Agendamento): AgendamentoDTO {
     return new AgendamentoDTO(
-      agendamento.id,
       agendamento.tipoExame,
       agendamento.nomeExame,
       agendamento.usuario,
       agendamento.medico,
       agendamento.preco,
-      agendamento.data
+      agendamento.data,
+      agendamento.id
     );
   }
 
@@ -54,7 +54,8 @@ export class DTOMapper {
       foundUser,
       agendamentoFormDTO.medico,
       agendamentoFormDTO.preco,
-      agendamentoFormDTO.data
+      agendamentoFormDTO.data,
+      agendamentoFormDTO.id,
     );
   }
 }

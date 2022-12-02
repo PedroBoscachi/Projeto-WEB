@@ -4,6 +4,7 @@ const listSchedulings: Agendamento[] = [];
 
 export class AgendamentoRepository {
   saveScheduling(scheduling: Agendamento): Agendamento {
+    scheduling.id = (listSchedulings.length+1).toString();
     listSchedulings.push(scheduling);
     return scheduling;
   }
@@ -17,18 +18,19 @@ export class AgendamentoRepository {
   }
 
   updateScheduling(scheduling: Agendamento): Agendamento {
+    let updatedScheduling
     listSchedulings.forEach((existingScheduling) => {
-      if (existingScheduling.id === scheduling.id) {
+      if (existingScheduling.id == scheduling.id) {
         existingScheduling.data = scheduling.data;
         existingScheduling.medico = scheduling.medico;
         existingScheduling.usuario = scheduling.usuario;
         existingScheduling.nomeExame = scheduling.nomeExame;
         existingScheduling.preco = scheduling.preco;
         existingScheduling.tipoExame = scheduling.tipoExame;
-        return existingScheduling;
+        updatedScheduling = existingScheduling;
       }
     });
-    return null;
+    return updatedScheduling
   }
 
   deleteScheduling(id: string): boolean {

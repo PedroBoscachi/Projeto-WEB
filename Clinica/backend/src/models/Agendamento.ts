@@ -2,7 +2,7 @@ import { Usuario } from "./Usuario";
 import { v4 as gerarId } from "uuid";
 
 export class Agendamento {
-  id: string;
+  id: string | undefined;
   tipoExame: string;
   nomeExame: string;
   usuario: Usuario;
@@ -16,9 +16,10 @@ export class Agendamento {
     usuario: Usuario,
     medico: string,
     preco: number,
-    data: string
+    data: string,
+    id?: string,
   ) {
-    this.id = gerarId();
+    this.id = id;
     this.tipoExame = tipoExame;
     this.nomeExame = nomeExame;
     this.usuario = usuario;

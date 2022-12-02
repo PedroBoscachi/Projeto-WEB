@@ -9,13 +9,13 @@ export class AgendamentoDTO {
   data: string;
 
   constructor(
-    id: string,
     tipoExame: string,
     nomeExame: string,
     usuario: Usuario,
     medico: string,
     preco: number,
-    data: string
+    data: string,
+    id: string
   ) {
     this.id = id
     this.tipoExame = tipoExame;

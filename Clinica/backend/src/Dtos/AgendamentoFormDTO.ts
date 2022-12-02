@@ -1,6 +1,6 @@
 import { Usuario } from "../models/Usuario";
 export class AgendamentoFormDTO {
-  id: string;
+  id: string | undefined;
   tipoExame: string;
   nomeExame: string;
   usuario: string;
@@ -9,13 +9,13 @@ export class AgendamentoFormDTO {
   data: string;
 
   constructor(
-    id: string,
     tipoExame: string,
     nomeExame: string,
     usuario: string,
     medico: string,
     preco: number,
-    data: string
+    data: string,
+    id?: string,
   ) {
     this.id = id
     this.tipoExame = tipoExame;
