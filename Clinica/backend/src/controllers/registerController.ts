@@ -7,6 +7,8 @@ import bcrypt = require("bcrypt");
 import jwt = require("jsonwebtoken");
 import { UserService } from "../services/usuarioService";
 import { UserDTO } from "../dtos/UserDTO";
+import { UserFormDTO } from "../dtos/UserFormDTO";
+import { UsersValidator } from "../validators/UsersValidator";
 
 const login = require("../middlewares/login");
 
@@ -20,7 +22,9 @@ const schedulingRepository: SchedulingRepository = new SchedulingRepository();
 
 const userRepository: UserRepository = new UserRepository();
 
-const userService: UserService = new UserService(userRepository, dtoMapper);
+const userValidator: UsersValidator = new UsersValidator();
+
+const userService: UserService = new UserService(userRepository, dtoMapper, userValidator);
 
 router.post("/criar-conta", (request, response, next) => {
   bcrypt.hash(request.body.password, 10, (errorBcrypt, hash) => {
@@ -30,9 +34,9 @@ router.post("/criar-conta", (request, response, next) => {
       });
     }
 
-    const userDto: UserDTO = request.body;
-    userDto.password = hash;
-    const savedUser = userService.saveUser(userDto);
+    const userFormDto: UserFormDTO = request.body;
+    userFormDto.password = hash;
+    const savedUser = userService.saveUser(userFormDto);
 
     return response.json({
       message: "User created with success",

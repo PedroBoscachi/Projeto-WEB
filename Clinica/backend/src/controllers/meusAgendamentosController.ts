@@ -7,6 +7,7 @@ import { DTOMapper } from "../helpers/DTOMapper";
 import { SchedulingDTO } from "../dtos/SchedulingDTO";
 import bcrypt = require("bcrypt");
 import jwt = require("jsonwebtoken");
+import { SchedulingValidator } from "../validators/SchedulingValidator";
 
 const login = require("../middlewares/login");
 
@@ -20,10 +21,13 @@ const schedulingRepository: SchedulingRepository = new SchedulingRepository();
 
 const userRepository: UserRepository = new UserRepository();
 
+const schedulingValidator: SchedulingValidator = new SchedulingValidator();
+
 const schedulingService: SchedulingService = new SchedulingService(
   schedulingRepository,
   userRepository,
-  dtoMapper
+  dtoMapper,
+  schedulingValidator
 );
 
 router.get("/cadastrados", (request, response) => {

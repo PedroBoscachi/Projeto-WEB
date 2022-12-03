@@ -2,17 +2,25 @@ import { User } from "../models/User";
 import { DTOMapper } from "../helpers/DTOMapper";
 import { UserRepository } from "../repositories/usuarioRepository";
 import { UserDTO } from "../dtos/UserDTO";
+import { UserFormDTO } from "../dtos/UserFormDTO";
+import { UsersValidator } from "../validators/UsersValidator";
+import { response } from "express";
 
 export class UserService {
   constructor(
     private userRepository: UserRepository,
-    private dtoMapper: DTOMapper
+    private dtoMapper: DTOMapper,
+    private validator: UsersValidator
   ) {}
 
-  saveUser(userDTO: UserDTO): UserDTO {
-    let user = this.dtoMapper.userDTOToUser(userDTO);
-    let savedusers = this.userRepository.saveUser(user);
-    return this.dtoMapper.userToUserDTO(savedusers);
+  saveUser(userFormDTO: UserFormDTO): UserDTO {
+    if(this.validator.validateForm(userFormDTO)){
+      let user = this.dtoMapper.userFormDTOToUser(userFormDTO);
+      let savedUsers = this.userRepository.saveUser(user);
+      return this.dtoMapper.userToUserDTO(savedUsers);
+    }else{
+      throw new Error("Usuário Inválido!");
+    }
   }
 
   getUsers(): UserDTO[] {
@@ -22,9 +30,9 @@ export class UserService {
     return usersDTOs;
   }
 
-  getUserbyCpf(cpf: string): UserDTO {
+  getUserbyCpf(cpf: string): UserFormDTO {
     let user = this.userRepository.getUserByCpf(cpf);
-    return this.dtoMapper.userToUserDTO(user);
+    return this.dtoMapper.userToUserFormDTO(user);
   }
 
   deleteUser(cpf: string): boolean {

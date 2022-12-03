@@ -2,21 +2,32 @@ import { SchedulingFormDTO } from "../dtos/SchedulingFormDTO";
 import { SchedulingDTO } from "../dtos/SchedulingDTO";
 import { Scheduling } from "../models/Scheduling";
 import { UserDTO } from "../dtos/UserDTO";
+import { UserFormDTO } from "../dtos/UserFormDTO";
 import { User } from "../models/User";
 export class DTOMapper {
-  userDTOToUser(userDTO: UserDTO): User {
+  userFormDTOToUser(userFormDTO: UserFormDTO): User {
     return new User(
-      userDTO.name,
-      userDTO.lastName,
-      userDTO.cpf,
-      userDTO.phone,
-      userDTO.birthDate,
-      userDTO.password
+      userFormDTO.name,
+      userFormDTO.lastName,
+      userFormDTO.cpf,
+      userFormDTO.phone,
+      userFormDTO.birthDate,
+      userFormDTO.password
     );
   }
 
   userToUserDTO(user: User): UserDTO {
     return new UserDTO(
+      user.name,
+      user.lastName,
+      user.cpf,
+      user.phone,
+      user.birthDate
+    );
+  }
+
+  userToUserFormDTO(user: User): UserFormDTO{
+    return new UserFormDTO(
       user.name,
       user.lastName,
       user.cpf,

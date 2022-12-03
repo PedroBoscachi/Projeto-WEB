@@ -7,6 +7,7 @@ import bcrypt = require("bcrypt");
 import jwt = require("jsonwebtoken");
 import { UserService } from "../services/usuarioService";
 import { UserDTO } from "../dtos/UserDTO";
+import { UsersValidator } from "../validators/UsersValidator";
 
 const login = require("../middlewares/login");
 
@@ -20,7 +21,9 @@ const schedulingRepository: SchedulingRepository = new SchedulingRepository();
 
 const userRepository: UserRepository = new UserRepository();
 
-const userService: UserService = new UserService(userRepository, dtoMapper);
+const userValidator: UsersValidator = new UsersValidator();
+
+const userService: UserService = new UserService(userRepository, dtoMapper, userValidator);
 
 router.post("/entrar", (request, response, next) => {
   const user = userService.getUserbyCpf(request.body.cpf);
