@@ -1,33 +1,33 @@
-import { Usuario } from './../models/Usuario';
+import { User } from "../models/User";
 import { DTOMapper } from "../helpers/DTOMapper";
-import { UsuarioRepository } from "../repositories/usuarioRepository";
-import { UsuarioDTO } from "../Dtos/UsuarioDTO";
+import { UserRepository } from "../repositories/usuarioRepository";
+import { UserDTO } from "../dtos/UserDTO";
 
-export class UsuarioService {
+export class UserService {
   constructor(
-    private usuarioRepository: UsuarioRepository,
+    private userRepository: UserRepository,
     private dtoMapper: DTOMapper
   ) {}
 
-  saveUser(userDTO: UsuarioDTO): UsuarioDTO {
-    let user = this.dtoMapper.usuarioDTOToUsuario(userDTO);
-    let savedusers = this.usuarioRepository.saveUser(user);
-    return this.dtoMapper.usuarioToUsuarioDTO(savedusers);
+  saveUser(userDTO: UserDTO): UserDTO {
+    let user = this.dtoMapper.userDTOToUser(userDTO);
+    let savedusers = this.userRepository.saveUser(user);
+    return this.dtoMapper.userToUserDTO(savedusers);
   }
 
-  getUsers(): UsuarioDTO[] {
-    let usersDTOs = this.usuarioRepository
+  getUsers(): UserDTO[] {
+    let usersDTOs = this.userRepository
       .getUsers()
-      .map((user) => this.dtoMapper.usuarioToUsuarioDTO(user));
+      .map((user) => this.dtoMapper.userToUserDTO(user));
     return usersDTOs;
   }
 
-  getUserbyCpf(cpf: string): UsuarioDTO {
-    let user = this.usuarioRepository.getUserByCpf(cpf);
-    return this.dtoMapper.usuarioToUsuarioDTO(user);
+  getUserbyCpf(cpf: string): UserDTO {
+    let user = this.userRepository.getUserByCpf(cpf);
+    return this.dtoMapper.userToUserDTO(user);
   }
 
   deleteUser(cpf: string): boolean {
-    return this.usuarioRepository.deleteUser(cpf);
+    return this.userRepository.deleteUser(cpf);
   }
 }

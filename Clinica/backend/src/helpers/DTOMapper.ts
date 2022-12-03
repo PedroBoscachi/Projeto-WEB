@@ -1,60 +1,63 @@
-import { AgendamentoFormDTO } from './../Dtos/AgendamentoFormDTO';
-import { AgendamentoDTO } from "../Dtos/AgendamentoDTO";
-import { Agendamento } from "../models/Agendamento";
-import { UsuarioDTO } from "../Dtos/UsuarioDTO";
-import { Usuario } from "../models/Usuario";
+import { SchedulingFormDTO } from "../dtos/SchedulingFormDTO";
+import { SchedulingDTO } from "../dtos/SchedulingDTO";
+import { Scheduling } from "../models/Scheduling";
+import { UserDTO } from "../dtos/UserDTO";
+import { User } from "../models/User";
 export class DTOMapper {
-  usuarioDTOToUsuario(usuarioDTO: UsuarioDTO): Usuario {
-    return new Usuario(
-      usuarioDTO.nome,
-      usuarioDTO.sobrenome,
-      usuarioDTO.cpf,
-      usuarioDTO.telefone,
-      usuarioDTO.dataNascimento
+  userDTOToUser(userDTO: UserDTO): User {
+    return new User(
+      userDTO.name,
+      userDTO.lastName,
+      userDTO.cpf,
+      userDTO.phone,
+      userDTO.birthDate
     );
   }
 
-  usuarioToUsuarioDTO(usuario: Usuario): UsuarioDTO {
-    return new UsuarioDTO(
-      usuario.nome,
-      usuario.sobrenome,
-      usuario.cpf,
-      usuario.telefone,
-      usuario.dataNascimento
+  userToUserDTO(user: User): UserDTO {
+    return new UserDTO(
+      user.name,
+      user.lastName,
+      user.cpf,
+      user.phone,
+      user.birthDate
     );
   }
 
-  agendamentoToAgendamentoDTO(agendamento: Agendamento): AgendamentoDTO {
-    return new AgendamentoDTO(
-      agendamento.id,
-      agendamento.tipoExame,
-      agendamento.nomeExame,
-      agendamento.usuario,
-      agendamento.medico,
-      agendamento.preco,
-      agendamento.data
+  schedulingToSchedulingDTO(scheduling: Scheduling): SchedulingDTO {
+    return new SchedulingDTO(
+      scheduling.id,
+      scheduling.typeExam,
+      scheduling.nameExam,
+      scheduling.user,
+      scheduling.doctor,
+      scheduling.price,
+      scheduling.date
     );
   }
 
-  agendamentoDTOToAgendamento(agendamentoDTO: AgendamentoDTO): Agendamento {
-    return new Agendamento(
-      agendamentoDTO.tipoExame,
-      agendamentoDTO.nomeExame,
-      agendamentoDTO.usuario,
-      agendamentoDTO.medico,
-      agendamentoDTO.preco,
-      agendamentoDTO.data
+  schedulingDTOToScheduling(schedulingDTO: SchedulingDTO): Scheduling {
+    return new Scheduling(
+      schedulingDTO.typeExam,
+      schedulingDTO.nameExam,
+      schedulingDTO.user,
+      schedulingDTO.doctor,
+      schedulingDTO.price,
+      schedulingDTO.date
     );
   }
 
-  agendamentoFormDTOToAgendamento(agendamentoFormDTO: AgendamentoFormDTO, foundUser: Usuario): Agendamento{
-    return new Agendamento(
-      agendamentoFormDTO.tipoExame,
-      agendamentoFormDTO.nomeExame,
+  schedulingFormDTOToScheduling(
+    schedulingFormDTO: SchedulingFormDTO,
+    foundUser: User
+  ): Scheduling {
+    return new Scheduling(
+      schedulingFormDTO.typeExam,
+      schedulingFormDTO.nameExame,
       foundUser,
-      agendamentoFormDTO.medico,
-      agendamentoFormDTO.preco,
-      agendamentoFormDTO.data
+      schedulingFormDTO.doctor,
+      schedulingFormDTO.price,
+      schedulingFormDTO.date
     );
   }
 }

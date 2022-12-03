@@ -1,10 +1,14 @@
-import { UsuarioRepository } from './../repositories/usuarioRepository';
-import { Usuario } from './../models/Usuario';
-import { AgendamentoFormDTO } from './../Dtos/AgendamentoFormDTO';
-import { AgendamentoRepository } from "./../repositories/agendamentoRepository";
-import { AgendamentoService } from "../services/agendamentoService";
+import { UserRepository } from "./../repositories/usuarioRepository";
+import { User } from "../models/User";
+import { SchedulingFormDTO } from "../dtos/SchedulingFormDTO";
+import { SchedulingRepository } from "./../repositories/agendamentoRepository";
+import { SchedulingService } from "../services/agendamentoService";
 import { DTOMapper } from "../helpers/DTOMapper";
-import { AgendamentoDTO } from "../Dtos/AgendamentoDTO";
+import { SchedulingDTO } from "../dtos/SchedulingDTO";
+import bcrypt = require("bcrypt");
+import jwt = require("jsonwebtoken");
+
+const login = require("../middlewares/login");
 
 const express = require("express");
 
@@ -12,56 +16,55 @@ const router = express.Router();
 
 const dtoMapper: DTOMapper = new DTOMapper();
 
-const agendamentoRepository: AgendamentoRepository =
-  new AgendamentoRepository();
+const schedulingRepository: SchedulingRepository = new SchedulingRepository();
 
-const userRepository: UsuarioRepository = new UsuarioRepository();
+const userRepository: UserRepository = new UserRepository();
 
-const agendamentoService: AgendamentoService = new AgendamentoService(
-  agendamentoRepository,
+const schedulingService: SchedulingService = new SchedulingService(
+  schedulingRepository,
   userRepository,
-  dtoMapper,
+  dtoMapper
 );
 
 router.get("/cadastrados", (request, response) => {
-  let foundListSchedulings = agendamentoService.getSchedulings();
+  let foundListSchedulings = schedulingService.getSchedulings();
   return response.json({
-    agendamentos: foundListSchedulings,
+    schedulings: foundListSchedulings,
   });
 });
 
 router.post("/cadastrar", (request, response) => {
-  const schedulingFormDto: AgendamentoFormDTO = request.body;
-  let savedScheduling = agendamentoService.saveScheduling(schedulingFormDto);
+  const schedulingFormDto: SchedulingFormDTO = request.body;
+  let savedScheduling = schedulingService.saveScheduling(schedulingFormDto);
 
   return response.json({
     error: false,
     message: "Cadastrado com sucesso",
-    agendamentos: savedScheduling,
+    schedulings: savedScheduling,
   });
 });
 
 router.put("/editar", (request, response) => {
-  const schedulingFormDto: AgendamentoFormDTO = request.body;
+  const schedulingFormDto: SchedulingFormDTO = request.body;
 
-  let updatedScheduling = agendamentoService.updateScheduling(schedulingFormDto);
+  let updatedScheduling = schedulingService.updateScheduling(schedulingFormDto);
 
   return response.json({
     error: false,
     message: "Agendamento editado com sucesso",
-    agendamento: updatedScheduling,
+    schedulings: updatedScheduling,
   });
 });
 
 router.delete("/excluir", (request, response) => {
   const id = response.body;
 
-  let deleted = agendamentoService.deleteScheduling(id);
+  let deleted = schedulingService.deleteScheduling(id);
 
   return response.json({
     error: false,
     message: "Agendamento deletado com sucesso",
-    agendamento: deleted,
+    schedulings: deleted,
   });
 });
 

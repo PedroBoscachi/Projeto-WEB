@@ -1,30 +1,30 @@
-import { Agendamento } from "../models/Agendamento";
+import { Scheduling } from "../models/Scheduling";
 
-const listSchedulings: Agendamento[] = [];
+const listSchedulings: Scheduling[] = [];
 
-export class AgendamentoRepository {
-  saveScheduling(scheduling: Agendamento): Agendamento {
+export class SchedulingRepository {
+  saveScheduling(scheduling: Scheduling): Scheduling {
     listSchedulings.push(scheduling);
     return scheduling;
   }
 
-  getSchedulings(): Agendamento[] {
+  getSchedulings(): Scheduling[] {
     return listSchedulings;
   }
 
-  getSchedulingById(id: string): Agendamento {
+  getSchedulingById(id: string): Scheduling {
     return listSchedulings.find((scheduling) => scheduling.id === id);
   }
 
-  updateScheduling(scheduling: Agendamento): Agendamento {
+  updateScheduling(scheduling: Scheduling): Scheduling {
     listSchedulings.forEach((existingScheduling) => {
       if (existingScheduling.id === scheduling.id) {
-        existingScheduling.data = scheduling.data;
-        existingScheduling.medico = scheduling.medico;
-        existingScheduling.usuario = scheduling.usuario;
-        existingScheduling.nomeExame = scheduling.nomeExame;
-        existingScheduling.preco = scheduling.preco;
-        existingScheduling.tipoExame = scheduling.tipoExame;
+        existingScheduling.date = scheduling.date;
+        existingScheduling.doctor = scheduling.doctor;
+        existingScheduling.user = scheduling.user;
+        existingScheduling.nameExam = scheduling.nameExam;
+        existingScheduling.price = scheduling.price;
+        existingScheduling.typeExam = scheduling.typeExam;
         return existingScheduling;
       }
     });

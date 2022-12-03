@@ -1,47 +1,52 @@
-import { UsuarioRepository } from './../repositories/usuarioRepository';
-import { AgendamentoFormDTO } from './../Dtos/AgendamentoFormDTO';
+import { UserRepository } from "./../repositories/usuarioRepository";
+import { SchedulingFormDTO } from "../dtos/SchedulingFormDTO";
 import { DTOMapper } from "../helpers/DTOMapper";
-import { AgendamentoRepository } from "../repositories/agendamentoRepository";
-import { AgendamentoDTO } from "../Dtos/AgendamentoDTO";
+import { SchedulingRepository } from "../repositories/agendamentoRepository";
+import { SchedulingDTO } from "../dtos/SchedulingDTO";
 
-export class AgendamentoService {
+export class SchedulingService {
   constructor(
-    private agendamentoRepository: AgendamentoRepository,
-    private userRepository: UsuarioRepository,
+    private schedulingRepository: SchedulingRepository,
+    private userRepository: UserRepository,
     private dtoMapper: DTOMapper
   ) {}
 
-  saveScheduling(schedulingFormDTO: AgendamentoFormDTO): AgendamentoDTO {
-    let foundUser = this.userRepository.getUserByCpf(schedulingFormDTO.usuario)
-    let scheduling = this.dtoMapper.agendamentoFormDTOToAgendamento(schedulingFormDTO, foundUser);
-    return this.agendamentoRepository.saveScheduling(scheduling);
+  saveScheduling(schedulingFormDTO: SchedulingFormDTO): SchedulingDTO {
+    let foundUser = this.userRepository.getUserByCpf(schedulingFormDTO.user);
+    let scheduling = this.dtoMapper.schedulingFormDTOToScheduling(
+      schedulingFormDTO,
+      foundUser
+    );
+    return this.schedulingRepository.saveScheduling(scheduling);
   }
 
-  getSchedulings(): AgendamentoDTO[] {
-    let schedulingDTOs = this.agendamentoRepository
+  getSchedulings(): SchedulingDTO[] {
+    let schedulingDTOs = this.schedulingRepository
       .getSchedulings()
       .map((scheduling) =>
-        this.dtoMapper.agendamentoToAgendamentoDTO(scheduling)
+        this.dtoMapper.schedulingToSchedulingDTO(scheduling)
       );
     return schedulingDTOs;
   }
 
-  getSchedulingbyId(id: string): AgendamentoDTO {
-    let scheduling = this.agendamentoRepository.getSchedulingById(id);
-    return this.dtoMapper.agendamentoToAgendamentoDTO(scheduling);
+  getSchedulingbyId(id: string): SchedulingDTO {
+    let scheduling = this.schedulingRepository.getSchedulingById(id);
+    return this.dtoMapper.schedulingToSchedulingDTO(scheduling);
   }
 
-  updateScheduling(schedulingFormDTO: AgendamentoFormDTO): AgendamentoDTO {
-    let foundUser = this.userRepository.getUserByCpf(schedulingFormDTO.usuario)
-    
-    let scheduling = this.dtoMapper.agendamentoFormDTOToAgendamento(schedulingFormDTO, foundUser);
-    console.log(scheduling)
+  updateScheduling(schedulingFormDTO: SchedulingFormDTO): SchedulingDTO {
+    let foundUser = this.userRepository.getUserByCpf(schedulingFormDTO.user);
+
+    let scheduling = this.dtoMapper.schedulingFormDTOToScheduling(
+      schedulingFormDTO,
+      foundUser
+    );
     let updatedScheduling =
-      this.agendamentoRepository.updateScheduling(scheduling);
-    return this.dtoMapper.agendamentoToAgendamentoDTO(updatedScheduling);
+      this.schedulingRepository.updateScheduling(scheduling);
+    return this.dtoMapper.schedulingToSchedulingDTO(updatedScheduling);
   }
 
   deleteScheduling(id: string): boolean {
-    return this.agendamentoRepository.deleteScheduling(id);
+    return this.schedulingRepository.deleteScheduling(id);
   }
 }

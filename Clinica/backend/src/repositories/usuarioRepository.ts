@@ -1,18 +1,18 @@
-import { Usuario } from "./../models/Usuario";
+import { User } from "../models/User";
 
-const listUsers: Usuario[] = [];
+const listUsers: User[] = [];
 
-export class UsuarioRepository {
-  saveUser(user: Usuario): Usuario {
+export class UserRepository {
+  saveUser(user: User): User {
     listUsers.push(user);
     return user;
   }
 
-  getUsers(): Usuario[] {
+  getUsers(): User[] {
     return listUsers;
   }
 
-  getUserByCpf(cpf: string): Usuario {
+  getUserByCpf(cpf: string): User {
     return listUsers.find((user) => user.cpf === cpf);
   }
 
