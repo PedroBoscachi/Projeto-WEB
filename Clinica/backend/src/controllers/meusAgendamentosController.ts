@@ -61,7 +61,7 @@ router.put("/editar", login, (request, response) => {
 });
 
 router.delete("/excluir", login, (request, response) => {
-  const id = response.body;
+  const id = request.body;
 
   let deleted = schedulingService.deleteScheduling(id);
 
