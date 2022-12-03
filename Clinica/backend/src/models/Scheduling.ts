@@ -4,24 +4,24 @@ import { UserDTO } from "../dtos/UserDTO";
 
 export class Scheduling {
   id: string;
-  typeExam: string;
-  nameExam: string;
+  specialization: string;
+  local: string;
   user: User;
   doctor: string;
   price: number;
-  date: string;
+  date: Date;
 
   constructor(
-    typeExam: string,
-    nameExam: string,
+    specialization: string,
+    local: string,
     user: User,
     doctor: string,
     price: number,
-    date: string
+    date: Date
   ) {
     this.id = gerarId();
-    this.typeExam = typeExam;
-    this.nameExam = nameExam;
+    this.specialization = specialization;
+    this.local = local;
     this.user = user;
     this.doctor = doctor;
     this.price = price;
