@@ -22,7 +22,7 @@ const userRepository: UserRepository = new UserRepository();
 
 const userService: UserService = new UserService(userRepository, dtoMapper);
 
-router.post("criar-conta", (request, response, next) => {
+router.post("/criar-conta", (request, response, next) => {
   bcrypt.hash(request.body.password, 10, (errorBcrypt, hash) => {
     if (errorBcrypt) {
       return response.status(500).send({
@@ -40,3 +40,5 @@ router.post("criar-conta", (request, response, next) => {
     });
   });
 });
+
+module.exports = router;

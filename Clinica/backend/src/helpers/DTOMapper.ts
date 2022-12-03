@@ -26,7 +26,7 @@ export class DTOMapper {
     );
   }
 
-  schedulingToAgendamentoDTO(scheduling: Scheduling): SchedulingDTO {
+  schedulingToSchedulingDTO(scheduling: Scheduling): SchedulingDTO {
     return new SchedulingDTO(
       scheduling.id,
       scheduling.typeExam,

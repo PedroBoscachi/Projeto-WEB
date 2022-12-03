@@ -1,7 +1,9 @@
 import express from "express";
 
-const UsuarioController = require("./controllers/usuarioController");
+// const UsuarioController = require("./controllers/usuarioController");
 const AgendamentoController = require("./controllers/meusAgendamentosController");
+const RegisterController = require("./controllers/registerController");
+const LoginController = require("./controllers/loginController");
 
 const app = express();
 
@@ -12,7 +14,9 @@ app.use(
 );
 app.use(express.json());
 
-app.use("/usuario", UsuarioController);
+app.use("/cadastrar", RegisterController);
+app.use("/login", LoginController);
+// app.use("/usuario", UsuarioController);
 app.use("/agendamento", AgendamentoController);
 
 app.listen(3000, () => console.log("Server running..."));
