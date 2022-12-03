@@ -26,7 +26,7 @@ export class DTOMapper {
     );
   }
 
-  userToUserFormDTO(user: User): UserFormDTO{
+  userToUserFormDTO(user: User): UserFormDTO {
     return new UserFormDTO(
       user.name,
       user.lastName,
@@ -66,7 +66,7 @@ export class DTOMapper {
   ): Scheduling {
     return new Scheduling(
       schedulingFormDTO.typeExam,
-      schedulingFormDTO.nameExame,
+      schedulingFormDTO.nameExam,
       foundUser,
       schedulingFormDTO.doctor,
       schedulingFormDTO.price,

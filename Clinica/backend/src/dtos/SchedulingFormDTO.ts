@@ -3,7 +3,7 @@ import { User } from "../models/User";
 export class SchedulingFormDTO {
   id: string;
   typeExam: string;
-  nameExame: string;
+  nameExam: string;
   user: string;
   doctor: string;
   price: number;
@@ -12,7 +12,7 @@ export class SchedulingFormDTO {
   constructor(
     id: string,
     typeExam: string,
-    nameExame: string,
+    nameExam: string,
     user: string,
     doctor: string,
     price: number,
@@ -20,7 +20,7 @@ export class SchedulingFormDTO {
   ) {
     this.id = id;
     this.typeExam = typeExam;
-    this.nameExame = nameExame;
+    this.nameExam = nameExam;
     this.user = user;
     this.doctor = doctor;
     this.price = price;

@@ -30,14 +30,14 @@ const schedulingService: SchedulingService = new SchedulingService(
   schedulingValidator
 );
 
-router.get("/cadastrados", (request, response) => {
+router.get("/cadastrados", login, (request, response) => {
   let foundListSchedulings = schedulingService.getSchedulings();
   return response.json({
     schedulings: foundListSchedulings,
   });
 });
 
-router.post("/cadastrar", (request, response) => {
+router.post("/cadastrar", login, (request, response) => {
   const schedulingFormDto: SchedulingFormDTO = request.body;
   let savedScheduling = schedulingService.saveScheduling(schedulingFormDto);
 
@@ -48,7 +48,7 @@ router.post("/cadastrar", (request, response) => {
   });
 });
 
-router.put("/editar", (request, response) => {
+router.put("/editar", login, (request, response) => {
   const schedulingFormDto: SchedulingFormDTO = request.body;
 
   let updatedScheduling = schedulingService.updateScheduling(schedulingFormDto);
@@ -60,7 +60,7 @@ router.put("/editar", (request, response) => {
   });
 });
 
-router.delete("/excluir", (request, response) => {
+router.delete("/excluir", login, (request, response) => {
   const id = response.body;
 
   let deleted = schedulingService.deleteScheduling(id);

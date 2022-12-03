@@ -14,15 +14,16 @@ export class SchedulingService {
   ) {}
 
   saveScheduling(schedulingFormDTO: SchedulingFormDTO): SchedulingDTO {
-    if(this.validator.validateForm(schedulingFormDTO)){
-    let foundUser = this.userRepository.getUserByCpf(schedulingFormDTO.user);
-    let scheduling = this.dtoMapper.schedulingFormDTOToScheduling(
-      schedulingFormDTO,
-      foundUser
-    );
-    return this.schedulingRepository.saveScheduling(scheduling);
-    }else{
-      throw new Error("Agendamento Inválido!")
+    console.log(schedulingFormDTO);
+    if (this.validator.validateForm(schedulingFormDTO)) {
+      let foundUser = this.userRepository.getUserByCpf(schedulingFormDTO.user);
+      let scheduling = this.dtoMapper.schedulingFormDTOToScheduling(
+        schedulingFormDTO,
+        foundUser
+      );
+      return this.schedulingRepository.saveScheduling(scheduling);
+    } else {
+      throw new Error("Agendamento Inválido!");
     }
   }
 
@@ -41,18 +42,18 @@ export class SchedulingService {
   }
 
   updateScheduling(schedulingFormDTO: SchedulingFormDTO): SchedulingDTO {
-    if(this.validator.validateForm(schedulingFormDTO)){
-    let foundUser = this.userRepository.getUserByCpf(schedulingFormDTO.user);
+    if (this.validator.validateForm(schedulingFormDTO)) {
+      let foundUser = this.userRepository.getUserByCpf(schedulingFormDTO.user);
 
-    let scheduling = this.dtoMapper.schedulingFormDTOToScheduling(
-      schedulingFormDTO,
-      foundUser
-    );
-    let updatedScheduling =
-      this.schedulingRepository.updateScheduling(scheduling);
-    return this.dtoMapper.schedulingToSchedulingDTO(updatedScheduling);
-    }else{
-      throw new Error("Agendamento Inválido!")
+      let scheduling = this.dtoMapper.schedulingFormDTOToScheduling(
+        schedulingFormDTO,
+        foundUser
+      );
+      let updatedScheduling =
+        this.schedulingRepository.updateScheduling(scheduling);
+      return this.dtoMapper.schedulingToSchedulingDTO(updatedScheduling);
+    } else {
+      throw new Error("Agendamento Inválido!");
     }
   }
 

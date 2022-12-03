@@ -29,6 +29,7 @@ export class SchedulingRepository {
         return existingScheduling;
       }
     });
+    return null;
   }
 
   deleteScheduling(id: string): boolean {
