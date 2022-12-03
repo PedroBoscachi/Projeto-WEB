@@ -6,7 +6,7 @@ export class Scheduling {
   id: string;
   typeExam: string;
   nameExam: string;
-  user: UserDTO;
+  user: User;
   doctor: string;
   price: number;
   date: string;
@@ -14,7 +14,7 @@ export class Scheduling {
   constructor(
     typeExam: string,
     nameExam: string,
-    user: UserDTO,
+    user: User,
     doctor: string,
     price: number,
     date: string

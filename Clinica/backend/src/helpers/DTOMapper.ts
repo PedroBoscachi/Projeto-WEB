@@ -26,6 +26,16 @@ export class DTOMapper {
     );
   }
 
+ /*  userDTOToUser(userDTO: UserDTO): User {
+    return new User(
+      userDTO.name,
+      userDTO.lastName,
+      userDTO.cpf,
+      userDTO.phone,
+      userDTO.birthDate
+    );
+  } */
+
   userToUserFormDTO(user: User): UserFormDTO {
     return new UserFormDTO(
       user.name,
@@ -38,18 +48,20 @@ export class DTOMapper {
   }
 
   schedulingToSchedulingDTO(scheduling: Scheduling): SchedulingDTO {
+    let userDto = this.userToUserDTO(scheduling.user);
     return new SchedulingDTO(
       scheduling.id,
       scheduling.typeExam,
       scheduling.nameExam,
-      scheduling.user,
+      userDto,
       scheduling.doctor,
       scheduling.price,
       scheduling.date
     );
   }
 
-  schedulingDTOToScheduling(schedulingDTO: SchedulingDTO): Scheduling {
+  /* schedulingDTOToScheduling(schedulingDTO: SchedulingDTO): Scheduling {
+    let userEntity = this.userFormDTOToUser(schedulingDTO.user)
     return new Scheduling(
       schedulingDTO.typeExam,
       schedulingDTO.nameExam,
@@ -58,16 +70,17 @@ export class DTOMapper {
       schedulingDTO.price,
       schedulingDTO.date
     );
-  }
+  } */
 
   schedulingFormDTOToScheduling(
     schedulingFormDTO: SchedulingFormDTO,
-    foundUser: UserDTO
+    foundUser: UserFormDTO
   ): Scheduling {
+    let foundUserEntity = this.userFormDTOToUser(foundUser);
     return new Scheduling(
       schedulingFormDTO.typeExam,
       schedulingFormDTO.nameExam,
-      foundUser,
+      foundUserEntity,
       schedulingFormDTO.doctor,
       schedulingFormDTO.price,
       schedulingFormDTO.date

@@ -17,12 +17,12 @@ export class SchedulingService {
     console.log(schedulingFormDTO);
     if (this.validator.validateForm(schedulingFormDTO)) {
       let foundUser = this.userRepository.getUserByCpf(schedulingFormDTO.user);
-      const userDto = this.dtoMapper.userToUserDTO(foundUser);
+      const userDto = this.dtoMapper.userToUserFormDTO(foundUser);
       let scheduling = this.dtoMapper.schedulingFormDTOToScheduling(
         schedulingFormDTO,
         userDto
       );
-      return this.schedulingRepository.saveScheduling(scheduling);
+      return this.dtoMapper.schedulingToSchedulingDTO(this.schedulingRepository.saveScheduling(scheduling));
     } else {
       throw new Error("Agendamento Inválido!");
     }
