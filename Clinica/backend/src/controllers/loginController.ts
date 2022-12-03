@@ -24,6 +24,9 @@ const userService: UserService = new UserService(userRepository, dtoMapper);
 
 router.post("/entrar", (request, response, next) => {
   const user = userService.getUserbyCpf(request.body.cpf);
+
+  if (user == null) return response.status(404);
+
   bcrypt.compare(request.body.password, user.password, (error, result) => {
     if (error) {
       return response
@@ -42,12 +45,13 @@ router.post("/entrar", (request, response, next) => {
           expiresIn: "1h",
         }
       );
-
       return response.status(200).send({
         message: "Authentication succeeded",
         token: token,
       });
     }
+
+    return response.status(401).send({ message: "Failure in authentication" });
   });
 });
 
