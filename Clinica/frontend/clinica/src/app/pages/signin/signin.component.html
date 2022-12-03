@@ -7,7 +7,7 @@
         </div>
         <h1 id="title">Lapri Care</h1>
         <h2 id="welcome">Seja bem-vindo!</h2>
-        
+
         <form class="form-wrapper" [formGroup]="loginForm">
           <mat-form-field color="accent">
             <mat-label>CPF</mat-label>
@@ -22,7 +22,11 @@
 
           <mat-form-field color="accent">
             <mat-label>Digite sua senha</mat-label>
-            <input matInput [type]="hide ? 'password' : 'text'" formControlName="password" />
+            <input
+              matInput
+              [type]="hide ? 'password' : 'text'"
+              formControlName="password"
+            />
             <button
               class="btn-show-password"
               matSuffix

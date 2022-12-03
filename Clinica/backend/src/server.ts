@@ -5,6 +5,8 @@ const AgendamentoController = require("./controllers/meusAgendamentosController"
 const RegisterController = require("./controllers/registerController");
 const LoginController = require("./controllers/loginController");
 
+const cors = require("cors");
+
 const app = express();
 
 app.use(
@@ -13,6 +15,8 @@ app.use(
   })
 );
 app.use(express.json());
+
+app.use(cors());
 
 app.use("/cadastrar", RegisterController);
 app.use("/login", LoginController);
