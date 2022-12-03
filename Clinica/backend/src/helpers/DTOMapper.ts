@@ -24,15 +24,15 @@ export class DTOMapper {
     );
   }
 
-  schedulingToSchedulingDTO(scheduling: Scheduling): SchedulingDTO {
-    return new SchedulingDTO(
-      scheduling.id,
-      scheduling.typeExam,
-      scheduling.nameExam,
-      scheduling.user,
-      scheduling.doctor,
-      scheduling.price,
-      scheduling.date
+  agendamentoToAgendamentoDTO(agendamento: Agendamento): AgendamentoDTO {
+    return new AgendamentoDTO(
+      agendamento.id,
+      agendamento.tipoExame,
+      agendamento.nomeExame,
+      agendamento.usuario,
+      agendamento.medico,
+      agendamento.preco,
+      agendamento.data
     );
   }
 
@@ -55,9 +55,9 @@ export class DTOMapper {
       schedulingFormDTO.typeExam,
       schedulingFormDTO.nameExame,
       foundUser,
-      schedulingFormDTO.doctor,
-      schedulingFormDTO.price,
-      schedulingFormDTO.date
+      agendamentoFormDTO.medico,
+      agendamentoFormDTO.preco,
+      agendamentoFormDTO.data
     );
   }
 }

@@ -4,6 +4,7 @@ const listSchedulings: Scheduling[] = [];
 
 export class SchedulingRepository {
   saveScheduling(scheduling: Scheduling): Scheduling {
+    scheduling.id = (listSchedulings.length + 1).toString();
     listSchedulings.push(scheduling);
     return scheduling;
   }
@@ -28,7 +29,6 @@ export class SchedulingRepository {
         return existingScheduling;
       }
     });
-    return null;
   }
 
   deleteScheduling(id: string): boolean {
