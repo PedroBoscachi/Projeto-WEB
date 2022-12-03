@@ -1,10 +1,11 @@
 import { User } from "../models/User";
+import { UserDTO } from "./UserDTO";
 
 export class SchedulingDTO {
   id: string;
   typeExam: string;
   nameExam: string;
-  user: User;
+  user: UserDTO;
   doctor: string;
   price: number;
   date: string;
@@ -13,7 +14,7 @@ export class SchedulingDTO {
     id: string,
     typeExam: string,
     nameExam: string,
-    user: User,
+    user: UserDTO,
     doctor: string,
     price: number,
     date: string

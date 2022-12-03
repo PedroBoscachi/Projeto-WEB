@@ -17,9 +17,10 @@ export class SchedulingService {
     console.log(schedulingFormDTO);
     if (this.validator.validateForm(schedulingFormDTO)) {
       let foundUser = this.userRepository.getUserByCpf(schedulingFormDTO.user);
+      const userDto = this.dtoMapper.userToUserDTO(foundUser);
       let scheduling = this.dtoMapper.schedulingFormDTOToScheduling(
         schedulingFormDTO,
-        foundUser
+        userDto
       );
       return this.schedulingRepository.saveScheduling(scheduling);
     } else {

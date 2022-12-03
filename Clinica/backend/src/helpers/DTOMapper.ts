@@ -62,7 +62,7 @@ export class DTOMapper {
 
   schedulingFormDTOToScheduling(
     schedulingFormDTO: SchedulingFormDTO,
-    foundUser: User
+    foundUser: UserDTO
   ): Scheduling {
     return new Scheduling(
       schedulingFormDTO.typeExam,

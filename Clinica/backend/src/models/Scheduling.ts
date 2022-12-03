@@ -1,11 +1,12 @@
 import { User } from "./User";
 import { v4 as gerarId } from "uuid";
+import { UserDTO } from "../dtos/UserDTO";
 
 export class Scheduling {
   id: string;
   typeExam: string;
   nameExam: string;
-  user: User;
+  user: UserDTO;
   doctor: string;
   price: number;
   date: string;
@@ -13,7 +14,7 @@ export class Scheduling {
   constructor(
     typeExam: string,
     nameExam: string,
-    user: User,
+    user: UserDTO,
     doctor: string,
     price: number,
     date: string
