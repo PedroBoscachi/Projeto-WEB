@@ -1,5 +1,5 @@
 import { Component, OnInit } from '@angular/core';
-import { FormBuilder } from '@angular/forms';
+import { FormBuilder, Validators } from '@angular/forms';
 import { Router } from '@angular/router';
 import { LoginDto } from 'src/app/dtos/loginDto';
 import { SigninService } from 'src/app/services/signin.service';
@@ -13,8 +13,8 @@ export class SigninComponent implements OnInit {
   hide = true;
 
   loginForm = this.fb.group({
-    cpf: [''],
-    password: [''],
+    cpf: ['', Validators.required],
+    password: ['', Validators.required],
   });
 
   constructor(

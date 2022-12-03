@@ -44,7 +44,7 @@
 
           <mat-form-field>
             <mat-label>Data de nascimento</mat-label>
-            <input [matDatepicker]="picker"  matInput  formControlName="birthDate"/>
+            <input [matDatepicker]="picker"  matInput  formControlName="birthDate" />
             <div class="btn-calendar" matSuffix>
               <mat-datepicker-toggle matSuffix matIconSuffix [for]="picker">
               </mat-datepicker-toggle>
@@ -87,7 +87,7 @@
             </button>
           </mat-form-field>
 
-          <button class="btn-submit" type="submit">Cadastrar</button>
+          <button [disabled]="signupForm.invalid" class="btn-submit" type="submit">Cadastrar</button>
 
         </form>
 

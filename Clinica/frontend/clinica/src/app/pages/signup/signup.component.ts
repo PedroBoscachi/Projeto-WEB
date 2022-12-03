@@ -1,6 +1,6 @@
 import { ThisReceiver } from '@angular/compiler';
 import { Component, OnInit } from '@angular/core';
-import { FormBuilder } from '@angular/forms';
+import { FormBuilder, Validators } from '@angular/forms';
 import { User } from 'src/app/models/user';
 import { SignupService } from 'src/app/services/signup.service';
 
@@ -14,12 +14,12 @@ export class SignupComponent implements OnInit {
   hideConfirmPassword = true;
 
   signupForm = this.fb.group({
-    firstName: [''],
-    lastName: [''],
-    cpf: [''],
-    phone: [''],
-    birthDate: [''],
-    password: [''],
+    firstName: ['', Validators.required],
+    lastName: ['', Validators.required],
+    cpf: ['', Validators.required],
+    phone: ['', Validators.required],
+    birthDate: ['', Validators.required],
+    password: ['', Validators.required],
   });
 
   valores: any;
