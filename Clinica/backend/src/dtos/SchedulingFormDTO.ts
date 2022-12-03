@@ -2,25 +2,25 @@ import { User } from "../models/User";
 
 export class SchedulingFormDTO {
   id: string;
-  typeExam: string;
-  nameExam: string;
+  specialization: string;
+  local: string;
   user: string;
   doctor: string;
   price: number;
-  date: string;
+  date: Date;
 
   constructor(
     id: string,
-    typeExam: string,
-    nameExam: string,
+    specialization: string,
+    local: string,
     user: string,
     doctor: string,
     price: number,
-    date: string
+    date: Date
   ) {
     this.id = id;
-    this.typeExam = typeExam;
-    this.nameExam = nameExam;
+    this.specialization = specialization;
+    this.local = local;
     this.user = user;
     this.doctor = doctor;
     this.price = price;

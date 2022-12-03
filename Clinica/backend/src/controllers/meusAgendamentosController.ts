@@ -21,7 +21,7 @@ const schedulingRepository: SchedulingRepository = new SchedulingRepository();
 
 const userRepository: UserRepository = new UserRepository();
 
-const schedulingValidator: SchedulingValidator = new SchedulingValidator();
+const schedulingValidator: SchedulingValidator = new SchedulingValidator(schedulingRepository);
 
 const schedulingService: SchedulingService = new SchedulingService(
   schedulingRepository,

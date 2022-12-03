@@ -51,8 +51,8 @@ export class DTOMapper {
     let userDto = this.userToUserDTO(scheduling.user);
     return new SchedulingDTO(
       scheduling.id,
-      scheduling.typeExam,
-      scheduling.nameExam,
+      scheduling.specialization,
+      scheduling.local,
       userDto,
       scheduling.doctor,
       scheduling.price,
@@ -63,8 +63,8 @@ export class DTOMapper {
   /* schedulingDTOToScheduling(schedulingDTO: SchedulingDTO): Scheduling {
     let userEntity = this.userFormDTOToUser(schedulingDTO.user)
     return new Scheduling(
-      schedulingDTO.typeExam,
-      schedulingDTO.nameExam,
+      schedulingDTO.specialization,
+      schedulingDTO.local,
       schedulingDTO.user,
       schedulingDTO.doctor,
       schedulingDTO.price,
@@ -78,8 +78,8 @@ export class DTOMapper {
   ): Scheduling {
     let foundUserEntity = this.userFormDTOToUser(foundUser);
     return new Scheduling(
-      schedulingFormDTO.typeExam,
-      schedulingFormDTO.nameExam,
+      schedulingFormDTO.specialization,
+      schedulingFormDTO.local,
       foundUserEntity,
       schedulingFormDTO.doctor,
       schedulingFormDTO.price,
