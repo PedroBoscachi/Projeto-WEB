@@ -2,6 +2,7 @@ import { HttpClient } from '@angular/common/http';
 import { Injectable } from '@angular/core';
 import { Observable } from 'rxjs';
 import { environment } from 'src/environments/environment';
+import { LoginDto } from '../dtos/loginDto';
 
 @Injectable({
   providedIn: 'root',
@@ -11,7 +12,7 @@ export class SigninService {
 
   constructor(private http: HttpClient) {}
 
-  signin(user: any): Observable<any> {
+  signin(user: LoginDto): Observable<LoginDto> {
     return this.http.post<any>(this.url, user);
   }
 }

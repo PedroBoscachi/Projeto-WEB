@@ -1,6 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { FormBuilder } from '@angular/forms';
 import { Router } from '@angular/router';
+import { LoginDto } from 'src/app/dtos/loginDto';
 import { SigninService } from 'src/app/services/signin.service';
 
 @Component({
@@ -24,11 +25,6 @@ export class SigninComponent implements OnInit {
 
   retornado: any;
 
-  user = {
-    cpf: '123',
-    password: 'senha',
-  };
-
   ngOnInit(): void {}
 
   goToHome() {
@@ -37,9 +33,16 @@ export class SigninComponent implements OnInit {
   }
 
   register(): void {
-    this.signinService.signin(this.user).subscribe((data) => {
+
+    const login = new LoginDto(this.loginForm.value.cpf as string, this.loginForm.value.password as string);
+
+    console.log(typeof(login.cpf))
+    console.log(typeof(login.password))
+
+    this.signinService.signin(login).subscribe((data) => {
       this.retornado = data;
       this.goToHome();
+      console.log(this.retornado);
     });
   }
 }

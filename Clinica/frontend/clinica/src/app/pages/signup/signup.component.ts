@@ -27,6 +27,7 @@ export class SignupComponent implements OnInit {
   constructor(private signupService: SignupService, private fb: FormBuilder) {}
 
   ngOnInit(): void {
+    localStorage.clear();
   }
 
   nome = this.signupForm.value.firstName;
