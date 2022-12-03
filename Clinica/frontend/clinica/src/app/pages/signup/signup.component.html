@@ -7,15 +7,19 @@
         </div>
         <h1 id="title">Lapri Care</h1>
         <h2 id="welcome">Cadastro</h2>
-        <form class="form-wrapper">
+
+        <form class="form-wrapper" (ngSubmit)="register()" [formGroup]="signupForm" >
+
           <mat-form-field color="accent">
             <mat-label>Nome</mat-label>
-            <input matInput value="" />
+            <input matInput value="" formControlName="firstName"/>
           </mat-form-field>
+
           <mat-form-field color="accent">
             <mat-label>Sobrenome</mat-label>
-            <input matInput value="" />
+            <input matInput value="" formControlName="lastName"/>
           </mat-form-field>
+
           <mat-form-field color="accent">
             <mat-label>CPF</mat-label>
             <input
@@ -23,8 +27,10 @@
               mask="000.000.000-00"
               placeholder="Ex. 123.456.789-01"
               value="cpf"
+              formControlName="cpf"
             />
           </mat-form-field>
+
           <mat-form-field color="accent">
             <mat-label>Celular</mat-label>
             <input
@@ -32,21 +38,23 @@
               mask="(00) 00000-0000"
               placeholder="Ex. (11)96491-8727"
               value="telephone"
+              formControlName="phone"
             />
           </mat-form-field>
+
           <mat-form-field>
             <mat-label>Data de nascimento</mat-label>
-            <input matInput [matDatepicker]="picker" />
-
+            <input [matDatepicker]="picker"  matInput  formControlName="birthDate"/>
             <div class="btn-calendar" matSuffix>
               <mat-datepicker-toggle matSuffix matIconSuffix [for]="picker">
               </mat-datepicker-toggle>
               <mat-datepicker #picker></mat-datepicker>
             </div>
           </mat-form-field>
+
           <mat-form-field color="accent">
             <mat-label>Senha</mat-label>
-            <input matInput [type]="hidePassword ? 'password' : 'text'" />
+            <input matInput [type]="hidePassword ? 'password' : 'text'" formControlName="password"/>
             <button
               class="btn-show-password"
               matSuffix
@@ -59,6 +67,7 @@
               }}</mat-icon>
             </button>
           </mat-form-field>
+
           <mat-form-field color="accent">
             <mat-label>Confirmar senha</mat-label>
             <input
@@ -77,7 +86,9 @@
               }}</mat-icon>
             </button>
           </mat-form-field>
-          <button class="btn-submit">Cadastrar</button>
+
+          <button class="btn-submit" type="submit">Cadastrar</button>
+
         </form>
 
         <p class="register-text">
