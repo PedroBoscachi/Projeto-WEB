@@ -31,7 +31,8 @@ const schedulingService: SchedulingService = new SchedulingService(
 );
 
 router.post("/cadastrados", login, (request, response) => {
-  let foundListSchedulings = schedulingService.getSchedulings();
+  let cpf = request.body.cpf;
+  let foundListSchedulings = schedulingService.getSchedulings(cpf);
   return response.json({
     schedulings: foundListSchedulings,
   });

@@ -30,13 +30,18 @@ export class SchedulingService {
     }
   }
 
-  getSchedulings(): SchedulingDTO[] {
-    let schedulingDTOs = this.schedulingRepository
+  getSchedulings(cpf: string): SchedulingDTO[] {
+    let foundUser = this.userRepository.getUserByCpf(cpf);
+    if(foundUser!=null){
+    let schedulingDTOs : SchedulingDTO[] 
+    this.schedulingRepository
       .getSchedulings()
-      .map((scheduling) =>
-        this.dtoMapper.schedulingToSchedulingDTO(scheduling)
+      .forEach((scheduling) =>{
+        if(scheduling.user.cpf == cpf){schedulingDTOs.push(this.dtoMapper.schedulingToSchedulingDTO(scheduling))}
+        }
       );
-    return schedulingDTOs;
+      return schedulingDTOs;
+    }
   }
 
   getSchedulingbyId(id: string): SchedulingDTO {
