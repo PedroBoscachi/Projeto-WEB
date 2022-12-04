@@ -38,7 +38,7 @@ router.get("/cadastrados", login, (request, response) => {
 });
 
 router.post("/cadastrar", login, (request, response) => {
-  const schedulingFormDto: SchedulingFormDTO = request.body;
+  const schedulingFormDto: SchedulingFormDTO = request.body.scheduling;
   let savedScheduling = schedulingService.saveScheduling(schedulingFormDto);
 
   return response.json({
@@ -49,7 +49,7 @@ router.post("/cadastrar", login, (request, response) => {
 });
 
 router.put("/editar", login, (request, response) => {
-  const schedulingFormDto: SchedulingFormDTO = request.body;
+  const schedulingFormDto: SchedulingFormDTO = request.body.scheduling;
 
   let updatedScheduling = schedulingService.updateScheduling(schedulingFormDto);
 
@@ -61,7 +61,7 @@ router.put("/editar", login, (request, response) => {
 });
 
 router.delete("/excluir", login, (request, response) => {
-  const id = request.body;
+  const id = request.body.id;
 
   let deleted = schedulingService.deleteScheduling(id);
 
