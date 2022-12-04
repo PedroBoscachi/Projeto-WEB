@@ -27,7 +27,9 @@ export class SigninComponent implements OnInit {
 
   retornado: any;
 
-  ngOnInit(): void {}
+  ngOnInit(): void {
+    localStorage.clear();
+  }
 
   goToHome() {
     this.router.navigate(['/home/agendar-exame']);

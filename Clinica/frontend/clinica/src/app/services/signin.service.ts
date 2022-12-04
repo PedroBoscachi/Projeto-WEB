@@ -15,4 +15,8 @@ export class SigninService {
   signin(user: LoginDto): Observable<LoginDto> {
     return this.http.post<any>(this.url, user);
   }
+
+  get logado() : boolean{
+    return localStorage.getItem('token') ? true : false;
+  }
 }
