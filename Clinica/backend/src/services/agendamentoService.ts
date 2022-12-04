@@ -32,14 +32,14 @@ export class SchedulingService {
 
   getSchedulings(cpf: string): SchedulingDTO[] {
     let foundUser = this.userRepository.getUserByCpf(cpf);
-    if(foundUser!=null){
-    let schedulingDTOs : SchedulingDTO[] 
-    this.schedulingRepository
-      .getSchedulings()
-      .forEach((scheduling) =>{
-        if(scheduling.user.cpf == cpf){schedulingDTOs.push(this.dtoMapper.schedulingToSchedulingDTO(scheduling))}
+    if (foundUser != null) {
+      let schedulingDTOs: SchedulingDTO[] = [];
+      this.schedulingRepository.getSchedulings().forEach((scheduling) => {
+        if (scheduling.user.cpf == cpf) {
+          let teste = this.dtoMapper.schedulingToSchedulingDTO(scheduling);
+          schedulingDTOs.push(teste);
         }
-      );
+      });
       return schedulingDTOs;
     }
   }

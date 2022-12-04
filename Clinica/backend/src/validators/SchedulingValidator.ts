@@ -2,10 +2,7 @@ import { SchedulingFormDTO } from "../dtos/SchedulingFormDTO";
 import { SchedulingRepository } from "../repositories/agendamentoRepository";
 
 export class SchedulingValidator {
-
-  constructor(
-    private schedulingRepository: SchedulingRepository
-  ) {}
+  constructor(private schedulingRepository: SchedulingRepository) {}
 
   validateForm(schedulingFormDTO: SchedulingFormDTO): boolean {
     if (
@@ -21,15 +18,20 @@ export class SchedulingValidator {
         schedulingFormDTO.doctor.trim().charAt(0) != ""
       ) {
         let existingDoctorScheduling = false;
-        this.schedulingRepository.getSchedulings().forEach(schedulingFound=>{
-          if(schedulingFound.date == schedulingFormDTO.date && schedulingFound.doctor == schedulingFormDTO.doctor){
-            existingDoctorScheduling = true
-          }
-        });
-        if(existingDoctorScheduling = false){
+        this.schedulingRepository
+          .getSchedulings()
+          .forEach((schedulingFound) => {
+            if (
+              schedulingFound.date == schedulingFormDTO.date &&
+              schedulingFound.doctor == schedulingFormDTO.doctor
+            ) {
+              existingDoctorScheduling = true;
+            }
+          });
+        if (existingDoctorScheduling == false) {
           return true;
-        } else{
-          throw new Error("Este médico não está disponível nesse horário!")
+        } else {
+          throw new Error("Este médico não está disponível nesse horário!");
         }
       } else {
         return false;
