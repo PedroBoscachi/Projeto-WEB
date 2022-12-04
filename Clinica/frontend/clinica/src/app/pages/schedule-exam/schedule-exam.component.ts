@@ -220,8 +220,7 @@ export class ScheduleExamComponent implements OnInit {
         this.resetData();
       },
       (error) => {
-        console.log(error);
-        this.snackBar.openSnackBar(error, 'Ok');
+        this.snackBar.openSnackBar('Horário indisponível', 'Ok');
       }
     );
   };
