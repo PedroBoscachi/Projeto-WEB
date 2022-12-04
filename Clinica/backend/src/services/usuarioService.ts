@@ -5,6 +5,7 @@ import { UserDTO } from "../dtos/UserDTO";
 import { UserFormDTO } from "../dtos/UserFormDTO";
 import { UsersValidator } from "../validators/UsersValidator";
 import { response } from "express";
+import { UserUpdateDTO } from "../dtos/UserUpdateDTO";
 
 export class UserService {
   constructor(
@@ -44,5 +45,11 @@ export class UserService {
 
   deleteUser(cpf: string): boolean {
     return this.userRepository.deleteUser(cpf);
+  }
+
+  updateUser(userDTO: UserDTO): UserDTO {
+    let newUser = this.userRepository.updateUser(userDTO);
+    if (newUser == null) throw new Error("Falha na atualização de usuário");
+    return this.dtoMapper.userToUserDTO(newUser);
   }
 }

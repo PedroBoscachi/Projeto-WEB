@@ -41,4 +41,14 @@ router.get("/meu-perfil", login, (request, response) => {
   });
 });
 
+router.put("/editar", login, (request, response) => {
+  let updatedUser = userService.updateUser(request.body.user);
+
+  return response.json({
+    error: false,
+    message: "Usuário encontrado com sucesso",
+    savedUser: updatedUser,
+  });
+});
+
 module.exports = router;
