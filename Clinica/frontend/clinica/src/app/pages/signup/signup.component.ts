@@ -34,9 +34,7 @@ export class SignupComponent implements OnInit {
     private snackBar: MatSnackBar
   ) {}
 
-  ngOnInit(): void {
-    localStorage.clear();
-  }
+  ngOnInit(): void {}
 
   register(): void {
     const birth = new Date(this.signupForm.value.birthDate as string);
