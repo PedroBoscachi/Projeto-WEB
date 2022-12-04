@@ -10,8 +10,9 @@ import jwt = require("jsonwebtoken");
 import { SchedulingValidator } from "../validators/SchedulingValidator";
 import { UserService } from "../services/usuarioService";
 import { UsersValidator } from "../validators/UsersValidator";
+import { UserDTO } from "../dtos/UserDTO";
 
-const login = require("../middlewares/login");
+const   login = require("../middlewares/login");
 
 const express = require("express");
 
@@ -42,7 +43,8 @@ router.get("/meu-perfil", login, (request, response) => {
 });
 
 router.put("/editar", login, (request, response) => {
-  let updatedUser = userService.updateUser(request.body.user);
+  const userDTO: UserDTO = request.body;
+  let updatedUser = userService.updateUser(userDTO);
 
   return response.json({
     error: false,
