@@ -18,16 +18,17 @@ export class UserRepository {
   }
 
   updateUser(user: UserDTO): User {
+    let updatedUser: User = null
     listUsers.forEach((existingUser) => {
       if (existingUser.cpf == user.cpf) {
         existingUser.name = user.name;
         existingUser.lastName = user.lastName;
         existingUser.birthDate = user.birthDate;
         existingUser.phone = user.phone;
-        return existingUser;
+        updatedUser = existingUser;
       }
     });
-    return null;
+    return updatedUser;
   }
 
   deleteUser(cpf: string): boolean {

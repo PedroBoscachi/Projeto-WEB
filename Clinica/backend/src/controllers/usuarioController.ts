@@ -12,7 +12,7 @@ import { UserService } from "../services/usuarioService";
 import { UsersValidator } from "../validators/UsersValidator";
 import { UserDTO } from "../dtos/UserDTO";
 
-const   login = require("../middlewares/login");
+const login = require("../middlewares/login");
 
 const express = require("express");
 
@@ -43,8 +43,7 @@ router.post("/meu-perfil", login, (request, response) => {
 });
 
 router.put("/editar", login, (request, response) => {
-  const userDTO: UserDTO = request.body;
-  let updatedUser = userService.updateUser(userDTO);
+  let updatedUser = userService.updateUser(request.body.user);
 
   return response.json({
     error: false,
