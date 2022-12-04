@@ -17,14 +17,15 @@ export class UserRepository {
     return listUsers.find((user) => user.cpf === cpf);
   }
 
-  updateUser(user: UserDTO): User {
-    let updatedUser: User = null
+  updateUser(user: User): User {
+    let updatedUser: User = null;
     listUsers.forEach((existingUser) => {
       if (existingUser.cpf == user.cpf) {
         existingUser.name = user.name;
         existingUser.lastName = user.lastName;
         existingUser.birthDate = user.birthDate;
         existingUser.phone = user.phone;
+        existingUser.password = user.password;
         updatedUser = existingUser;
       }
     });
