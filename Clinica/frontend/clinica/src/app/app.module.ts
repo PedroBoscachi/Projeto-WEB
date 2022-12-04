@@ -4,6 +4,7 @@ import { BrowserModule } from '@angular/platform-browser';
 
 import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
+import { MatMenuModule } from '@angular/material/menu';
 import { SigninComponent } from './pages/signin/signin.component';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { MatFormFieldModule } from '@angular/material/form-field';
@@ -19,11 +20,13 @@ import { MasterComponent } from './pages/master/master.component';
 import { ScheduleExamComponent } from './pages/schedule-exam/schedule-exam.component';
 import { ResultsComponent } from './pages/results/results.component';
 import { MySchedulesComponent } from './pages/my-consultation/my-schedules.component';
-import { MyProfileComponent } from './pages/my-profile/my-profile.component';
 import { NotFoundComponent } from './pages/not-found/not-found.component';
 import { MatCardModule } from '@angular/material/card';
-import {MatDividerModule} from '@angular/material/divider';
+import { MatDividerModule } from '@angular/material/divider';
 import { CommonModule } from '@angular/common';
+import { MatDialogModule } from '@angular/material/dialog';
+import { DialogMyProfileComponent } from './pages/dialog-my-profile/dialog-my-profile.component';
+import { MatSnackBarModule } from '@angular/material/snack-bar';
 
 export const options: Partial<null | IConfig> | (() => Partial<IConfig>) = null;
 @NgModule({
@@ -35,10 +38,13 @@ export const options: Partial<null | IConfig> | (() => Partial<IConfig>) = null;
     ScheduleExamComponent,
     ResultsComponent,
     MySchedulesComponent,
-    MyProfileComponent,
     NotFoundComponent,
+    DialogMyProfileComponent,
   ],
   imports: [
+    MatDialogModule,
+    MatSnackBarModule,
+    MatMenuModule,
     MatDividerModule,
     MatCardModule,
     BrowserModule,

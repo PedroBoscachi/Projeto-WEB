@@ -28,16 +28,18 @@ export class SigninComponent implements OnInit {
   ngOnInit(): void {}
 
   goToHome() {
-    //this.router.navigate(['/agendar-exame']);
+    this.router.navigate(['/agendar-exame']);
     localStorage.setItem('token', this.retornado.token);
   }
 
   register(): void {
+    const login = new LoginDto(
+      this.loginForm.value.cpf as string,
+      this.loginForm.value.password as string
+    );
 
-    const login = new LoginDto(this.loginForm.value.cpf as string, this.loginForm.value.password as string);
-
-    console.log(typeof(login.cpf))
-    console.log(typeof(login.password))
+    console.log(typeof login.cpf);
+    console.log(typeof login.password);
 
     this.signinService.signin(login).subscribe((data) => {
       this.retornado = data;

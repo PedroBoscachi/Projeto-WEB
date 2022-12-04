@@ -7,10 +7,7 @@
 }
 
 .button-card {
-  border: #004AAD 2px solid;
-  border-radius: 7px;
   width: 99px;
-  text-align: center;
 }
 
 .card {
@@ -21,6 +18,7 @@
   justify-content: space-between;
   padding: 15px;
   border-radius: 10px;
+  box-shadow: rgba(0, 0, 0, 0.16) 0px 3px 6px, rgba(0, 0, 0, 0.23) 0px 3px 6px;
 }
 
 mat-divider {
@@ -29,5 +27,5 @@ mat-divider {
 
 .buttons {
   display: flex;
-  gap: 5px;
+  gap: 10px;
 }

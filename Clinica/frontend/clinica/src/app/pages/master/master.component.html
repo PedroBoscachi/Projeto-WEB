@@ -6,31 +6,35 @@
   <nav>
     <ul>
       <li>
-        <a routerLink="/agendar-exame" class="hover" routerLinkActive="selected"
-          >Agendar Consulta</a
-        >
+        <a routerLink="/agendar-exame" class="hover" routerLinkActive="selected">Agendar Consulta</a>
       </li>
       <li>
-        <a
-          routerLink="/meus-agendamentos"
-          class="hover"
-          routerLinkActive="selected"
-          >Minhas Consultas</a
-        >
+        <a routerLink="/meus-agendamentos" class="hover" routerLinkActive="selected">Minhas Consultas</a>
       </li>
       <li>
-        <a routerLink="/resultados" class="hover" routerLinkActive="selected"
-          >Resultados</a
-        >
+        <a routerLink="/resultados" class="hover" routerLinkActive="selected">Resultados</a>
       </li>
     </ul>
   </nav>
   <div class="my-profile-wrapper">
-    <a routerLink="/meu-perfil" class="hover" routerLinkActive="selected"
+    <!-- <a routerLink="/meu-perfil" class="hover" routerLinkActive="selected"
       >Meu Perfil</a
     >
-    <a routerLink="/login">Sair</a>
+    <a routerLink="/login">Sair</a> -->
+
+    <a mat-button [matMenuTriggerFor]="menu" class="button-menu">
+      <mat-icon>person</mat-icon>
+    </a>
+    <mat-menu style="padding: 0" class="mat-menu" #menu="matMenu">
+      <a class="button-matmenu" mat-menu-item (click)="openFormMyProfile()">Meu Perfil</a>
+      <!-- routerLink="/meu-perfil" routerLinkActive="selected" -->
+      <mat-divider></mat-divider>
+      <a class="button-matmenu" mat-menu-item routerLink="/login">Sair</a>
+    </mat-menu>
   </div>
+
+
+
 </header>
 <main>
   <router-outlet></router-outlet>

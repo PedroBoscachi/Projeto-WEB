@@ -34,6 +34,20 @@ button:hover {
   filter: brightness(0.9);
 }
 
+.snackBar {
+  background-color: #bec6d1;
+}
+
+.snackBar span {
+  color: #004aad;
+  font-weight: bold;
+}
+
+.snackBar button {
+  background-color: #004aad;
+  color: #bec6d1;
+}
+
 .btn-primary {
   padding: 0.7rem;
   border-radius: 5px;
@@ -45,6 +59,30 @@ button:hover {
   background-color: #226917;
 }
 
+.btn-submit {
+  margin-top: 1rem;
+  padding: 0.7rem;
+  border-radius: 5px;
+  border: 0;
+  font-size: 1rem;
+  text-transform: uppercase;
+  font-weight: bold;
+  color: #fff;
+  background-color: #012657;
+  border: #012657 solid 2px !important;
+  cursor: pointer;
+  transition: all ease 0.2s;
+}
+
+.btn-submit:disabled {
+  pointer-events: none;
+  border: gray solid 2px !important;
+  background-color: #bec6d1 !important;
+  color: gray !important;
+  opacity: 0.8;
+}
+
+
 .container {
   max-width: 1440px !important;
   padding: 10px !important;
@@ -53,17 +91,17 @@ button:hover {
 .titulo {
   text-align: center;
   margin: 5vh 0 7vh 0 !important;
-  color: #004AAD;
+  color: #004aad;
   font-size: 2rem !important;
   font-weight: bold;
 }
 
 .editar {
-  background-color: #08C792;
+  background-color: #08c792 !important;
 }
 
 .cancelar {
-  background-color: #B41E2A;
+  background-color: #b41e2a !important;
 }
 
 /* background: linear-gradient(180deg, hsla(202, 93%, 17%, 1) 0%, hsla(183, 82%, 32%, 1) 100%, hsla(256, 83%, 72%, 1) 100%); */
