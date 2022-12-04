@@ -22,7 +22,8 @@ import { MySchedulesComponent } from './pages/my-consultation/my-schedules.compo
 import { MyProfileComponent } from './pages/my-profile/my-profile.component';
 import { NotFoundComponent } from './pages/not-found/not-found.component';
 import { MatCardModule } from '@angular/material/card';
-import {MatDividerModule} from '@angular/material/divider';
+import { MatDividerModule } from '@angular/material/divider';
+import { MatSelectModule } from '@angular/material/select';
 import { CommonModule } from '@angular/common';
 
 export const options: Partial<null | IConfig> | (() => Partial<IConfig>) = null;
@@ -57,6 +58,7 @@ export const options: Partial<null | IConfig> | (() => Partial<IConfig>) = null;
     ReactiveFormsModule,
     NgxMaskModule.forRoot(),
     CommonModule,
+    MatSelectModule,
   ],
   providers: [],
   bootstrap: [AppComponent],
