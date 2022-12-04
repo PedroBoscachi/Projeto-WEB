@@ -10,6 +10,10 @@ html,
 body {
   height: 100%;
   background-color: #ededed;
+  background-image: url("src/assets/images/background-pages.png");
+  background-size: cover;
+  background-position: center;
+  background-repeat: no-repeat;
 }
 body {
   margin: 0;
@@ -65,7 +69,7 @@ button:hover {
 }
 
 .snackBar {
-  background-color: #bec6d1;
+  background-color: #BFD7FF;
 }
 
 .form-wrapper {
@@ -110,7 +114,7 @@ button:hover {
   transition: all ease 0.2s;
 }
 
-.btn-submit:disabled, .button-dialog:disabled {
+.btn-submit:disabled, .button-dialog:disabled, .disabled-btn {
   pointer-events: none;
   border: gray solid 1px !important;
   background-color: #DFDFDF !important;
@@ -118,7 +122,9 @@ button:hover {
 }
 
 .container {
-  max-width: 1440px !important;
+  height: 100% !important;
+  width: 1440px !important;
+  min-width: 1440px !important;
   padding: 10px !important;
 }
 
@@ -130,7 +136,7 @@ button:hover {
   font-weight: bold;
 }
 
-.editar {
+.editar, .save {
   background-color: #08c792 !important;
 }
 

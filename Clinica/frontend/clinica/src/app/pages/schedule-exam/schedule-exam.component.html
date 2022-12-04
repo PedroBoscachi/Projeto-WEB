@@ -1,4 +1,5 @@
 <div class="container">
+  <div class="content">
   <h2 class="titulo">Agendar Consulta</h2>
   <form class="form-wrapper">
     <mat-form-field color="accent">
@@ -78,11 +79,12 @@
       </mat-select>
     </mat-form-field>
     <button
-      [ngClass]="disabledSelect() ? 'disabled-btn' : ''"
-      class="btn-schedule"
+      [ngClass]="disabledSelect() ? 'disabled-btn' : 'save'"
+      mat-raised-button
       (click)="saveConsult()"
     >
       Agendar
     </button>
   </form>
+</div>
 </div>

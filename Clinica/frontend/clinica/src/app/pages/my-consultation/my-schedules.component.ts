@@ -34,6 +34,9 @@ export class MySchedulesComponent implements OnInit {
         this.temp.forEach((element) => {
           this.dados.push(element);
         });
+        if (this.dados.length === 0) {
+          this.show = true
+        }
         console.log(data);
         console.log(this.dados);
         console.log('Deu Certo');
