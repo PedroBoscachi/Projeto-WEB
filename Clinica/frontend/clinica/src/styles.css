@@ -41,7 +41,7 @@ button:hover {
 #cpfInput .mat-form-field-appearance-legacy .mat-form-field-infix {
   pointer-events: none;
   border-radius: 4px;
-  background-color: #80808020 !important;
+  background-color: #DFDFDF !important;
 }
 
 #disable-form mat-form-field span,
@@ -113,7 +113,7 @@ button:hover {
 .btn-submit:disabled, .button-dialog:disabled {
   pointer-events: none;
   border: gray solid 1px !important;
-  background-color: #80808020 !important;
+  background-color: #DFDFDF !important;
   color: gray !important;
 }
 
