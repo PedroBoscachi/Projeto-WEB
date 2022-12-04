@@ -1,6 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { FormBuilder } from '@angular/forms';
 import { IDoctor } from 'src/app/models/Doctor';
+import { ScheduleConsultService } from 'src/app/services/schedule-consult.service';
 
 @Component({
   selector: 'app-schedule-exam',
@@ -131,6 +132,7 @@ export class ScheduleExamComponent implements OnInit {
   ];
 
   selectedSpeciality = '';
+
   selectedDoctor: IDoctor = {
     name: '',
     consultingPrice: 0,
@@ -139,14 +141,14 @@ export class ScheduleExamComponent implements OnInit {
     speciality: '',
   };
   selectedLocal = '';
+
   selectedSchedule = '';
 
-  form = this.fb.group({
-    cpf: [''],
-    password: [''],
-  });
-
-  constructor(private fb: FormBuilder) {}
+  response: any;
+  constructor(
+    private fb: FormBuilder,
+    private scheduleConsult: ScheduleConsultService
+  ) {}
 
   ngOnInit(): void {
     this.selectedSpeciality = '';
@@ -161,9 +163,15 @@ export class ScheduleExamComponent implements OnInit {
     this.selectedSchedule = '';
   }
 
+  formatDate = () => {
+    let day = this.selectedSchedule.slice(0, 2);
+    let month = this.selectedSchedule.slice(3, 5);
+    let year = this.selectedSchedule.slice(6, 10);
+    let hour = this.selectedSchedule.slice(11, 16);
+    return `${month} ${day} ${year} ${hour}`;
+  };
+
   filterDoctorsBySpeciality = (speciality: string, local: string) => {
-    console.log(this.selectedLocal);
-    console.log(this.selectedSpeciality);
     return this.doctors.filter(
       (doctor) => doctor.speciality === speciality && doctor.local === local
     );
@@ -178,5 +186,19 @@ export class ScheduleExamComponent implements OnInit {
   disabledSelect = () => {
     if (this.selectedDoctor && this.selectedLocal) return true;
     return false;
+  };
+
+  saveConsult = () => {
+    const formData = {
+      specialization: this.selectedSpeciality,
+      local: this.selectedLocal,
+      doctor: this.selectedDoctor.name,
+      price: this.selectedDoctor.consultingPrice,
+      date: new Date(this.formatDate()),
+    };
+
+    this.scheduleConsult.scheduleConsult(formData).subscribe((response) => {
+      this.response = response;
+    });
   };
 }

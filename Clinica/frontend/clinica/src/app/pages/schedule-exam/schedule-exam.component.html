@@ -1,6 +1,6 @@
 <div class="container">
-  <h2 class="titulo">Agendar Consultas</h2>
-  <form class="form-wrapper" [formGroup]="form">
+  <h2 class="titulo">Agendar Consulta</h2>
+  <form class="form-wrapper">
     <mat-form-field color="accent">
       <mat-label>Selecione a especialidade</mat-label>
       <mat-select
@@ -77,6 +77,6 @@
         </div>
       </mat-select>
     </mat-form-field>
-    <button class="btn-schedule">Agendar</button>
+    <button class="btn-schedule" (click)="saveConsult()">Agendar</button>
   </form>
 </div>

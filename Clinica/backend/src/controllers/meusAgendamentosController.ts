@@ -38,6 +38,7 @@ router.get("/cadastrados", login, (request, response) => {
 });
 
 router.post("/cadastrar", login, (request, response) => {
+  console.log("bateu");
   const schedulingFormDto: SchedulingFormDTO = request.body;
   let savedScheduling = schedulingService.saveScheduling(schedulingFormDto);
 
