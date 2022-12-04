@@ -1,3 +1,4 @@
+import { UserDTO } from "../dtos/UserDTO";
 import { User } from "../models/User";
 
 const listUsers: User[] = [];
@@ -14,6 +15,21 @@ export class UserRepository {
 
   getUserByCpf(cpf: string): User {
     return listUsers.find((user) => user.cpf === cpf);
+  }
+
+  updateUser(user: User): User {
+    let updatedUser: User = null;
+    listUsers.forEach((existingUser) => {
+      if (existingUser.cpf == user.cpf) {
+        existingUser.name = user.name;
+        existingUser.lastName = user.lastName;
+        existingUser.birthDate = user.birthDate;
+        existingUser.phone = user.phone;
+        existingUser.password = user.password;
+        updatedUser = existingUser;
+      }
+    });
+    return updatedUser;
   }
 
   deleteUser(cpf: string): boolean {

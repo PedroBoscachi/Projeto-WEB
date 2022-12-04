@@ -23,9 +23,9 @@ export class SchedulingRepository {
         existingScheduling.date = scheduling.date;
         existingScheduling.doctor = scheduling.doctor;
         existingScheduling.user = scheduling.user;
-        existingScheduling.nameExam = scheduling.nameExam;
+        existingScheduling.local = scheduling.local;
         existingScheduling.price = scheduling.price;
-        existingScheduling.typeExam = scheduling.typeExam;
+        existingScheduling.specialization = scheduling.specialization;
         return existingScheduling;
       }
     });

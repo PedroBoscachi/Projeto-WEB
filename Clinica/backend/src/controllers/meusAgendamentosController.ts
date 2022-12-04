@@ -21,7 +21,9 @@ const schedulingRepository: SchedulingRepository = new SchedulingRepository();
 
 const userRepository: UserRepository = new UserRepository();
 
-const schedulingValidator: SchedulingValidator = new SchedulingValidator();
+const schedulingValidator: SchedulingValidator = new SchedulingValidator(
+  schedulingRepository
+);
 
 const schedulingService: SchedulingService = new SchedulingService(
   schedulingRepository,
@@ -30,16 +32,16 @@ const schedulingService: SchedulingService = new SchedulingService(
   schedulingValidator
 );
 
-router.get("/cadastrados", login, (request, response) => {
-  let foundListSchedulings = schedulingService.getSchedulings();
+router.post("/cadastrados", login, (request, response) => {
+  let cpf = request.body.cpf;
+  let foundListSchedulings = schedulingService.getSchedulings(cpf);
   return response.json({
     schedulings: foundListSchedulings,
   });
 });
 
 router.post("/cadastrar", login, (request, response) => {
-  console.log("bateu");
-  const schedulingFormDto: SchedulingFormDTO = request.body;
+  const schedulingFormDto: SchedulingFormDTO = request.body.scheduling;
   let savedScheduling = schedulingService.saveScheduling(schedulingFormDto);
 
   return response.json({
@@ -50,7 +52,7 @@ router.post("/cadastrar", login, (request, response) => {
 });
 
 router.put("/editar", login, (request, response) => {
-  const schedulingFormDto: SchedulingFormDTO = request.body;
+  const schedulingFormDto: SchedulingFormDTO = request.body.scheduling;
 
   let updatedScheduling = schedulingService.updateScheduling(schedulingFormDto);
 
@@ -62,7 +64,7 @@ router.put("/editar", login, (request, response) => {
 });
 
 router.delete("/excluir", login, (request, response) => {
-  const id = response.body;
+  const id = request.body.id;
 
   let deleted = schedulingService.deleteScheduling(id);
 

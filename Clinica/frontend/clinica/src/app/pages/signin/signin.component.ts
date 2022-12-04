@@ -1,7 +1,9 @@
 import { Component, OnInit } from '@angular/core';
-import { FormBuilder } from '@angular/forms';
+import { FormBuilder, Validators } from '@angular/forms';
 import { Router } from '@angular/router';
+import { LoginDto } from 'src/app/dtos/loginDto';
 import { SigninService } from 'src/app/services/signin.service';
+import { SnackBarService } from 'src/app/services/snack-bar.service';
 
 @Component({
   selector: 'app-login',
@@ -19,27 +21,40 @@ export class SigninComponent implements OnInit {
   constructor(
     private router: Router,
     private fb: FormBuilder,
-    private signinService: SigninService
+    private signinService: SigninService,
+    private snackBar: SnackBarService
   ) {}
 
   retornado: any;
 
-  user = {
-    cpf: '123',
-    password: 'senha',
-  };
-
-  ngOnInit(): void {}
+  ngOnInit(): void {
+    localStorage.clear();
+  }
 
   goToHome() {
-    //this.router.navigate(['/agendar-exame']);
+    this.router.navigate(['/home/agendar-exame']);
     localStorage.setItem('token', this.retornado.token);
+    localStorage.setItem('cpf', this.loginForm.value.cpf!);
   }
 
   register(): void {
-    this.signinService.signin(this.user).subscribe((data) => {
-      this.retornado = data;
-      this.goToHome();
-    });
+    const login = new LoginDto(
+      this.loginForm.value.cpf as string,
+      this.loginForm.value.password as string
+    );
+
+    console.log(typeof login.cpf);
+    console.log(typeof login.password);
+
+    this.signinService.signin(login).subscribe(
+      (data) => {
+        this.retornado = data;
+        this.goToHome();
+        console.log(this.retornado);
+      },
+      (error) => {
+        this.snackBar.openSnackBar('Falha na autenticação', 'OK');
+      }
+    );
   }
 }

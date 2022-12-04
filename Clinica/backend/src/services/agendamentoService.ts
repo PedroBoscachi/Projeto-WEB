@@ -31,17 +31,23 @@ export class SchedulingService {
     }
   }
 
-  getSchedulings(): SchedulingDTO[] {
-    let schedulingDTOs = this.schedulingRepository
-      .getSchedulings()
-      .map((scheduling) =>
-        this.dtoMapper.schedulingToSchedulingDTO(scheduling)
-      );
-    return schedulingDTOs;
+  getSchedulings(cpf: string): SchedulingDTO[] {
+    let foundUser = this.userRepository.getUserByCpf(cpf);
+    if (foundUser != null) {
+      let schedulingDTOs: SchedulingDTO[] = [];
+      this.schedulingRepository.getSchedulings().forEach((scheduling) => {
+        if (scheduling.user.cpf == cpf) {
+          let teste = this.dtoMapper.schedulingToSchedulingDTO(scheduling);
+          schedulingDTOs.push(teste);
+        }
+      });
+      return schedulingDTOs;
+    }
   }
 
   getSchedulingbyId(id: string): SchedulingDTO {
     let scheduling = this.schedulingRepository.getSchedulingById(id);
+    if (scheduling == null) throw new Error("Agendamento não encontrado");
     return this.dtoMapper.schedulingToSchedulingDTO(scheduling);
   }
 

@@ -1,52 +1,32 @@
 <div class="content">
-  <div class="background-image">
-    <div class="overlay-color">
-      <main>
-        <div class="logo-wrapper">
-          <img id="logo" src="/assets/images/logo.png" alt="imagem da logo" />
-        </div>
-        <h1 id="title">Lapri Care</h1>
-        <h2 id="welcome">Seja bem-vindo!</h2>
-
-        <form class="form-wrapper" [formGroup]="loginForm">
-          <mat-form-field color="accent">
-            <mat-label>CPF</mat-label>
-            <input
-              matInput
-              mask="000.000.000-00"
-              placeholder="Ex. 123.456.789-01"
-              value="cpf"
-              formControlName="cpf"
-            />
-          </mat-form-field>
-
-          <mat-form-field color="accent">
-            <mat-label>Digite sua senha</mat-label>
-            <input
-              matInput
-              [type]="hide ? 'password' : 'text'"
-              formControlName="password"
-            />
-            <button
-              class="btn-show-password"
-              matSuffix
-              (click)="hide = !hide"
-              [attr.aria-label]="'Hide password'"
-              [attr.aria-pressed]="hide"
-            >
-              <mat-icon class="icon">{{
-                hide ? "visibility_off" : "visibility"
-              }}</mat-icon>
-            </button>
-          </mat-form-field>
-          <button class="btn-submit btn-primary btn-login" (click)="goToHome()">
-            Entrar
-          </button>
-        </form>
-        <p class="register-text">
-          Não possui conta? <a routerLink="/cadastro">Cadastre-se!</a>
-        </p>
-      </main>
+  <main>
+    <div class="logo-wrapper">
+      <img id="logo" src="/assets/images/logo.png" alt="imagem da logo" />
     </div>
-  </div>
+    <h1 id="title">Lapri Care</h1>
+    <h2 id="welcome">Seja bem-vindo!</h2>
+
+    <form class="form-wrapper" [formGroup]="loginForm">
+      <mat-form-field color="accent">
+        <mat-label>CPF</mat-label>
+        <input matInput mask="000.000.000-00" placeholder="Ex. 123.456.789-01" value="cpf" formControlName="cpf" />
+      </mat-form-field>
+
+      <mat-form-field color="accent">
+        <mat-label>Digite sua senha</mat-label>
+        <input matInput [type]="hide ? 'password' : 'text'" formControlName="password" />
+        <button class="btn-show-password" matSuffix (click)="hide = !hide" [attr.aria-label]="'Hide password'" [attr.aria-pressed]="hide">
+          <mat-icon class="icon">{{
+            hide ? "visibility_off" : "visibility"
+            }}</mat-icon>
+        </button>
+      </mat-form-field>
+      <button class="btn-submit btn-primary btn-login" (click)="register()" [disabled]="loginForm.invalid">
+        Entrar
+      </button>
+    </form>
+    <p class="register-text">
+      Não possui conta? <a routerLink="/cadastro">Cadastre-se!</a>
+    </p>
+  </main>
 </div>

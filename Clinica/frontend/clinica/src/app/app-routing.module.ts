@@ -7,14 +7,15 @@ import { ScheduleExamComponent } from './pages/schedule-exam/schedule-exam.compo
 import { ResultsComponent } from './pages/results/results.component';
 import { MySchedulesComponent } from './pages/my-consultation/my-schedules.component';
 import { NotFoundComponent } from './pages/not-found/not-found.component';
-import { MyProfileComponent } from './pages/my-profile/my-profile.component';
+import { UsuarioAutenticadoGuard } from './services/guards/usuario-autenticado.guard';
 const routes: Routes = [
-  { path: 'login', component: SigninComponent },
+  { path: '', component: SigninComponent },
   { path: 'cadastro', component: SignupComponent },
 
   {
-    path: '',
+    path: 'home',
     component: MasterComponent,
+    canActivate : [UsuarioAutenticadoGuard],
     children: [
       {
         path: 'agendar-exame',
@@ -27,10 +28,6 @@ const routes: Routes = [
       {
         path: 'meus-agendamentos',
         component: MySchedulesComponent,
-      },
-      {
-        path: 'meu-perfil',
-        component: MyProfileComponent,
       },
       {
         path: 'login',

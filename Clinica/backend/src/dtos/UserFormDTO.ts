@@ -19,6 +19,6 @@ export class UserFormDTO {
     this.cpf = cpf;
     this.phone = phone;
     this.birthDate = birthDate;
-    this.password = password
+    this.password = password;
   }
 }
