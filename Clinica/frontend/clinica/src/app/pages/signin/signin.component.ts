@@ -3,7 +3,7 @@ import { FormBuilder, Validators } from '@angular/forms';
 import { Router } from '@angular/router';
 import { LoginDto } from 'src/app/dtos/loginDto';
 import { SigninService } from 'src/app/services/signin.service';
-import { MatSnackBar } from '@angular/material/snack-bar';
+import { SnackBarService } from 'src/app/services/snack-bar.service';
 
 @Component({
   selector: 'app-login',
@@ -14,15 +14,15 @@ export class SigninComponent implements OnInit {
   hide = true;
 
   loginForm = this.fb.group({
-    cpf: ['', Validators.required],
-    password: ['', Validators.required],
+    cpf: [''],
+    password: [''],
   });
 
   constructor(
     private router: Router,
     private fb: FormBuilder,
     private signinService: SigninService,
-    private snackBar: MatSnackBar
+    private snackBar: SnackBarService
   ) {}
 
   retornado: any;
@@ -34,6 +34,7 @@ export class SigninComponent implements OnInit {
   goToHome() {
     this.router.navigate(['/home/agendar-exame']);
     localStorage.setItem('token', this.retornado.token);
+    localStorage.setItem('cpf', this.loginForm.value.cpf!);
   }
 
   register(): void {
@@ -52,17 +53,8 @@ export class SigninComponent implements OnInit {
         console.log(this.retornado);
       },
       (error) => {
-        this.openSnackBar('Falha na autenticação');
+        this.snackBar.openSnackBar('Falha na autenticação', 'OK');
       }
     );
-  }
-
-  openSnackBar(message: string) {
-    this.snackBar.open(message, 'OK', {
-      duration: 5000,
-      panelClass: ['snackBar'],
-      horizontalPosition: 'right',
-      verticalPosition: 'top',
-    });
   }
 }

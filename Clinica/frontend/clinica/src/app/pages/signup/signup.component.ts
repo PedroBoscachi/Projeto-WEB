@@ -3,8 +3,8 @@ import { Component, OnInit } from '@angular/core';
 import { FormBuilder, Validators } from '@angular/forms';
 import { User } from 'src/app/models/user';
 import { SignupService } from 'src/app/services/signup.service';
-import { MatSnackBar } from '@angular/material/snack-bar';
 import { Router } from '@angular/router';
+import { SnackBarService } from 'src/app/services/snack-bar.service';
 
 @Component({
   selector: 'app-signup',
@@ -31,7 +31,7 @@ export class SignupComponent implements OnInit {
     private router: Router,
     private signupService: SignupService,
     private fb: FormBuilder,
-    private snackBar: MatSnackBar
+    private snackBar: SnackBarService
   ) {}
 
   ngOnInit(): void {}
@@ -51,7 +51,7 @@ export class SignupComponent implements OnInit {
     if (
       this.signupForm.value.password !== this.signupForm.value.confirmPassword
     ) {
-      this.openSnackBar('Erro! Senhas diferentes!');
+      this.snackBar.openSnackBar('Erro! Senhas diferentes!', 'OK');
     } else {
       this.signupService.signup(user).subscribe((data) => {
         this.valores = data;
@@ -60,17 +60,8 @@ export class SignupComponent implements OnInit {
           console.log('É uma data');
         }
       });
-      this.openSnackBar('Cadastrado com sucesso!');
+      this.snackBar.openSnackBar('Cadastrado com sucesso!', 'OK');
       this.router.navigate(['/']);
     }
-  }
-
-  openSnackBar(message: string) {
-    this.snackBar.open(message, 'OK', {
-      duration: 5000,
-      panelClass: ['snackBar'],
-      horizontalPosition: 'right',
-      verticalPosition: 'top',
-    });
   }
 }

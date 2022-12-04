@@ -32,7 +32,7 @@ const userService: UserService = new UserService(
   userValidator
 );
 
-router.get("/meu-perfil", login, (request, response) => {
+router.post("/meu-perfil", login, (request, response) => {
   let foundUser = userService.getMyProfilebyCpf(request.body.cpf);
 
   return response.json({

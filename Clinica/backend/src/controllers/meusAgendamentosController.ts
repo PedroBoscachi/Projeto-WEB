@@ -30,7 +30,7 @@ const schedulingService: SchedulingService = new SchedulingService(
   schedulingValidator
 );
 
-router.get("/cadastrados", login, (request, response) => {
+router.post("/cadastrados", login, (request, response) => {
   let foundListSchedulings = schedulingService.getSchedulings();
   return response.json({
     schedulings: foundListSchedulings,
