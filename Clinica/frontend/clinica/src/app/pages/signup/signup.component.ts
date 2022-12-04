@@ -71,6 +71,8 @@ export class SignupComponent implements OnInit {
     this.snackBar.open(message, 'OK', {
       duration: 5000,
       panelClass: ['snackBar'],
+      horizontalPosition: 'right',
+      verticalPosition: 'top',
     });
   }
 }

@@ -3,6 +3,7 @@ import { FormBuilder, Validators } from '@angular/forms';
 import { Router } from '@angular/router';
 import { LoginDto } from 'src/app/dtos/loginDto';
 import { SigninService } from 'src/app/services/signin.service';
+import { MatSnackBar } from '@angular/material/snack-bar';
 
 @Component({
   selector: 'app-login',
@@ -20,7 +21,8 @@ export class SigninComponent implements OnInit {
   constructor(
     private router: Router,
     private fb: FormBuilder,
-    private signinService: SigninService
+    private signinService: SigninService,
+    private snackBar: MatSnackBar
   ) {}
 
   retornado: any;
@@ -41,10 +43,24 @@ export class SigninComponent implements OnInit {
     console.log(typeof login.cpf);
     console.log(typeof login.password);
 
-    this.signinService.signin(login).subscribe((data) => {
-      this.retornado = data;
-      this.goToHome();
-      console.log(this.retornado);
+    this.signinService.signin(login).subscribe(
+      (data) => {
+        this.retornado = data;
+        this.goToHome();
+        console.log(this.retornado);
+      },
+      (error) => {
+        this.openSnackBar('Falha na autenticação');
+      }
+    );
+  }
+
+  openSnackBar(message: string) {
+    this.snackBar.open(message, 'OK', {
+      duration: 5000,
+      panelClass: ['snackBar'],
+      horizontalPosition: 'right',
+      verticalPosition: 'top',
     });
   }
 }

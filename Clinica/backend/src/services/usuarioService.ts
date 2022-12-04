@@ -14,11 +14,11 @@ export class UserService {
   ) {}
 
   saveUser(userFormDTO: UserFormDTO): UserDTO {
-    if(this.validator.validateForm(userFormDTO)){
+    if (this.validator.validateForm(userFormDTO)) {
       let user = this.dtoMapper.userFormDTOToUser(userFormDTO);
       let savedUsers = this.userRepository.saveUser(user);
       return this.dtoMapper.userToUserDTO(savedUsers);
-    }else{
+    } else {
       throw new Error("Usuário Inválido!");
     }
   }
@@ -32,6 +32,7 @@ export class UserService {
 
   getUserbyCpf(cpf: string): UserFormDTO {
     let user = this.userRepository.getUserByCpf(cpf);
+    if (user == null) throw new Error("Falha na autenticação");
     return this.dtoMapper.userToUserFormDTO(user);
   }
 
