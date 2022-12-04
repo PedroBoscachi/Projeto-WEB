@@ -22,7 +22,9 @@ export class SchedulingService {
         schedulingFormDTO,
         userDto
       );
-      return this.dtoMapper.schedulingToSchedulingDTO(this.schedulingRepository.saveScheduling(scheduling));
+      return this.dtoMapper.schedulingToSchedulingDTO(
+        this.schedulingRepository.saveScheduling(scheduling)
+      );
     } else {
       throw new Error("Agendamento Inválido!");
     }
@@ -39,6 +41,7 @@ export class SchedulingService {
 
   getSchedulingbyId(id: string): SchedulingDTO {
     let scheduling = this.schedulingRepository.getSchedulingById(id);
+    if (scheduling == null) throw new Error("Agendamento não encontrado");
     return this.dtoMapper.schedulingToSchedulingDTO(scheduling);
   }
 
