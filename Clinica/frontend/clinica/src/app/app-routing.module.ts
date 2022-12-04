@@ -8,11 +8,11 @@ import { ResultsComponent } from './pages/results/results.component';
 import { MySchedulesComponent } from './pages/my-consultation/my-schedules.component';
 import { NotFoundComponent } from './pages/not-found/not-found.component';
 const routes: Routes = [
-  { path: 'login', component: SigninComponent },
+  { path: '', component: SigninComponent },
   { path: 'cadastro', component: SignupComponent },
 
   {
-    path: '',
+    path: 'home',
     component: MasterComponent,
     children: [
       {

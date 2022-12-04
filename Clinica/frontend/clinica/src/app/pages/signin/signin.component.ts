@@ -30,7 +30,7 @@ export class SigninComponent implements OnInit {
   ngOnInit(): void {}
 
   goToHome() {
-    this.router.navigate(['/agendar-exame']);
+    this.router.navigate(['/home/agendar-exame']);
     localStorage.setItem('token', this.retornado.token);
   }
 
