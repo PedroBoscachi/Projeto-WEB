@@ -6,6 +6,7 @@ import { UserFormDTO } from "../dtos/UserFormDTO";
 import { UsersValidator } from "../validators/UsersValidator";
 import { response } from "express";
 import { UserUpdateDTO } from "../dtos/UserUpdateDTO";
+import bcrypt = require("bcrypt");
 
 export class UserService {
   constructor(
@@ -47,9 +48,20 @@ export class UserService {
     return this.userRepository.deleteUser(cpf);
   }
 
-  updateUser(userDTO: UserDTO): UserDTO {
-    let newUser = this.userRepository.updateUser(userDTO);
-    if (newUser == null) throw new Error("Falha na atualização de usuário");
-    return this.dtoMapper.userToUserDTO(newUser);
+  updateUser(user: User): User {
+    bcrypt.hash(user.password, 10, (errorBcrypt, hash) => {
+      if (errorBcrypt) {
+        return response.status(500).send({
+          error: errorBcrypt,
+        });
+      }
+
+      user.password = hash;
+
+      let newUser = this.userRepository.updateUser(user);
+      if (newUser == null) throw new Error("Falha na atualização de usuário");
+      return newUser;
+    });
+    return null;
   }
 }

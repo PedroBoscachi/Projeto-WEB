@@ -11,7 +11,7 @@ constructor(
   private dialog: MatDialog
 ) { }
 
-openForm(message: string, params?: any) {
+openForm(message?: string, params?: any) {
   return this.dialog
     .open(DialogMyProfileComponent, {
       data: { message, params },

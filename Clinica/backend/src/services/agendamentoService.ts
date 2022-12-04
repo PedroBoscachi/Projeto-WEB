@@ -15,6 +15,7 @@ export class SchedulingService {
 
   saveScheduling(schedulingFormDTO: SchedulingFormDTO): SchedulingDTO {
     console.log(schedulingFormDTO);
+    console.log("bateu");
     if (this.validator.validateForm(schedulingFormDTO)) {
       let foundUser = this.userRepository.getUserByCpf(schedulingFormDTO.user);
       const userDto = this.dtoMapper.userToUserFormDTO(foundUser);
@@ -30,13 +31,18 @@ export class SchedulingService {
     }
   }
 
-  getSchedulings(): SchedulingDTO[] {
-    let schedulingDTOs = this.schedulingRepository
-      .getSchedulings()
-      .map((scheduling) =>
-        this.dtoMapper.schedulingToSchedulingDTO(scheduling)
-      );
-    return schedulingDTOs;
+  getSchedulings(cpf: string): SchedulingDTO[] {
+    let foundUser = this.userRepository.getUserByCpf(cpf);
+    if (foundUser != null) {
+      let schedulingDTOs: SchedulingDTO[] = [];
+      this.schedulingRepository.getSchedulings().forEach((scheduling) => {
+        if (scheduling.user.cpf == cpf) {
+          let teste = this.dtoMapper.schedulingToSchedulingDTO(scheduling);
+          schedulingDTOs.push(teste);
+        }
+      });
+      return schedulingDTOs;
+    }
   }
 
   getSchedulingbyId(id: string): SchedulingDTO {

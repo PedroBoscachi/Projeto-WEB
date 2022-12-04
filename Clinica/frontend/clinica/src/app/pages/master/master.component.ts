@@ -15,6 +15,6 @@ export class MasterComponent implements OnInit {
   }
 
   openFormMyProfile() {
-    this.dialog.openForm('teste');
+    this.dialog.openForm();
   }
 }

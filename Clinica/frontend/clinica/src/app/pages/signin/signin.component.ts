@@ -43,9 +43,6 @@ export class SigninComponent implements OnInit {
       this.loginForm.value.password as string
     );
 
-    console.log(typeof login.cpf);
-    console.log(typeof login.password);
-
     this.signinService.signin(login).subscribe(
       (data) => {
         this.retornado = data;

@@ -21,7 +21,9 @@ const schedulingRepository: SchedulingRepository = new SchedulingRepository();
 
 const userRepository: UserRepository = new UserRepository();
 
-const schedulingValidator: SchedulingValidator = new SchedulingValidator(schedulingRepository);
+const schedulingValidator: SchedulingValidator = new SchedulingValidator(
+  schedulingRepository
+);
 
 const schedulingService: SchedulingService = new SchedulingService(
   schedulingRepository,
@@ -31,7 +33,8 @@ const schedulingService: SchedulingService = new SchedulingService(
 );
 
 router.post("/cadastrados", login, (request, response) => {
-  let foundListSchedulings = schedulingService.getSchedulings();
+  let cpf = request.body.cpf;
+  let foundListSchedulings = schedulingService.getSchedulings(cpf);
   return response.json({
     schedulings: foundListSchedulings,
   });
