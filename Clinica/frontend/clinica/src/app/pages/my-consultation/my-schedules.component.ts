@@ -10,6 +10,7 @@ import { MySchedulingsService } from 'src/app/services/my-schedulings.service';
   styleUrls: ['./my-schedules.component.css'],
 })
 export class MySchedulesComponent implements OnInit {
+  show = false;
   constructor(
     private myScheduling: MySchedulingsService,
     private myDialogScheduling: DialogSchedulingService
