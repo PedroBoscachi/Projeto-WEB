@@ -2,6 +2,7 @@ import { Component, OnInit } from '@angular/core';
 import { FormBuilder } from '@angular/forms';
 import { IDoctor } from 'src/app/models/Doctor';
 import { ScheduleConsultService } from 'src/app/services/schedule-consult.service';
+import { SnackBarService } from 'src/app/services/snack-bar.service';
 
 @Component({
   selector: 'app-schedule-exam',
@@ -147,10 +148,10 @@ export class ScheduleExamComponent implements OnInit {
   response: any;
   constructor(
     private fb: FormBuilder,
-    private scheduleConsult: ScheduleConsultService
+    private scheduleConsult: ScheduleConsultService,
+    private snackBar: SnackBarService
   ) {}
-
-  ngOnInit(): void {
+  resetData = () => {
     this.selectedSpeciality = '';
     this.selectedDoctor = {
       name: '',
@@ -161,6 +162,9 @@ export class ScheduleExamComponent implements OnInit {
     };
     this.selectedLocal = '';
     this.selectedSchedule = '';
+  };
+  ngOnInit(): void {
+    this.resetData();
   }
 
   formatDate = () => {
@@ -184,21 +188,41 @@ export class ScheduleExamComponent implements OnInit {
   };
 
   disabledSelect = () => {
-    if (this.selectedDoctor && this.selectedLocal) return true;
+    if (
+      this.selectedDoctor.name == '' ||
+      !this.selectedLocal ||
+      !this.selectedSchedule ||
+      !this.selectedSpeciality
+    ) {
+      return true;
+    }
     return false;
   };
 
   saveConsult = () => {
     const formData = {
-      specialization: this.selectedSpeciality,
-      local: this.selectedLocal,
-      doctor: this.selectedDoctor.name,
-      price: this.selectedDoctor.consultingPrice,
-      date: new Date(this.formatDate()),
+      scheduling: {
+        id: '',
+        specialization: this.selectedSpeciality,
+        local: this.selectedLocal,
+        doctor: this.selectedDoctor.name,
+        price: this.selectedDoctor.consultingPrice,
+        date: new Date(this.formatDate()),
+        user: localStorage.getItem('cpf'),
+      },
+      token: localStorage.getItem('token'),
     };
 
-    this.scheduleConsult.scheduleConsult(formData).subscribe((response) => {
-      this.response = response;
-    });
+    this.scheduleConsult.scheduleConsult(formData).subscribe(
+      (response) => {
+        this.response = response;
+        this.snackBar.openSnackBar('Consulta agendada com sucesso!', 'Ok');
+        this.resetData();
+      },
+      (error) => {
+        console.log(error);
+        this.snackBar.openSnackBar(error, 'Ok');
+      }
+    );
   };
 }

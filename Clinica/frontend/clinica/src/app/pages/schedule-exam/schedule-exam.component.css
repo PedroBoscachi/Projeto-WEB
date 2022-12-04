@@ -47,3 +47,9 @@ optgroup {
   border-radius: 5px;
   text-transform: uppercase;
 }
+
+.disabled-btn {
+  opacity: 0.6;
+  pointer-events: none;
+  cursor: default;
+}

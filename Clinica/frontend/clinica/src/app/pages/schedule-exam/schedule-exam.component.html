@@ -77,6 +77,12 @@
         </div>
       </mat-select>
     </mat-form-field>
-    <button class="btn-schedule" (click)="saveConsult()">Agendar</button>
+    <button
+      [ngClass]="disabledSelect() ? 'disabled-btn' : ''"
+      class="btn-schedule"
+      (click)="saveConsult()"
+    >
+      Agendar
+    </button>
   </form>
 </div>
