@@ -4,3 +4,52 @@ span {
   font-size: 2rem;
   margin-top: 2rem;
 }
+
+.form-wrapper {
+  display: flex;
+  flex-direction: column;
+  background-color: #004aad;
+  padding: 1.5rem;
+  border-radius: 10px;
+  width: clamp(300px, 80vw + 1rem, 500px);
+}
+
+input,
+label,
+select,
+option,
+optgroup {
+  color: #004aad !important;
+  font-size: 1rem !important;
+  border-bottom-color: #004aad !important;
+}
+.mat-form-field-infix {
+  color: #004aad !important;
+  font-size: 1rem !important;
+  border-bottom-color: #004aad !important;
+}
+
+.disabled {
+  opacity: 0.2;
+}
+
+.active {
+  opacity: 1;
+}
+
+.btn-schedule {
+  padding: 0.7rem 1.2rem;
+  min-height: 30px;
+  background-color: #d9d9d9;
+  font-weight: bold;
+  border: 0;
+  color: #004aad;
+  border-radius: 5px;
+  text-transform: uppercase;
+}
+
+.disabled-btn {
+  opacity: 0.6;
+  pointer-events: none;
+  cursor: default;
+}

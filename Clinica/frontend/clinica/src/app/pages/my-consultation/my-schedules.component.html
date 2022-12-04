@@ -1,39 +1,62 @@
 <div class="container">
   <h2 class="titulo">Minhas Consultas</h2>
+  <div *ngIf="!show" class="lds-heart loading"></div>
+  <div *ngIf="!show" class="lds-heart"><div></div></div>
 
   <div class="consultations">
     <div *ngFor="let scheduling of dados; index as i">
       <div class="card">
-      <div>
-        <h3><b>{{scheduling.doctor}}</b></h3>
-        <mat-divider></mat-divider>
-        <p><b>Local:</b>{{scheduling.local}}</p>
-        <!-- <p><b>Data:</b>{{scheduling.date}}</p>
+        <div>
+          <h3>
+            <b>{{ scheduling.doctor }}</b>
+          </h3>
+          <mat-divider></mat-divider>
+          <p><b>Local:</b>{{ scheduling.local }}</p>
+          <!-- <p><b>Data:</b>{{scheduling.date}}</p>
         <p><b>Horário:</b>{{scheduling.date?.getHours()}}</p> -->
-      </div>
-      <div>
-        <mat-divider></mat-divider>
-        <div class="buttons">
-          <button class="button-card editar" (click)="editScheduling()" mat-raised-button>Editar</button>
-          <button class="button-card cancelar" mat-raised-button>Cancelar</button>
+        </div>
+        <div>
+          <mat-divider></mat-divider>
+          <div class="buttons">
+            <button
+              class="button-card editar"
+              (click)="editScheduling()"
+              mat-raised-button
+            >
+              Editar
+            </button>
+            <button class="button-card cancelar" mat-raised-button>
+              Cancelar
+            </button>
+          </div>
         </div>
       </div>
-    </div>
     </div>
 
     <div class="card">
       <div>
         <h3><b>Médico, Especialidade</b></h3>
         <mat-divider></mat-divider>
-        <p #valor><b>Local:</b> Lorem, ipsum dolor sit amet consectetur adipisicing elit.</p>
+        <p #valor>
+          <b>Local:</b> Lorem, ipsum dolor sit amet consectetur adipisicing
+          elit.
+        </p>
         <p><b>Data:</b> 00/00/0000</p>
         <p><b>Horário:</b> 13:30</p>
       </div>
       <div>
         <mat-divider></mat-divider>
         <div class="buttons">
-          <button class="button-card editar" (click)="editScheduling()" mat-raised-button>Editar</button>
-          <button class="button-card cancelar" mat-raised-button>Cancelar</button>
+          <button
+            class="button-card editar"
+            (click)="editScheduling()"
+            mat-raised-button
+          >
+            Editar
+          </button>
+          <button class="button-card cancelar" mat-raised-button>
+            Cancelar
+          </button>
         </div>
       </div>
     </div>
@@ -42,41 +65,10 @@
       <div>
         <h3><b>Médico, Especialidade</b></h3>
         <mat-divider></mat-divider>
-        <p><b>Local:</b> Lorem, ipsum dolor sit amet consectetur adipisicing elit.</p>
-        <p><b>Data:</b> 00/00/0000</p>
-        <p><b>Horário:</b> 13:30</p>
-      </div>
-      <div>
-        <mat-divider></mat-divider>
-        <div class="buttons">
-          <button class="button-card editar" mat-raised-button>Editar</button>
-          <button class="button-card cancelar" mat-raised-button>Cancelar</button>
-        </div>
-      </div>
-    </div>
-
-    <div class="card">
-      <div>
-        <h3><b>Médico, Especialidade</b></h3>
-        <mat-divider></mat-divider>
-        <p><b>Local:</b> Lorem, ipsum dolor sit amet consectetur adipisicing elit.</p>
-        <p><b>Data:</b> 00/00/0000</p>
-        <p><b>Horário:</b> 13:30</p>
-      </div>
-      <div>
-        <mat-divider></mat-divider>
-        <div class="buttons">
-          <button class="button-card editar" mat-raised-button>Editar</button>
-          <button class="button-card cancelar" mat-raised-button>Cancelar</button>
-        </div>
-      </div>
-    </div>
-
-    <div class="card">
-      <div>
-        <h3><b>Médico, Especialidade</b></h3>
-        <mat-divider></mat-divider>
-        <p><b>Local:</b> Lorem, ipsum dolor sit amet consectetur adipisicing elit.</p>
+        <p>
+          <b>Local:</b> Lorem, ipsum dolor sit amet consectetur adipisicing
+          elit.
+        </p>
         <p><b>Data:</b> 00/00/0000</p>
         <p><b>Horário:</b> 13:30</p>
       </div>
@@ -84,10 +76,55 @@
         <mat-divider></mat-divider>
         <div class="buttons">
           <button class="button-card editar" mat-raised-button>Editar</button>
-          <button class="button-card cancelar" mat-raised-button>Cancelar</button>
+          <button class="button-card cancelar" mat-raised-button>
+            Cancelar
+          </button>
         </div>
       </div>
     </div>
 
+    <div class="card">
+      <div>
+        <h3><b>Médico, Especialidade</b></h3>
+        <mat-divider></mat-divider>
+        <p>
+          <b>Local:</b> Lorem, ipsum dolor sit amet consectetur adipisicing
+          elit.
+        </p>
+        <p><b>Data:</b> 00/00/0000</p>
+        <p><b>Horário:</b> 13:30</p>
+      </div>
+      <div>
+        <mat-divider></mat-divider>
+        <div class="buttons">
+          <button class="button-card editar" mat-raised-button>Editar</button>
+          <button class="button-card cancelar" mat-raised-button>
+            Cancelar
+          </button>
+        </div>
+      </div>
+    </div>
+
+    <div class="card">
+      <div>
+        <h3><b>Médico, Especialidade</b></h3>
+        <mat-divider></mat-divider>
+        <p>
+          <b>Local:</b> Lorem, ipsum dolor sit amet consectetur adipisicing
+          elit.
+        </p>
+        <p><b>Data:</b> 00/00/0000</p>
+        <p><b>Horário:</b> 13:30</p>
+      </div>
+      <div>
+        <mat-divider></mat-divider>
+        <div class="buttons">
+          <button class="button-card editar" mat-raised-button>Editar</button>
+          <button class="button-card cancelar" mat-raised-button>
+            Cancelar
+          </button>
+        </div>
+      </div>
+    </div>
   </div>
 </div>
