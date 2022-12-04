@@ -63,7 +63,7 @@ export class SignupComponent implements OnInit {
         }
       });
       this.openSnackBar('Cadastrado com sucesso!');
-      this.router.navigate(['/login']);
+      this.router.navigate(['/']);
     }
   }
 

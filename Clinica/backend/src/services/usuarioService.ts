@@ -36,6 +36,12 @@ export class UserService {
     return this.dtoMapper.userToUserFormDTO(user);
   }
 
+  getMyProfilebyCpf(cpf: string): UserDTO {
+    let user = this.userRepository.getUserByCpf(cpf);
+    if (user == null) throw new Error("Falha na autenticação");
+    return this.dtoMapper.userToUserDTO(user);
+  }
+
   deleteUser(cpf: string): boolean {
     return this.userRepository.deleteUser(cpf);
   }

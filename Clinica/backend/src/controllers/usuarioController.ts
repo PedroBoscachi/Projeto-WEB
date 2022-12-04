@@ -1,81 +1,44 @@
-// import { UsuarioRepository } from "./../repositories/usuarioRepository";
-// import { UsuarioService } from "../services/usuarioService";
-// import { DTOMapper } from "../helpers/DTOMapper";
-// import { UsuarioDTO } from "../dtos/UserDTO";
-// import { Usuario } from "../models/User";
+import { UserRepository } from "./../repositories/usuarioRepository";
+import { User } from "../models/User";
+import { SchedulingFormDTO } from "../dtos/SchedulingFormDTO";
+import { SchedulingRepository } from "./../repositories/agendamentoRepository";
+import { SchedulingService } from "../services/agendamentoService";
+import { DTOMapper } from "../helpers/DTOMapper";
+import { SchedulingDTO } from "../dtos/SchedulingDTO";
+import bcrypt = require("bcrypt");
+import jwt = require("jsonwebtoken");
+import { SchedulingValidator } from "../validators/SchedulingValidator";
+import { UserService } from "../services/usuarioService";
+import { UsersValidator } from "../validators/UsersValidator";
 
-// const express = require("express");
+const login = require("../middlewares/login");
 
-// const router = express.Router();
+const express = require("express");
 
-// const listUsers: Usuario[] = [];
+const router = express.Router();
 
-// const dtoMapper: DTOMapper = new DTOMapper();
+const dtoMapper: DTOMapper = new DTOMapper();
 
-// const usuarioRepository: UsuarioRepository = new UsuarioRepository();
+const schedulingRepository: SchedulingRepository = new SchedulingRepository();
 
-// const usuarioService: UsuarioService = new UsuarioService(
-//   usuarioRepository,
-//   dtoMapper
-// );
+const userRepository: UserRepository = new UserRepository();
 
-// router.get("/cadastrados", (request, response) => {
-//   let foundListUsers = usuarioService.getUsers();
-//   return response.json({
-//     data: foundListUsers,
-//   });
-// });
+const userValidator: UsersValidator = new UsersValidator();
 
-// router.post("/cadastrar", (request, response) => {
-//   const userDto: UsuarioDTO = request.body;
-//   let savedUser = usuarioService.saveUser(userDto);
+const userService: UserService = new UserService(
+  userRepository,
+  dtoMapper,
+  userValidator
+);
 
-//   return response.json({
-//     error: false,
-//     message: "Cadastrado com sucesso",
-//     usuarios: savedUser,
-//   });
-// });
+router.get("/meu-perfil", login, (request, response) => {
+  let foundUser = userService.getMyProfilebyCpf(request.body.cpf);
 
-// router.put("/editar", (request, response) => {
-//   const userDto: UsuarioDTO = request.body;
+  return response.json({
+    error: false,
+    message: "Usuário encontrado com sucesso",
+    user: foundUser,
+  });
+});
 
-//   let user: Usuario;
-
-//   listUsers.forEach((existingUser) => {
-//     if (existingUser.cpf == userDto.cpf) user = existingUser;
-//   });
-
-//   user.nome = userDto.nome;
-//   user.sobrenome = userDto.sobrenome;
-//   user.telefone = userDto.telefone;
-//   user.dataNascimento = userDto.dataNascimento;
-
-//   return response.json({
-//     error: false,
-//     message: "Usuário editado com sucesso",
-//     usuario: user,
-//   });
-// });
-
-// router.delete("/excluir", (request, response) => {
-//   const cpf = response.body;
-
-//   deleteUser(cpf);
-
-//   return response.json({
-//     error: false,
-//     message: "Usuário deletado com sucesso",
-//     usuario: listUsers,
-//   });
-// });
-
-// function deleteUser(cpf: string) {
-//   if (listUsers.length === 0) return null;
-
-//   listUsers.forEach((user, index) => {
-//     if (user.cpf === cpf) listUsers.splice(index, 1);
-//   });
-// }
-
-// module.exports = router;
+module.exports = router;
