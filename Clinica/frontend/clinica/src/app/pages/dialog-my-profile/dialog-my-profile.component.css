@@ -20,17 +20,12 @@
   width: 100%;
 }
 
-.form-wrapper {
-  display: flex;
-  flex-direction: column;
-  width: 100%;
-}
-
 .btn-show-password {
   background-color: transparent;
   box-shadow: 0;
   border: 0;
 }
+
 
 input,
 label {
