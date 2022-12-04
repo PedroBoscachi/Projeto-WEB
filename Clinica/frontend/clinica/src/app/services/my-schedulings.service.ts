@@ -8,16 +8,16 @@ import { environment } from 'src/environments/environment';
 })
 export class MySchedulingsService {
 
-  url = environment.apiURL + '/agendamento/';
+  url = environment.apiURL + '/agendamento';
 
   constructor(private http : HttpClient) { }
 
   getSchedulings(token : string, cpf : string) : Observable<any>{
-    return this.http.post<any>(`${this.url} + cadastrados`, {token, cpf});
+    return this.http.post<any>(`${this.url}/cadastrados`, {token, cpf});
   }
 
-  // deleteScheduling(id : string) : Observable<any>{
-  //   return this.http.delete<any>(`${this.url} + excluir`, id);
-  // }
+  deleteScheduling(id : string, token : string) : Observable<any>{
+    return this.http.post<any>(`${this.url}/excluir`, {id, token});
+  }
 
 }

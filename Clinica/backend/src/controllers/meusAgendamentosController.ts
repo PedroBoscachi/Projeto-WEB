@@ -61,7 +61,7 @@ router.put("/editar", login, (request, response) => {
   });
 });
 
-router.delete("/excluir", login, (request, response) => {
+router.post("/excluir", login, (request, response) => {
   const id = request.body.id;
 
   let deleted = schedulingService.deleteScheduling(id);

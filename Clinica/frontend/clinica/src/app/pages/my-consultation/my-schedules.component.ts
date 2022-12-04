@@ -1,8 +1,9 @@
-import { validateHorizontalPosition } from '@angular/cdk/overlay';
 import { Component, OnInit } from '@angular/core';
 import { Scheduling } from 'src/app/models/scheduling';
 import { DialogSchedulingService } from 'src/app/services/dialog-scheduling.service';
 import { MySchedulingsService } from 'src/app/services/my-schedulings.service';
+import { Location } from '@angular/common';
+import { Router } from '@angular/router';
 
 @Component({
   selector: 'app-my-schedules',
@@ -11,7 +12,7 @@ import { MySchedulingsService } from 'src/app/services/my-schedulings.service';
 })
 export class MySchedulesComponent implements OnInit {
 
-  constructor(private myScheduling : MySchedulingsService, private myDialogScheduling : DialogSchedulingService) { }
+  constructor(private myScheduling : MySchedulingsService, private myDialogScheduling : DialogSchedulingService, private router : Router) { }
 
   ngOnInit(): void {
     this.getSchedulings();
@@ -44,7 +45,17 @@ export class MySchedulesComponent implements OnInit {
     this.myDialogScheduling.openForm();
   }
 
-  deleteScheduling(){
+  recarregar(){
+    window.location.reload();
+  }
 
+  deleteScheduling(id : string){
+    this.myScheduling.deleteScheduling(id, this.token!).subscribe(
+      (data) =>{
+        console.log(data);
+        this.recarregar();
+        this.router.navigate(['/home/meus-agendamentos']);
+      }
+    )
   }
 }
