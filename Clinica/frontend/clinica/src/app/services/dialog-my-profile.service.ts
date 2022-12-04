@@ -22,5 +22,4 @@ openForm(message?: string, params?: any) {
     })
     .afterClosed();
 }
-
 }

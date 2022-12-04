@@ -7,7 +7,7 @@ import { environment } from 'src/environments/environment';
   providedIn: 'root',
 })
 export class MyProfileService {
-  url = environment.apiURL + '/usuario/meu-perfil';
+  url = environment.apiURL + '/usuario';
 
   constructor(private http: HttpClient) {}
 
@@ -16,6 +16,15 @@ export class MyProfileService {
       token: localStorage.getItem('token'),
       cpf: localStorage.getItem('cpf')
     };
-    return this.http.post<any>(this.url, body);
+    return this.http.post<any>(this.url+'/meu-perfil', body);
+  }
+
+  updateUser(user:Object): Observable<any>{
+    let body = {
+      user: user,
+      token: localStorage.getItem('token')
+    };
+
+    return this.http.put<any>(this.url+'/editar', body);
   }
 }

@@ -15,6 +15,7 @@ export class SchedulingService {
 
   saveScheduling(schedulingFormDTO: SchedulingFormDTO): SchedulingDTO {
     console.log(schedulingFormDTO);
+    console.log("bateu");
     if (this.validator.validateForm(schedulingFormDTO)) {
       let foundUser = this.userRepository.getUserByCpf(schedulingFormDTO.user);
       const userDto = this.dtoMapper.userToUserFormDTO(foundUser);

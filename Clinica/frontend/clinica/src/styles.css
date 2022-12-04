@@ -4,7 +4,6 @@
   margin: 0;
   box-sizing: border-box;
   font-family: "Roboto", sans-serif;
-  color: #fff;
 }
 
 html,
@@ -34,8 +33,45 @@ button:hover {
   filter: brightness(0.9);
 }
 
+.input-form {
+  width: 100%;
+}
+
+#disable-form .mat-form-field-appearance-legacy .mat-form-field-infix,
+#cpfInput .mat-form-field-appearance-legacy .mat-form-field-infix {
+  pointer-events: none;
+  border-radius: 4px;
+  background-color: #80808020 !important;
+}
+
+#disable-form mat-form-field span,
+#disable-form input, #disable-form mat-label,
+#cpfInput input, #cpfInput mat-label {
+  color: gray !important;
+}
+
+#disable-form .mat-form-field-underline,
+#cpfInput .mat-form-field-underline {
+  background-color: gray !important ;
+}
+
+#disable-form .mat-form-field-ripple,
+#cpfInput .mat-form-field-ripple {
+  background-color: #80808020 !important ;
+}
+
+#no-disable-form mat-form-field span {
+  color: #004AAD !important;
+}
+
 .snackBar {
   background-color: #bec6d1;
+}
+
+.form-wrapper {
+  display: flex;
+  flex-direction: column;
+  width: 100%;
 }
 
 .snackBar span {
@@ -74,14 +110,12 @@ button:hover {
   transition: all ease 0.2s;
 }
 
-.btn-submit:disabled {
+.btn-submit:disabled, .button-dialog:disabled {
   pointer-events: none;
-  border: gray solid 2px !important;
-  background-color: #bec6d1 !important;
+  border: gray solid 1px !important;
+  background-color: #80808020 !important;
   color: gray !important;
-  opacity: 0.8;
 }
-
 
 .container {
   max-width: 1440px !important;
@@ -103,5 +137,3 @@ button:hover {
 .cancelar {
   background-color: #b41e2a !important;
 }
-
-/* background: linear-gradient(180deg, hsla(202, 93%, 17%, 1) 0%, hsla(183, 82%, 32%, 1) 100%, hsla(256, 83%, 72%, 1) 100%); */
