@@ -40,8 +40,7 @@ export class MySchedulesComponent implements OnInit {
           this.dados.push(element);
         });
         this.isFetchingConsults = false;
-        if (this.dados.length === 0)
-          this.show = true;
+        if (!this.dados.length) this.show = true;
       },
       (erro) => {
         this.isFetchingConsults = false;
@@ -62,6 +61,21 @@ export class MySchedulesComponent implements OnInit {
     this.myScheduling.deleteScheduling(id, this.token!).subscribe((data) => {
       this.dados = this.dados.filter((consult) => consult.id !== id);
       this.snackBar.openSnackBar('Consulta cancelada com sucesso!', 'Ok');
+      if (!this.dados.length) this.show = true;
     });
   }
+
+  formatDate = (date: string) => {
+    const month = date.slice(5, 7);
+    const day = date.slice(8, 10);
+    const year = date.slice(0, 4);
+
+    return `${day}/${month}/${year}`;
+  };
+
+  formatHour = (hour: string) => {
+    const hours = +hour.slice(0, 2);
+    const minutes = hour.slice(3, 5);
+    return `${hours - 3}:${minutes}`;
+  };
 }

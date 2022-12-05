@@ -16,9 +16,13 @@
           </h3>
           <mat-divider></mat-divider>
           <p><b>Local: </b>{{ scheduling.local }}</p>
-          <p><b>Data: </b>{{ scheduling.date.toString().substring(0, 10) }}</p>
           <p>
-            <b>Horário: </b>{{ scheduling.date.toString().substring(11, 16) }}
+            <b>Data: </b
+            >{{ formatDate(scheduling.date.toString().substring(0, 10)) }}
+          </p>
+          <p>
+            <b>Horário: </b
+            >{{ formatHour(scheduling.date.toString().substring(11, 16)) }}
           </p>
         </div>
         <div>
