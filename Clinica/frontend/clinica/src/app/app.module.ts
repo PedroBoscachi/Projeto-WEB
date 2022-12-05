@@ -29,6 +29,7 @@ import { DialogMyProfileComponent } from './pages/dialog-my-profile/dialog-my-pr
 import { MatSnackBarModule } from '@angular/material/snack-bar';
 import { DialogSchedulingComponent } from './pages/dialog-scheduling/dialog-scheduling.component';
 import { HomeComponent } from './pages/home/home.component';
+import { DialogDeleteUserComponent } from './pages/dialog-delete-user/dialog-delete-user.component';
 
 export const options: Partial<null | IConfig> | (() => Partial<IConfig>) = null;
 @NgModule({
@@ -43,6 +44,7 @@ export const options: Partial<null | IConfig> | (() => Partial<IConfig>) = null;
     DialogMyProfileComponent,
     DialogSchedulingComponent,
     HomeComponent,
+    DialogDeleteUserComponent,
   ],
   imports: [
     MatDialogModule,

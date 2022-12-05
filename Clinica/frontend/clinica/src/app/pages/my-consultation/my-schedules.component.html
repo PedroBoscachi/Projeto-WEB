@@ -29,7 +29,13 @@
             <button class="button-card cancelar" (click)="deleteScheduling(scheduling.id)" mat-raised-button>
               Cancelar
             </button>
-            <button class="button-card editar" (click)="editScheduling(scheduling.specialization, scheduling.local, scheduling.doctor, scheduling.date)" mat-raised-button>
+            <button class="button-card editar" (click)="editScheduling(
+                  scheduling.specialization,
+                  scheduling.local,
+                  scheduling.doctor,
+                  scheduling.date,
+                  scheduling.id)" 
+                mat-raised-button>
               Editar
             </button>
           </div>

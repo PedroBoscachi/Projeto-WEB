@@ -57,3 +57,13 @@ input::placeholder{
   color: #BFD7FF;
   font-size: 14px;
 }
+
+.delete {
+  cursor: pointer;
+  color: gray;
+}
+
+.delete-wrapper {
+  text-align: center;
+  margin-top: 8px;
+}

@@ -1,6 +1,7 @@
 import { IDoctor } from 'src/app/models/Doctor';
 import { Component, Inject, OnInit } from '@angular/core';
 import { MatDialogRef, MAT_DIALOG_DATA } from '@angular/material/dialog';
+import { MySchedulingsService } from 'src/app/services/my-schedulings.service';
 
 @Component({
   selector: 'app-dialog-scheduling',
@@ -8,18 +9,31 @@ import { MatDialogRef, MAT_DIALOG_DATA } from '@angular/material/dialog';
   styleUrls: ['./dialog-scheduling.component.css'],
 })
 export class DialogSchedulingComponent implements OnInit {
-
-  constructor() { }
+  constructor(private scheduleConsult: MySchedulingsService) {}
 
   ngOnInit(): void {
+    const date = localStorage.getItem('dateTime')!;
+
     this.selectedSpeciality = localStorage.getItem('specialization')!;
     this.selectedLocal = localStorage.getItem('local')!;
+    this.selectedDoctor = this.doctors.find(
+      (doctor) => doctor.name == localStorage.getItem('doctor')
+    ) || {
+      name: '',
+      consultingPrice: 0,
+      local: '',
+      schedule: [''],
+      speciality: '',
+    };
 
+    this.selectedSchedule = `${this.formatDateLocal(
+      date.toString().substring(0, 10)
+    )} ${this.formatHour(date.toString().substring(11, 16))}`;
   }
 
-   doctors : IDoctor[] = require('../../utils/data.json');
+  doctors: IDoctor[] = require('../../utils/data.json');
 
-   specialities = [
+  specialities = [
     'Dermatologia',
     'Neurologia',
     'Cardiologia',
@@ -79,7 +93,7 @@ export class DialogSchedulingComponent implements OnInit {
   saveConsult = () => {
     const formData = {
       scheduling: {
-        id: '',
+        id: localStorage.getItem('id'),
         specialization: this.selectedSpeciality,
         local: this.selectedLocal,
         doctor: this.selectedDoctor.name,
@@ -89,6 +103,28 @@ export class DialogSchedulingComponent implements OnInit {
       },
       token: localStorage.getItem('token'),
     };
+
+    this.scheduleConsult.updateSchedule(formData).subscribe(
+      (response) => {
+        this.response = response;
+      },
+      (error) => {
+        console.log('');
+      }
+    );
   };
 
+  formatDateLocal = (date: string) => {
+    const month = date.slice(5, 7);
+    const day = date.slice(8, 10);
+    const year = date.slice(0, 4);
+
+    return `${day}/${month}/${year}`;
+  };
+
+  formatHour = (hour: string) => {
+    const hours = +hour.slice(0, 2);
+    const minutes = hour.slice(3, 5);
+    return `${hours - 3}:${minutes}`;
+  };
 }

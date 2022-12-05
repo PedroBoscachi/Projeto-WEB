@@ -1,21 +1,21 @@
-import { DialogMyProfileComponent } from './../pages/dialog-my-profile/dialog-my-profile.component';
 import { Injectable } from '@angular/core';
 import { MatDialog } from '@angular/material/dialog';
+import { DialogDeleteUserComponent } from '../pages/dialog-delete-user/dialog-delete-user.component';
 
 @Injectable({
   providedIn: 'root',
 })
-export class DialogMyProfileService {
+export class DialogDeleteUserService {
   constructor(private dialog: MatDialog) {}
 
   openForm(message?: string, params?: any) {
     return this.dialog
-      .open(DialogMyProfileComponent, {
+      .open(DialogDeleteUserComponent, {
         data: { message, params },
         disableClose: true,
         panelClass: 'my-custom-dialog-class',
         closeOnNavigation: false,
-        width: '335px',
+        width: '360px',
       })
       .afterClosed();
   }

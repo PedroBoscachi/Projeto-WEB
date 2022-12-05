@@ -1,0 +1,18 @@
+<div class="container-dialog">
+  <h1 class="title-dialog">Você deseja realmente excluir sua conta?</h1>
+  <div class="form-dialog">
+    <div class="buttons-dialog">
+      <button class="button-dialog cancelar" mat-raised-button mat-dialog-close>
+        Não
+      </button>
+      <button
+        class="button-dialog editar"
+        mat-raised-button
+        (click)="deleteUser()"
+        mat-dialog-close
+      >
+        Sim
+      </button>
+    </div>
+  </div>
+</div>

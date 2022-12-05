@@ -25,12 +25,13 @@ export class HomeComponent implements OnInit {
         this.nome = response.user.name;
       },
       (error) => {
+        this.nome = 'paciente'
         console.log("Erro em recuperar o nome")
       }
     );
   }
 
-  openFormMyProfile() {
+    openFormMyProfile() {
     this.dialog.openForm();
   }
 }
