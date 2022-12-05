@@ -2,6 +2,7 @@ import { NgModule } from '@angular/core';
 import { NgxMaskModule, IConfig } from 'ngx-mask';
 import { BrowserModule } from '@angular/platform-browser';
 
+import {MatExpansionModule} from '@angular/material/expansion';
 import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
 import { MatMenuModule } from '@angular/material/menu';
@@ -31,6 +32,7 @@ import { DialogSchedulingComponent } from './pages/dialog-scheduling/dialog-sche
 import { HomeComponent } from './pages/home/home.component';
 import { DialogDeleteUserComponent } from './pages/dialog-delete-user/dialog-delete-user.component';
 import { QuemSomosComponent } from './pages/quem-somos/quem-somos.component';
+import { FaqComponent } from './pages/faq/faq.component';
 
 export const options: Partial<null | IConfig> | (() => Partial<IConfig>) = null;
 @NgModule({
@@ -47,6 +49,7 @@ export const options: Partial<null | IConfig> | (() => Partial<IConfig>) = null;
     HomeComponent,
     DialogDeleteUserComponent,
     QuemSomosComponent,
+    FaqComponent,
   ],
   imports: [
     MatDialogModule,
@@ -71,6 +74,7 @@ export const options: Partial<null | IConfig> | (() => Partial<IConfig>) = null;
     NgxMaskModule.forRoot(),
     CommonModule,
     MatSelectModule,
+    MatExpansionModule
   ],
   providers: [],
   bootstrap: [AppComponent],
