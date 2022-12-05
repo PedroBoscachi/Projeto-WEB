@@ -2,19 +2,44 @@
   <div class="content">
     <div class="circulo-bem-vindo">
       <div class="bem-vindo">
-        <p>Olá, <span>{{ this.nome }}</span></p>
+        <p>
+          Olá, <span>{{ this.nome }}</span>
+        </p>
         <p>seja bem-vindo!</p>
-      </div>
-      <div class="circulo">
-        <img src="../../../assets/images/circle.svg">
       </div>
     </div>
     <div class="informacoes">
-      <button routerLink="/home/agendar-consulta" class="button-informacoes" mat-flat-button>Agendar consulta</button>
-      <button routerLink="/home/meus-agendamentos" class="button-informacoes" mat-flat-button>minhas consultas</button>
-      <button (click)="openFormMyProfile()" class="button-informacoes" mat-flat-button>meu perfil</button>
-      <button routerLink="/home/quem-somos" class="button-informacoes" mat-flat-button>o que é a lapri care</button>
-      <button routerLink="/home/faq" class="button-informacoes" mat-flat-button>faq</button>
+      <button
+        routerLink="/home/agendar-consulta"
+        class="button-informacoes"
+        mat-flat-button
+      >
+        Agendar consulta
+      </button>
+      <button
+        routerLink="/home/meus-agendamentos"
+        class="button-informacoes"
+        mat-flat-button
+      >
+        minhas consultas
+      </button>
+      <button
+        (click)="openFormMyProfile()"
+        class="button-informacoes"
+        mat-flat-button
+      >
+        meu perfil
+      </button>
+      <button
+        routerLink="/home/quem-somos"
+        class="button-informacoes"
+        mat-flat-button
+      >
+        o que é a lapri care
+      </button>
+      <button routerLink="/home/faq" class="button-informacoes" mat-flat-button>
+        faq
+      </button>
     </div>
   </div>
 </div>

@@ -1,40 +1,45 @@
 .container {
   position: relative;
   height: 100vh !important;
+  display: flex;
+  align-items: center;
+  justify-content: center;
 }
 
 .content {
-  display: grid;
-  height: 100%;
-  grid-template-columns: 750px 1fr;
+  margin-top: -5rem;
+  width: 90vw;
+  display: flex;
+  justify-content: space-around;
+  height: fit-content;
+  align-items: center;
 }
 
-.circulo {
-  position: absolute;
-  bottom: -150px;
-  left: -920px;
-  z-index: 19;
+@media screen and (max-width: 1000px) {
+  .content {
+    flex-direction: column;
+  }
 }
-
 .bem-vindo {
-  width: 880px;
-  position: absolute;
-  bottom: 420px;
-  left: -230px;
+  margin-bottom: 4rem;
+  background: rgba(162, 210, 255, 0.603);
+  border-radius: 25% 35%;
+  padding: 5rem;
+  width: auto;
   z-index: 100;
   display: flex;
   flex-direction: column;
   text-align: center;
   color: #004aad;
-  font-size: 3rem !important;
+  font-size: 3rem;
   font-weight: bold;
 }
 
 .bem-vindo p:nth-child(1) {
-  font-size: 7rem !important;
+  font-size: 5rem;
 }
 
-.bem-vindo p:nth-child(1) span{
+.bem-vindo p:nth-child(1) span {
   text-transform: uppercase;
 }
 
@@ -43,22 +48,21 @@
 }
 
 .informacoes {
+  max-width: 40%;
   z-index: 21;
   display: flex;
   flex-direction: column;
   justify-content: center;
-  gap: 8px;
+  gap: 12px;
   width: 100%;
-  padding-bottom: 100px;
 }
 
 .button-informacoes {
   border-radius: 10px;
   font-size: 1rem;
-  height: 80px;
+
   background-color: #004aad;
   text-transform: uppercase;
   width: 100%;
+  padding: 0.6rem 0;
 }
-
-
