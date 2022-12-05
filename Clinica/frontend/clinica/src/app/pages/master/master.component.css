@@ -1,24 +1,16 @@
 header {
+  padding: 1rem 2rem;
   background: #004AAD;
-  color: #ededed;
+  z-index: 100;
+  position: sticky;
+  width: 100%;
+}
+
+.container {
+  margin: 0 auto;
   display: flex;
   align-items: center;
   justify-content: space-between;
-  padding: 1rem 2rem;
-}
-nav {
-  flex: 1;
-}
-ul {
-  display: flex;
-  justify-content: center;
-  gap: 2rem;
-}
-a {
-  color: white;
-  font-size: 1rem;
-  font-weight: 400;
-  padding: 0.2rem;
 }
 
 #title {
@@ -29,22 +21,23 @@ a {
   margin-top: 1.2rem;
   font-weight: bold;
 }
+
 #logo {
   width: 10%;
   height: auto;
 }
+
 .logo-wrapper {
-  flex: 1;
   display: flex;
   align-items: center;
-  justify-content: center;
+  justify-content: start;
   gap: 1rem;
 }
 
 .my-profile-wrapper {
-  flex: 1;
-  display: grid;
-  place-items: center;
+  display: flex;
+  align-items: center;
+  justify-content: start;
 }
 
 .hover {
@@ -79,12 +72,6 @@ a {
   color: #bfd7ff;
 }
 
-.my-profile-wrapper {
-  display: flex;
-  justify-content: center;
-  gap: 1rem;
-}
-
 .button-menu {
   border-radius: 50%;
   height: 64px;
@@ -111,9 +98,13 @@ a {
   background: #BFD7FF;
 }
 
+.mat-menu a{
+}
+
 .button-matmenu {
   color:#004AAD;
   text-align: center;
+ padding: 0 10px;
 }
 
 mat-divider {

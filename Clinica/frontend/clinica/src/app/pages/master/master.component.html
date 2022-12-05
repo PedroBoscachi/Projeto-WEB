@@ -1,42 +1,25 @@
 <header>
-  <div class="logo-wrapper">
-    <img id="logo" src="/assets/images/logo.png" alt="imagem da logo" />
-    <h1 id="title">Lapri Care</h1>
+  <div class="container">
+    <div class="logo-wrapper">
+      <img id="logo" src="/assets/images/logo.png" alt="imagem da logo" />
+      <h1 id="title">Lapri Care</h1>
+    </div>
+    <div class="my-profile-wrapper">
+      <a mat-button [matMenuTriggerFor]="menu" class="button-menu">
+        <mat-icon>person</mat-icon>
+      </a>
+      <mat-menu class="mat-menu" #menu="matMenu">
+        <a class="button-matmenu" mat-menu-item routerLink="/home/pagina-inicial" routerLinkActive="selected">Home</a>
+        <a class="button-matmenu" mat-menu-item routerLink="/home/agendar-consulta" routerLinkActive="selected">Agendar Consulta</a>
+        <a class="button-matmenu" mat-menu-item routerLink="/home/meus-agendamentos" routerLinkActive="selected">Minhas Consultas</a>
+        <a class="button-matmenu" mat-menu-item (click)="openFormMyProfile()">Meu Perfil</a>
+        <mat-divider></mat-divider>
+        <a class="button-matmenu" mat-menu-item routerLink="/">Sair</a>
+      </mat-menu>
+    </div>
   </div>
-  <nav>
-    <ul>
-      <li>
-        <a routerLink="/home/agendar-exame" class="hover" routerLinkActive="selected">Agendar Consulta</a>
-      </li>
-      <li>
-        <a routerLink="/home/meus-agendamentos" class="hover" routerLinkActive="selected">Minhas Consultas</a>
-      </li>
-      <li>
-        <a routerLink="/home/resultados" class="hover" routerLinkActive="selected">Resultados</a>
-      </li>
-    </ul>
-  </nav>
-  <div class="my-profile-wrapper">
-    <!-- <a routerLink="/meu-perfil" class="hover" routerLinkActive="selected"
-      >Meu Perfil</a
-    >
-    <a routerLink="/login">Sair</a> -->
-
-    <a mat-button [matMenuTriggerFor]="menu" class="button-menu">
-      <mat-icon>person</mat-icon>
-    </a>
-    <mat-menu style="padding: 0" class="mat-menu" #menu="matMenu">
-      <a class="button-matmenu" mat-menu-item (click)="openFormMyProfile()">Meu Perfil</a>
-      <!-- routerLink="/meu-perfil" routerLinkActive="selected" -->
-      <mat-divider></mat-divider>
-      <a class="button-matmenu" mat-menu-item routerLink="/">Sair</a>
-    </mat-menu>
-  </div>
-
-
-
 </header>
+
 <main>
   <router-outlet></router-outlet>
-
 </main>

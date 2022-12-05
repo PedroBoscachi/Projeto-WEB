@@ -1,6 +1,7 @@
 .consultations {
   display: grid;
-  grid-template-columns: minmax(20px, auto) 1fr 1fr 1fr;
+  grid-template-columns: repeat(4, 23.4%);
+  grid-template-rows: repeat(2, 1fr);
   gap: 30px;
   margin: 0 auto;
 }

@@ -28,11 +28,12 @@ export class SigninComponent implements OnInit {
   retornado: any;
 
   ngOnInit(): void {
-    localStorage.clear();
+    localStorage.removeItem('token');
+    localStorage.removeItem('cpf');
   }
 
   goToHome() {
-    this.router.navigate(['/home/agendar-exame']);
+    this.router.navigate(['/home/agendar-consulta']);
     localStorage.setItem('token', this.retornado.token);
     localStorage.setItem('cpf', this.loginForm.value.cpf!);
   }

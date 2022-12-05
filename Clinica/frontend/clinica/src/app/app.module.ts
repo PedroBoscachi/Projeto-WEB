@@ -18,7 +18,6 @@ import { HttpClientModule } from '@angular/common/http';
 import { SignupComponent } from './pages/signup/signup.component';
 import { MasterComponent } from './pages/master/master.component';
 import { ScheduleExamComponent } from './pages/schedule-exam/schedule-exam.component';
-import { ResultsComponent } from './pages/results/results.component';
 import { MySchedulesComponent } from './pages/my-consultation/my-schedules.component';
 import { NotFoundComponent } from './pages/not-found/not-found.component';
 import { MatCardModule } from '@angular/material/card';
@@ -29,6 +28,7 @@ import { MatDialogModule } from '@angular/material/dialog';
 import { DialogMyProfileComponent } from './pages/dialog-my-profile/dialog-my-profile.component';
 import { MatSnackBarModule } from '@angular/material/snack-bar';
 import { DialogSchedulingComponent } from './pages/dialog-scheduling/dialog-scheduling.component';
+import { HomeComponent } from './pages/home/home.component';
 
 export const options: Partial<null | IConfig> | (() => Partial<IConfig>) = null;
 @NgModule({
@@ -38,11 +38,11 @@ export const options: Partial<null | IConfig> | (() => Partial<IConfig>) = null;
     SignupComponent,
     MasterComponent,
     ScheduleExamComponent,
-    ResultsComponent,
     MySchedulesComponent,
     NotFoundComponent,
     DialogMyProfileComponent,
     DialogSchedulingComponent,
+    HomeComponent,
   ],
   imports: [
     MatDialogModule,

@@ -8,10 +8,13 @@ import { Router } from '@angular/router';
   styleUrls: ['./master.component.css'],
 })
 export class MasterComponent implements OnInit {
-  constructor(private router: Router, private dialog: DialogMyProfileService) {}
+  constructor(
+    private router: Router,
+    private dialog: DialogMyProfileService
+  ) {}
 
   ngOnInit(): void {
-    this.router.navigate(['/home/agendar-exame']);
+    this.router.navigate(['/home/pagina-inicial']);
   }
 
   openFormMyProfile() {

@@ -53,6 +53,7 @@ export class SignupComponent implements OnInit {
     ) {
       this.snackBar.openSnackBar('Erro! Senhas diferentes!', 'OK');
     } else {
+      localStorage.setItem('nome', this.signupForm.value.firstName!);
       this.signupService.signup(user).subscribe((data) => {
         this.valores = data;
         console.log(this.valores);

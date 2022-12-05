@@ -1,11 +1,12 @@
 .container {
   display: flex;
   gap: 3rem;
+  padding: 0 !important;
 }
 aside {
   background: linear-gradient(
     180deg,
-    hsla(202, 93%, 17%, 1) 0%,
+    #004AAD 0%,
     hsla(183, 82%, 32%, 1) 100%,
     hsla(256, 83%, 72%, 1) 100%
   );
@@ -20,7 +21,7 @@ main {
 }
 main h2 {
   margin-top: 8rem;
-  color: hsla(202, 93%, 17%, 1);
+  color: #004AAD;
   font-size: 3rem;
   text-transform: uppercase;
 }
@@ -34,9 +35,9 @@ p {
 
 h3 {
   width: fit-content;
-  color: hsla(202, 93%, 17%, 1);
+  color: #004AAD;
   font-size: 12rem;
-  border-bottom: 2px solid hsla(202, 93%, 17%, 1);
+  border-bottom: 2px solid #004AAD;
 }
 
 .need-help-wrapper {
@@ -92,7 +93,7 @@ h4 {
   border-radius: 50%;
   height: 35px;
   width: 35px;
-  background: hsla(202, 93%, 17%, 1);
+  background: #004AAD;
 }
 
 #logo-whats {

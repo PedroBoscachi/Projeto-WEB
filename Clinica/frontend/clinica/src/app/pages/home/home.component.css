@@ -1,0 +1,64 @@
+.container {
+  position: relative;
+  height: 100vh !important;
+}
+
+.content {
+  display: grid;
+  height: 100%;
+  grid-template-columns: 750px 1fr;
+}
+
+.circulo {
+  position: absolute;
+  bottom: -150px;
+  left: -920px;
+  z-index: 19;
+}
+
+.bem-vindo {
+  width: 880px;
+  position: absolute;
+  bottom: 420px;
+  left: -230px;
+  z-index: 100;
+  display: flex;
+  flex-direction: column;
+  text-align: center;
+  color: #004aad;
+  font-size: 3rem !important;
+  font-weight: bold;
+}
+
+.bem-vindo p:nth-child(1) {
+  font-size: 7rem !important;
+}
+
+.bem-vindo p:nth-child(1) span{
+  text-transform: uppercase;
+}
+
+.bem-vindo p {
+  line-height: 0.9;
+}
+
+.informacoes {
+  z-index: 21;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  gap: 8px;
+  width: 100%;
+  padding-bottom: 100px;
+}
+
+.button-informacoes {
+  border-radius: 10px;
+  font-size: 1rem;
+  height: 80px;
+  background-color: #004aad;
+  text-transform: uppercase;
+  width: 100%;
+}
+
+
