@@ -8,6 +8,7 @@ import { MySchedulesComponent } from './pages/my-consultation/my-schedules.compo
 import { NotFoundComponent } from './pages/not-found/not-found.component';
 import { UsuarioAutenticadoGuard } from './services/guards/usuario-autenticado.guard';
 import { HomeComponent } from './pages/home/home.component';
+import { QuemSomosComponent } from './pages/quem-somos/quem-somos.component';
 const routes: Routes = [
   { path: '', component: SigninComponent },
   { path: 'cadastro', component: SignupComponent },
@@ -33,6 +34,10 @@ const routes: Routes = [
         path: 'login',
         component: SignupComponent,
       },
+      {
+        path :'quem-somos',
+        component: QuemSomosComponent,
+      }
     ],
   },
   { path: '**', component: NotFoundComponent },

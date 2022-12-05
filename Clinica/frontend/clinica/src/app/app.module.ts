@@ -31,6 +31,7 @@ import { DialogSchedulingComponent } from './pages/dialog-scheduling/dialog-sche
 import { HomeComponent } from './pages/home/home.component';
 import { DialogDeleteUserComponent } from './pages/dialog-delete-user/dialog-delete-user.component';
 import { DialogDeleteScheduleComponent } from './pages/dialog-delete-schedule/dialog-delete-schedule.component';
+import { QuemSomosComponent } from './pages/quem-somos/quem-somos.component';
 
 export const options: Partial<null | IConfig> | (() => Partial<IConfig>) = null;
 @NgModule({
@@ -47,6 +48,7 @@ export const options: Partial<null | IConfig> | (() => Partial<IConfig>) = null;
     HomeComponent,
     DialogDeleteUserComponent,
     DialogDeleteScheduleComponent,
+    QuemSomosComponent,
   ],
   imports: [
     MatDialogModule,
