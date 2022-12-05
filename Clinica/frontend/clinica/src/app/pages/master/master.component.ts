@@ -1,6 +1,6 @@
-import { DialogMyProfileService } from './../../services/dialog-my-profile.service';
 import { Component, OnInit } from '@angular/core';
 import { Router } from '@angular/router';
+import { DialogMyProfileService } from 'src/app/dialogs/services/dialog-my-profile.service';
 
 @Component({
   selector: 'app-master',

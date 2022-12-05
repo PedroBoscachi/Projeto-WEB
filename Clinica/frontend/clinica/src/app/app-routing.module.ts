@@ -9,6 +9,7 @@ import { NotFoundComponent } from './pages/not-found/not-found.component';
 import { UsuarioAutenticadoGuard } from './services/guards/usuario-autenticado.guard';
 import { HomeComponent } from './pages/home/home.component';
 import { QuemSomosComponent } from './pages/quem-somos/quem-somos.component';
+import { FaqComponent } from './pages/faq/faq.component';
 const routes: Routes = [
   { path: '', component: SigninComponent },
   { path: 'cadastro', component: SignupComponent },
@@ -37,6 +38,10 @@ const routes: Routes = [
       {
         path :'quem-somos',
         component: QuemSomosComponent,
+      },
+      {
+        path: 'faq',
+        component: FaqComponent
       }
     ],
   },

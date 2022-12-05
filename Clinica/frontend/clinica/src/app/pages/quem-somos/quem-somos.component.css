@@ -1,5 +1,4 @@
 .container{
-  height: 80vh !important;
   display: flex;
   flex-direction: column;
   justify-content: center;
@@ -7,19 +6,19 @@
 
 .top-content{
   display: flex;
+  margin-top: 8vh;
   text-align: justify;
   justify-content: center;
 }
 
 .down-content{
   display: flex;
-  margin-top: 100px;
   text-align: justify;
   justify-content: center;
 }
 
 .blueBackground{
-  background-color: #266ac4;
+  background-color: #004aad;
   color: rgb(255, 255, 255);
 }
 

@@ -3,9 +3,19 @@
   font-weight: bold;
 }
 
-::ng-deep .my-custom-dialog-class mat-dialog-container {
+#dialog-scheduling {
   background-color: #004aad;
-  border-radius: 10px;
+  outline: #004aad 24px solid;
+}
+
+::ng-deep .generic-dialog mat-dialog-container {
+  border-radius: 10px !important;
+}
+
+mat-option {
+  background-color: #BFD7FF !important;
+  color: #004aad !important;
+  outline: #004aad 1px solid;
 }
 
 .buttons-dialog {

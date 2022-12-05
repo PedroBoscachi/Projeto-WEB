@@ -29,6 +29,12 @@ optgroup {
   border-bottom-color: #004aad !important;
 }
 
+mat-option {
+  background-color: #BFD7FF !important;
+  color: #004aad !important;
+  outline: #004aad 1px solid;
+}
+
 .disabled {
   opacity: 0.2;
 }

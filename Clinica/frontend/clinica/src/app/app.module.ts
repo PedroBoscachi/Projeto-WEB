@@ -2,6 +2,7 @@ import { NgModule } from '@angular/core';
 import { NgxMaskModule, IConfig } from 'ngx-mask';
 import { BrowserModule } from '@angular/platform-browser';
 
+import {MatExpansionModule} from '@angular/material/expansion';
 import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
 import { MatMenuModule } from '@angular/material/menu';
@@ -25,13 +26,14 @@ import { MatDividerModule } from '@angular/material/divider';
 import { MatSelectModule } from '@angular/material/select';
 import { CommonModule } from '@angular/common';
 import { MatDialogModule } from '@angular/material/dialog';
-import { DialogMyProfileComponent } from './pages/dialog-my-profile/dialog-my-profile.component';
 import { MatSnackBarModule } from '@angular/material/snack-bar';
-import { DialogSchedulingComponent } from './pages/dialog-scheduling/dialog-scheduling.component';
 import { HomeComponent } from './pages/home/home.component';
-import { DialogDeleteUserComponent } from './pages/dialog-delete-user/dialog-delete-user.component';
-import { DialogDeleteScheduleComponent } from './pages/dialog-delete-schedule/dialog-delete-schedule.component';
+import { DialogDeleteScheduleComponent } from './dialogs/dialog-delete-schedule/dialog-delete-schedule.component';
 import { QuemSomosComponent } from './pages/quem-somos/quem-somos.component';
+import { DialogMyProfileComponent } from './dialogs/dialog-my-profile/dialog-my-profile.component';
+import { DialogSchedulingComponent } from './dialogs/dialog-scheduling/dialog-scheduling.component';
+import { DialogDeleteUserComponent } from './dialogs/dialog-delete-user/dialog-delete-user.component';
+import { FaqComponent } from './pages/faq/faq.component';
 
 export const options: Partial<null | IConfig> | (() => Partial<IConfig>) = null;
 @NgModule({
@@ -49,6 +51,7 @@ export const options: Partial<null | IConfig> | (() => Partial<IConfig>) = null;
     DialogDeleteUserComponent,
     DialogDeleteScheduleComponent,
     QuemSomosComponent,
+    FaqComponent,
   ],
   imports: [
     MatDialogModule,
@@ -73,6 +76,7 @@ export const options: Partial<null | IConfig> | (() => Partial<IConfig>) = null;
     NgxMaskModule.forRoot(),
     CommonModule,
     MatSelectModule,
+    MatExpansionModule
   ],
   providers: [],
   bootstrap: [AppComponent],
