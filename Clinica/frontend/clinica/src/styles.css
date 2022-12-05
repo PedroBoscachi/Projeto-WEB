@@ -14,7 +14,7 @@ body {
   background-size: cover;
   background-position: center;
   background-repeat: no-repeat;
-  overflow: hidden;
+  overflow-x: hidden;
 }
 body {
   margin: 0;
@@ -46,12 +46,14 @@ button:hover {
 #cpfInput .mat-form-field-appearance-legacy .mat-form-field-infix {
   pointer-events: none;
   border-radius: 4px;
-  background-color: #DFDFDF !important;
+  background-color: #dfdfdf !important;
 }
 
 #disable-form mat-form-field span,
-#disable-form input, #disable-form mat-label,
-#cpfInput input, #cpfInput mat-label {
+#disable-form input,
+#disable-form mat-label,
+#cpfInput input,
+#cpfInput mat-label {
   color: gray !important;
 }
 
@@ -66,11 +68,11 @@ button:hover {
 }
 
 #no-disable-form mat-form-field span {
-  color: #004AAD !important;
+  color: #004aad !important;
 }
 
 .snackBar {
-  background-color: #BFD7FF;
+  background-color: #bfd7ff;
 }
 
 .form-wrapper {
@@ -115,10 +117,12 @@ button:hover {
   transition: all ease 0.2s;
 }
 
-.btn-submit:disabled, .button-dialog:disabled, .disabled-btn {
+.btn-submit:disabled,
+.button-dialog:disabled,
+.disabled-btn {
   pointer-events: none;
   border: gray solid 1px !important;
-  background-color: #DFDFDF !important;
+  background-color: #dfdfdf !important;
   color: gray !important;
 }
 
@@ -137,7 +141,8 @@ button:hover {
   font-weight: bold;
 }
 
-.editar, .save {
+.editar,
+.save {
   background-color: #08c792 !important;
 }
 
