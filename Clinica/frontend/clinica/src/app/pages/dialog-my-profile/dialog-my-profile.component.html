@@ -1,9 +1,7 @@
 <div class="container-dialog">
   <h1 class="title-dialog">Meu Perfil</h1>
   <div class="form-dialog">
-
     <form [id]="formDialog" class="form-wrapper" [formGroup]="myProfileForm">
-
       <mat-form-field color="accent" class="input-readonly">
         <mat-label class="label">Nome</mat-label>
         <input matInput formControlName="name" [readonly]="disable" />
@@ -11,52 +9,124 @@
 
       <mat-form-field color="accent">
         <mat-label class="label">Sobrenome</mat-label>
-        <input matInput formControlName="lastName" value="" [readonly]="disable" />
+        <input
+          matInput
+          formControlName="lastName"
+          value=""
+          [readonly]="disable"
+        />
       </mat-form-field>
 
       <div id="cpfInput">
-      <mat-form-field class="input-form" color="accent">
-        <mat-label class="label">CPF</mat-label>
-        <input matInput formControlName="cpf" mask="000.000.000-00" placeholder="Ex. 123.456.789-01" value="cpf" [readonly]="true" />
-      </mat-form-field>
-    </div>
+        <mat-form-field class="input-form" color="accent">
+          <mat-label class="label">CPF</mat-label>
+          <input
+            matInput
+            formControlName="cpf"
+            mask="000.000.000-00"
+            placeholder="Ex. 123.456.789-01"
+            value="cpf"
+            [readonly]="true"
+          />
+        </mat-form-field>
+      </div>
 
       <mat-form-field color="accent">
         <mat-label class="label">Celular</mat-label>
-        <input matInput formControlName="phone" mask="(00) 00000-0000" placeholder="Ex. (11) 96491-8727" value="telephone" [readonly]="disable" />
+        <input
+          matInput
+          formControlName="phone"
+          mask="(00) 00000-0000"
+          placeholder="Ex. (11) 96491-8727"
+          value="telephone"
+          [readonly]="disable"
+        />
       </mat-form-field>
 
       <mat-form-field color="accent">
         <mat-label class="label">Data de Nascimento</mat-label>
-        <input matInput formControlName="birthDate" mask="00/00/0000" placeholder="Ex. 01/10/2002" value="birth" [readonly]="disable" />
+        <input
+          matInput
+          formControlName="birthDate"
+          mask="00/00/0000"
+          placeholder="Ex. 01/10/2002"
+          value="birth"
+          [readonly]="disable"
+        />
       </mat-form-field>
 
-    <mat-form-field color="accent" *ngIf="disable == false ">
+      <mat-form-field color="accent" *ngIf="disable == false">
         <mat-label class="label">Senha</mat-label>
-        <input matInput formControlName="password" [type]="hidePassword ? 'password' : 'text'" />
-        <button class="btn-show-password" matSuffix (click)="hidePassword = !hidePassword" [attr.aria-label]="'Hide password'" [attr.aria-pressed]="hidePassword">
+        <input
+          matInput
+          formControlName="password"
+          [type]="hidePassword ? 'password' : 'text'"
+        />
+        <button
+          class="btn-show-password"
+          matSuffix
+          (click)="hidePassword = !hidePassword"
+          [attr.aria-label]="'Hide password'"
+          [attr.aria-pressed]="hidePassword"
+        >
           <mat-icon class="icon showPassword">{{
             hidePassword ? "visibility_off" : "visibility"
-            }}</mat-icon>
+          }}</mat-icon>
         </button>
       </mat-form-field>
 
       <mat-form-field color="accent" *ngIf="disable == false">
         <mat-label class="label">Confirmar senha</mat-label>
-        <input matInput formControlName="confirmPassword" [type]="hideConfirmPassword ? 'password' : 'text'" />
-        <button class="btn-show-password" matSuffix (click)="hideConfirmPassword = !hideConfirmPassword" [attr.aria-label]="'Hide password'" [attr.aria-pressed]="hideConfirmPassword">
+        <input
+          matInput
+          formControlName="confirmPassword"
+          [type]="hideConfirmPassword ? 'password' : 'text'"
+        />
+        <button
+          class="btn-show-password"
+          matSuffix
+          (click)="hideConfirmPassword = !hideConfirmPassword"
+          [attr.aria-label]="'Hide password'"
+          [attr.aria-pressed]="hideConfirmPassword"
+        >
           <mat-icon class="icon showPassword">{{
             hideConfirmPassword ? "visibility_off" : "visibility"
-            }}</mat-icon>
+          }}</mat-icon>
         </button>
-
       </mat-form-field>
 
       <div class="buttons-dialog">
-        <button class="button-dialog cancelar" mat-raised-button mat-dialog-close>Fechar</button>
-        <button class="button-dialog editar" mat-raised-button [disabled]="myProfileForm.invalid" (click)="updateUser()" *ngIf="disable == false">Atualizar</button>
-        <button class="button-dialog editar" mat-raised-button (click)="toogleEdit()" *ngIf="disable == true">Alterar</button>
+        <button
+          class="button-dialog cancelar"
+          mat-raised-button
+          mat-dialog-close
+        >
+          Fechar
+        </button>
+        <button
+          class="button-dialog editar"
+          mat-raised-button
+          [disabled]="myProfileForm.invalid"
+          (click)="updateUser()"
+          *ngIf="disable == false"
+        >
+          Atualizar
+        </button>
+        <button
+          class="button-dialog editar"
+          mat-raised-button
+          (click)="toogleEdit()"
+          *ngIf="disable == true"
+        >
+          Alterar
+        </button>
       </div>
+
+      <p class="delete-wrapper">
+        <a (click)="openModalDeleteUser()" mat-dialog-close class="delete"
+          >Deseja excluir sua conta?</a
+        >
+      </p>
     </form>
   </div>
 </div>

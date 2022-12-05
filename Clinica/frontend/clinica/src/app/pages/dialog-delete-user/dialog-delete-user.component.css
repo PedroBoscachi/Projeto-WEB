@@ -1,6 +1,7 @@
 .title-dialog {
   text-align: center;
   font-weight: bold;
+  font-size: medium;
   color: #004AAD;
 }
 
@@ -59,14 +60,4 @@ label {
 input::placeholder{
   color: #BFD7FF;
   font-size: 14px;
-}
-
-.delete {
-  cursor: pointer;
-  color: gray;
-}
-
-.delete-wrapper {
-  text-align: center;
-  margin-top: 8px;
 }
