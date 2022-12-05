@@ -146,6 +146,7 @@ export class ScheduleExamComponent implements OnInit {
   selectedSchedule = '';
 
   response: any;
+
   constructor(
     private fb: FormBuilder,
     private scheduleConsult: ScheduleConsultService,

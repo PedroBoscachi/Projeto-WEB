@@ -12,7 +12,7 @@
       <div class="card">
         <div>
           <h3>
-            <b>{{ scheduling.doctor }}</b>
+            <b>{{ scheduling.doctor }} | {{ scheduling.specialization }}</b>
           </h3>
           <mat-divider></mat-divider>
           <p><b>Local: </b>{{ scheduling.local }}</p>
@@ -22,7 +22,7 @@
         <div>
           <mat-divider></mat-divider>
           <div class="buttons">
-            <button class="button-card editar" (click)="editScheduling()" mat-raised-button>
+            <button class="button-card editar" (click)="editScheduling(scheduling.specialization, scheduling.local, scheduling.doctor, scheduling.date)" mat-raised-button>
               Editar
             </button>
             <button class="button-card cancelar" (click)="deleteScheduling(scheduling.id)" mat-raised-button>

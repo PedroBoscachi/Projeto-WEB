@@ -1,37 +1,89 @@
 <div class="container-dialog">
-  <h1 class="title-dialog">Meu Agendamento</h1>
+  <h1 class="title-dialog">Meu Perfil</h1>
   <div class="form-dialog">
 
     <form class="form-wrapper">
 
       <mat-form-field color="accent">
-        <mat-label class="label">Nome</mat-label>
-        <input matInput value="" />
+        <mat-label>Selecione a especialidade</mat-label>
+        <mat-select
+          name="speciality"
+          color="accent"
+          [(value)]="selectedSpeciality"
+        >
+          <mat-option></mat-option>
+          <mat-option
+            *ngFor="let speciality of specialities"
+            [value]="speciality"
+            >{{ speciality }}</mat-option
+          >
+        </mat-select>
       </mat-form-field>
 
-      <mat-form-field color="accent">
-        <mat-label class="label">Sobrenome</mat-label>
-        <input matInput value="" />
+      <mat-form-field>
+        <mat-label [ngClass]="selectedSpeciality == '' ? 'disabled' : 'active'" l
+          >Selecione a unidade</mat-label
+        >
+        <mat-select
+          [disabled]="selectedSpeciality == ''"
+          color="accent"
+          [(value)]="selectedLocal"
+        >
+          <mat-option></mat-option>
+          <mat-option *ngFor="let address of addresses" [value]="address">{{
+            address
+          }}</mat-option>
+        </mat-select>
       </mat-form-field>
 
-      <mat-form-field color="accent">
-        <mat-label class="label">CPF</mat-label>
-        <input matInput mask="000.000.000-00" placeholder="Ex. 123.456.789-01" value="cpf" />
-      </mat-form-field>
+      <mat-form-field>
+        <mat-label [ngClass]="selectedLocal == '' ? 'disabled' : 'active'"
+          >Selecione o médico</mat-label
+        >
+        <mat-select
+          color="accent"
+          [disabled]="selectedLocal == ''"
+          [(value)]="selectedDoctor"
+        >
+          <mat-option></mat-option>
 
-      <mat-form-field color="accent">
-        <mat-label class="label">Celular</mat-label>
-        <input matInput mask="(00) 00000-0000" placeholder="Ex. (11) 96491-8727" value="telephone" />
+          <mat-option
+            *ngFor="
+              let doctor of filterDoctorsBySpeciality(
+                selectedSpeciality,
+                selectedLocal
+              )
+            "
+            [value]="doctor"
+            >{{ doctor.name }}</mat-option
+          >
+        </mat-select>
       </mat-form-field>
+      <mat-form-field>
+        <mat-label [ngClass]="selectedDoctor.name == '' ? 'disabled' : 'active'"
+          >Selecione a data e horário</mat-label
+        >
+        <mat-select
+          color="accent"
+          [disabled]="selectedDoctor.name == ''"
+          [(value)]="selectedSchedule"
+        >
+          <mat-option></mat-option>
 
-      <mat-form-field color="accent">
-        <mat-label class="label">Data de Nascimento</mat-label>
-        <input matInput mask="00/00/0000" placeholder="Ex. 01/10/2002" value="birth" />
+          <div *ngFor="let doctor of findDoctor()">
+            <mat-option
+              *ngFor="let schedule of doctor.schedule"
+              [value]="schedule"
+            >
+              {{ schedule }}
+            </mat-option>
+          </div>
+        </mat-select>
       </mat-form-field>
 
       <div class="buttons-dialog">
         <button class="button-dialog cancelar" mat-dialog-close mat-raised-button>Fechar</button>
-        <button class="button-dialog editar" mat-raised-button >Atualizar</button>
+        <button class="button-dialog editar" mat-raised-button>Atualizar</button>
       </div>
     </form>
   </div>
