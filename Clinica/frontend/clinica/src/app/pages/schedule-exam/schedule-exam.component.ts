@@ -1,3 +1,4 @@
+import { Router } from '@angular/router';
 import { Component, OnInit } from '@angular/core';
 import { FormBuilder } from '@angular/forms';
 import { IDoctor } from 'src/app/models/Doctor';
@@ -150,7 +151,8 @@ export class ScheduleExamComponent implements OnInit {
   constructor(
     private fb: FormBuilder,
     private scheduleConsult: ScheduleConsultService,
-    private snackBar: SnackBarService
+    private snackBar: SnackBarService,
+    private router: Router,
   ) {}
   resetData = () => {
     this.selectedSpeciality = '';
@@ -219,6 +221,7 @@ export class ScheduleExamComponent implements OnInit {
         this.response = response;
         this.snackBar.openSnackBar('Consulta agendada com sucesso!', 'Ok');
         this.resetData();
+        this.router.navigate(['home/meus-agendamentos'])
       },
       (error) => {
         this.snackBar.openSnackBar('Horário indisponível', 'Ok');

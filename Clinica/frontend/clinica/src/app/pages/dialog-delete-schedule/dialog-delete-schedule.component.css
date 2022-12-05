@@ -1,0 +1,60 @@
+.title-dialog {
+  text-align: center;
+  font-weight: bold;
+  font-size: medium;
+  color: #004AAD;
+}
+
+::ng-deep .my-custom-dialog-class mat-dialog-container {
+  background-color: #ededed;
+}
+
+.buttons-dialog {
+  margin-top: 20px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 10px;
+}
+
+.button-dialog {
+  width: 100%;
+}
+
+.btn-show-password {
+  background-color: transparent;
+  box-shadow: 0;
+  border: 0;
+}
+
+
+input,
+label {
+  color: #004AAD;
+  font-size: 1rem;
+}
+
+::ng-deep .mat-focused .mat-form-field-label {
+  color: #004AAD !important;
+}
+
+::ng-deep.mat-form-field-underline {
+  background-color: #004AAD !important;
+}
+
+::ng-deep.mat-form-field-ripple {
+  background-color: #004AAD !important;
+}
+
+.label{
+  color: #004AAD;
+}
+
+.showPassword{
+  color: #004AAD;
+}
+
+input::placeholder{
+  color: #BFD7FF;
+  font-size: 14px;
+}
