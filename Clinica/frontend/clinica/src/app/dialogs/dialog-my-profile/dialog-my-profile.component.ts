@@ -81,6 +81,7 @@ export class DialogMyProfileComponent implements OnInit {
     } else {
       this.myProfile.updateUser(data).subscribe({
         next: () => {
+          window.location.reload()
           this.snackBar.openSnackBar('Atualizado com sucesso!', 'OK');
         },
         error: () => {

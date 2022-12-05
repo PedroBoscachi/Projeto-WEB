@@ -17,6 +17,7 @@ export class DialogMyProfileService {
         closeOnNavigation: false,
         width: '335px',
       })
-      .afterClosed();
+      .afterClosed()
+      .toPromise();
   }
 }

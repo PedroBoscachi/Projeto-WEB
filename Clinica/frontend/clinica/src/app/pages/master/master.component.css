@@ -22,9 +22,17 @@ header {
   font-weight: bold;
 }
 
+#title:hover{
+  cursor: pointer;
+}
+
 #logo {
   width: 10%;
   height: auto;
+}
+
+#logo:hover{
+  cursor: pointer;
 }
 
 .logo-wrapper {
