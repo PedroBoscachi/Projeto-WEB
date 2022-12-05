@@ -11,6 +11,7 @@ import { SchedulingValidator } from "../validators/SchedulingValidator";
 import { UserService } from "../services/usuarioService";
 import { UsersValidator } from "../validators/UsersValidator";
 import { UserDTO } from "../dtos/UserDTO";
+import { Request } from "express";
 
 const login = require("../middlewares/login");
 
@@ -32,8 +33,8 @@ const userService: UserService = new UserService(
   userValidator
 );
 
-router.post("/meu-perfil", login, (request, response) => {
-  let foundUser = userService.getMyProfilebyCpf(request.body.cpf);
+router.get("/meu-perfil", login, (request, response) => {
+  let foundUser = userService.getMyProfilebyCpf(request.query.cpf);
 
   return response.json({
     error: false,
@@ -43,7 +44,7 @@ router.post("/meu-perfil", login, (request, response) => {
 });
 
 router.put("/editar", login, (request, response) => {
-  let updatedUser = userService.updateUser(request.body.user);
+  let updatedUser = userService.updateUser(request.body);
 
   return response.json({
     error: false,
@@ -52,8 +53,8 @@ router.put("/editar", login, (request, response) => {
   });
 });
 
-router.post("/excluir", login, (request, response) => {
-  const cpf = request.body.cpf;
+router.delete("/excluir", login, (request, response) => {
+  const cpf = request.query.cpf;
 
   let deleted = userService.deleteUser(cpf);
 

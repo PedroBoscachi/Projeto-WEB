@@ -114,7 +114,7 @@ export class DialogSchedulingComponent implements OnInit {
         this.snackBar.openSnackBar('Agendamento atualizado!', 'OK');
       },
       (error) => {
-        console.log('');
+        this.snackBar.openSnackBar('Horário indisponível para este Médico', 'Ok');
       }
     );
   };

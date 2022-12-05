@@ -1,4 +1,4 @@
-import { HttpClient } from '@angular/common/http';
+import { HttpClient, HttpHeaders, HttpParams } from '@angular/common/http';
 import { Injectable } from '@angular/core';
 import { Observable } from 'rxjs';
 import { environment } from 'src/environments/environment';
@@ -12,28 +12,39 @@ export class MyProfileService {
   constructor(private http: HttpClient) {}
 
   returnUser(): Observable<any> {
-    let body = {
-      token: localStorage.getItem('token'),
-      cpf: localStorage.getItem('cpf'),
-    };
-    return this.http.post<any>(this.url + '/meu-perfil', body);
+    const headers = new HttpHeaders({
+      'Content-Type':'application/json',
+      'Authorization': localStorage.getItem('token')!
+    });
+    const params = new HttpParams().set("cpf", localStorage.getItem('cpf')!)
+    const requestOptions = {
+      headers : headers,
+      params: params
+    }
+    return this.http.get<any>(this.url + '/meu-perfil', requestOptions);
   }
 
   updateUser(user: Object): Observable<any> {
-    let body = {
-      user: user,
-      token: localStorage.getItem('token'),
-    };
-
-    return this.http.put<any>(this.url + '/editar', body);
+    const headers = new HttpHeaders({
+      'Content-Type':'application/json',
+      'Authorization': localStorage.getItem('token')!
+    });
+    const requestOptions = {
+      headers : headers
+    }
+    return this.http.put<any>(this.url + '/editar', user, requestOptions);
   }
 
   deleteUser(): Observable<any> {
-    let body = {
-      cpf: localStorage.getItem('cpf'),
-      token: localStorage.getItem('token'),
-    };
-
-    return this.http.post<any>(this.url + '/excluir', body);
+    const headers = new HttpHeaders({
+      'Content-Type':'application/json',
+      'Authorization': localStorage.getItem('token')!
+    });
+    const params = new HttpParams().set("cpf", localStorage.getItem('cpf')!)
+    const requestOptions = {
+      headers : headers,
+      params: params
+    }
+    return this.http.delete<any>(this.url + '/excluir', requestOptions);
   }
 }

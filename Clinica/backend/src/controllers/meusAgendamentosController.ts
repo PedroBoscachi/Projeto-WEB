@@ -8,6 +8,7 @@ import { SchedulingDTO } from "../dtos/SchedulingDTO";
 import bcrypt = require("bcrypt");
 import jwt = require("jsonwebtoken");
 import { SchedulingValidator } from "../validators/SchedulingValidator";
+import { Request } from "express";
 
 const login = require("../middlewares/login");
 
@@ -32,8 +33,8 @@ const schedulingService: SchedulingService = new SchedulingService(
   schedulingValidator
 );
 
-router.post("/cadastrados", login, (request, response) => {
-  let cpf = request.body.cpf;
+router.get("/cadastrados", login, (request, response) => {
+  let cpf = request.query.cpf;
   let foundListSchedulings = schedulingService.getSchedulings(cpf);
   return response.json({
     schedulings: foundListSchedulings,
@@ -52,7 +53,7 @@ router.post("/cadastrar", login, (request, response) => {
 });
 
 router.put("/editar", login, (request, response) => {
-  const schedulingFormDto: SchedulingFormDTO = request.body.scheduling;
+  const schedulingFormDto = request.body.scheduling;
 
   let updatedScheduling = schedulingService.updateScheduling(schedulingFormDto);
 
@@ -63,8 +64,8 @@ router.put("/editar", login, (request, response) => {
   });
 });
 
-router.post("/excluir", login, (request, response) => {
-  const id = request.body.id;
+router.delete("/excluir", login, (request, response) => {
+  const id = request.query.id;
 
   let deleted = schedulingService.deleteScheduling(id);
 

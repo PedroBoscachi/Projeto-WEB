@@ -32,6 +32,8 @@ export class HomeComponent implements OnInit {
   }
 
     openFormMyProfile() {
-    this.dialog.openForm();
+    this.dialog.openForm().then(()=>{
+      console.log('chegou')
+    });
   }
 }
