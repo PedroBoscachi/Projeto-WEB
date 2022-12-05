@@ -49,11 +49,18 @@ export class MySchedulesComponent implements OnInit {
     );
   }
 
-  editScheduling(specialization : string, local : string, doctor : string, dateTime : Date) {
+  editScheduling(
+    specialization: string,
+    local: string,
+    doctor: string,
+    dateTime: Date,
+    id: string
+  ) {
     localStorage.setItem('specialization', specialization);
     localStorage.setItem('local', local);
     localStorage.setItem('doctor', doctor);
-    localStorage.setItem('dateTime', dateTime.toString())
+    localStorage.setItem('id', id);
+    localStorage.setItem('dateTime', dateTime.toString());
     this.myDialogScheduling.openForm();
   }
 

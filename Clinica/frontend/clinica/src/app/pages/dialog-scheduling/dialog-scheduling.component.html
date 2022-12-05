@@ -1,5 +1,5 @@
 <div class="container-dialog">
-  <h1 class="title-dialog">Meu Perfil</h1>
+  <h1 class="title-dialog">Minha consulta</h1>
   <div class="form-dialog">
     <form class="form-wrapper">
       <mat-form-field color="accent">
@@ -19,7 +19,9 @@
       </mat-form-field>
 
       <mat-form-field>
-        <mat-label [ngClass]="selectedSpeciality == '' ? 'disabled' : 'active'" l
+        <mat-label
+          [ngClass]="selectedSpeciality == '' ? 'disabled' : 'active'"
+          l
           >Selecione a unidade</mat-label
         >
         <mat-select
@@ -80,8 +82,20 @@
       </mat-form-field>
 
       <div class="buttons-dialog">
-        <button class="button-dialog cancelar" mat-dialog-close mat-raised-button>Fechar</button>
-        <button class="button-dialog editar" mat-raised-button>Atualizar</button>
+        <button
+          class="button-dialog cancelar"
+          mat-dialog-close
+          mat-raised-button
+        >
+          Fechar
+        </button>
+        <button
+          class="button-dialog editar"
+          (click)="saveConsult()"
+          mat-raised-button
+        >
+          Atualizar
+        </button>
       </div>
     </form>
   </div>

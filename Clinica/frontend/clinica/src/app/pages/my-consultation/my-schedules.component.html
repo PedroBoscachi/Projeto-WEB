@@ -28,7 +28,19 @@
         <div>
           <mat-divider></mat-divider>
           <div class="buttons">
-            <button class="button-card editar" (click)="editScheduling(scheduling.specialization, scheduling.local, scheduling.doctor, scheduling.date)" mat-raised-button>
+            <button
+              class="button-card editar"
+              (click)="
+                editScheduling(
+                  scheduling.specialization,
+                  scheduling.local,
+                  scheduling.doctor,
+                  scheduling.date,
+                  scheduling.id
+                )
+              "
+              mat-raised-button
+            >
               Editar
             </button>
             <button
