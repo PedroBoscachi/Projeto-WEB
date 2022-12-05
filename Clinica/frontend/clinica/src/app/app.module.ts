@@ -30,6 +30,7 @@ import { MatSnackBarModule } from '@angular/material/snack-bar';
 import { DialogSchedulingComponent } from './pages/dialog-scheduling/dialog-scheduling.component';
 import { HomeComponent } from './pages/home/home.component';
 import { DialogDeleteUserComponent } from './pages/dialog-delete-user/dialog-delete-user.component';
+import { QuemSomosComponent } from './pages/quem-somos/quem-somos.component';
 
 export const options: Partial<null | IConfig> | (() => Partial<IConfig>) = null;
 @NgModule({
@@ -45,6 +46,7 @@ export const options: Partial<null | IConfig> | (() => Partial<IConfig>) = null;
     DialogSchedulingComponent,
     HomeComponent,
     DialogDeleteUserComponent,
+    QuemSomosComponent,
   ],
   imports: [
     MatDialogModule,

@@ -1,0 +1,68 @@
+.container{
+  height: 80vh !important;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+}
+
+.top-content{
+  display: flex;
+  text-align: justify;
+  justify-content: center;
+}
+
+.down-content{
+  display: flex;
+  margin-top: 100px;
+  text-align: justify;
+  justify-content: center;
+}
+
+.blueBackground{
+  background-color: #266ac4;
+  color: rgb(255, 255, 255);
+}
+
+section{
+  padding: 50px 30px;
+  border-radius: 10px;
+  font-size: 1.15em;
+  line-height: 1.6em;
+}
+
+.top-sections{
+  width: 50%;
+  text-align-last: center;
+}
+
+.down-sections{
+  width: 33%;
+  text-align-last: center;
+}
+
+h2{
+  font-size: 2.5em;
+  text-align: center;
+  margin-bottom: 30px;
+  font-weight: bolder;
+}
+
+h3{
+  font-size: 1.75em;
+  text-align: center;
+  font-weight: bold;
+}
+
+.icon{
+  display: flex;
+  flex-direction: column;
+  text-align: center;
+  justify-content: center;
+  align-items: center;
+}
+
+mat-icon{
+  height: 30px;
+  width: 30px;
+  font-size: 30px;
+}
