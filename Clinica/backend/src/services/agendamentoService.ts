@@ -53,12 +53,15 @@ export class SchedulingService {
 
   updateScheduling(schedulingFormDTO: SchedulingFormDTO): SchedulingDTO {
     if (this.validator.validateForm(schedulingFormDTO)) {
-      let foundUser = this.userRepository.getUserByCpf(schedulingFormDTO.user);
-
+      let foundUser = this.dtoMapper.userToUserFormDTO(
+        this.userRepository.getUserByCpf(schedulingFormDTO.user)
+      );
+      console.log(foundUser);
       let scheduling = this.dtoMapper.schedulingFormDTOToScheduling(
         schedulingFormDTO,
         foundUser
       );
+      console.log(scheduling);
       let updatedScheduling =
         this.schedulingRepository.updateScheduling(scheduling);
       return this.dtoMapper.schedulingToSchedulingDTO(updatedScheduling);

@@ -61,7 +61,10 @@ export class MySchedulesComponent implements OnInit {
     localStorage.setItem('doctor', doctor);
     localStorage.setItem('id', id);
     localStorage.setItem('dateTime', dateTime.toString());
-    this.myDialogScheduling.openForm();
+    this.myDialogScheduling.openForm().then(() => {
+      this.dados.length = 0;
+      this.getSchedulings();
+    });
   }
 
   deleteScheduling(id: string) {

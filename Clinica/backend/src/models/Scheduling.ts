@@ -17,9 +17,10 @@ export class Scheduling {
     user: User,
     doctor: string,
     price: number,
-    date: Date
+    date: Date,
+    id?: string
   ) {
-    this.id = gerarId();
+    this.id = id;
     this.specialization = specialization;
     this.local = local;
     this.user = user;

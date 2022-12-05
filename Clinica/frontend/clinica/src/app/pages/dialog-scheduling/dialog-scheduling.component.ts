@@ -2,6 +2,7 @@ import { IDoctor } from 'src/app/models/Doctor';
 import { Component, Inject, OnInit } from '@angular/core';
 import { MatDialogRef, MAT_DIALOG_DATA } from '@angular/material/dialog';
 import { MySchedulingsService } from 'src/app/services/my-schedulings.service';
+import { SnackBarService } from 'src/app/services/snack-bar.service';
 
 @Component({
   selector: 'app-dialog-scheduling',
@@ -9,7 +10,10 @@ import { MySchedulingsService } from 'src/app/services/my-schedulings.service';
   styleUrls: ['./dialog-scheduling.component.css'],
 })
 export class DialogSchedulingComponent implements OnInit {
-  constructor(private scheduleConsult: MySchedulingsService) {}
+  constructor(
+    private scheduleConsult: MySchedulingsService,
+    private snackBar: SnackBarService
+  ) {}
 
   ngOnInit(): void {
     const date = localStorage.getItem('dateTime')!;
@@ -107,6 +111,7 @@ export class DialogSchedulingComponent implements OnInit {
     this.scheduleConsult.updateSchedule(formData).subscribe(
       (response) => {
         this.response = response;
+        this.snackBar.openSnackBar('Agendamento atualizado!', 'OK');
       },
       (error) => {
         console.log('');

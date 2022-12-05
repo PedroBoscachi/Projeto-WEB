@@ -26,7 +26,7 @@ export class DTOMapper {
     );
   }
 
- /*  userDTOToUser(userDTO: UserDTO): User {
+  /*  userDTOToUser(userDTO: UserDTO): User {
     return new User(
       userDTO.name,
       userDTO.lastName,
@@ -83,7 +83,8 @@ export class DTOMapper {
       foundUserEntity,
       schedulingFormDTO.doctor,
       schedulingFormDTO.price,
-      schedulingFormDTO.date
+      schedulingFormDTO.date,
+      schedulingFormDTO.id
     );
   }
 }

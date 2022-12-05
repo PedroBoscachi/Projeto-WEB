@@ -18,6 +18,7 @@ export class SchedulingRepository {
   }
 
   updateScheduling(scheduling: Scheduling): Scheduling {
+    let updatedScheduling: Scheduling = null;
     listSchedulings.forEach((existingScheduling) => {
       if (existingScheduling.id === scheduling.id) {
         existingScheduling.date = scheduling.date;
@@ -26,10 +27,10 @@ export class SchedulingRepository {
         existingScheduling.local = scheduling.local;
         existingScheduling.price = scheduling.price;
         existingScheduling.specialization = scheduling.specialization;
-        return existingScheduling;
+        updatedScheduling = existingScheduling;
       }
     });
-    return null;
+    return updatedScheduling;
   }
 
   deleteScheduling(id: string): boolean {
