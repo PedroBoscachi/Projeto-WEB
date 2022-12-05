@@ -23,6 +23,10 @@
   color: rgb(255, 255, 255);
 }
 
+.lightBackground{
+  background-color: #BFD7FF;
+}
+
 section{
   padding: 50px 30px;
   border-radius: 10px;
@@ -32,11 +36,13 @@ section{
 
 .top-sections{
   width: 50%;
+  margin: 10px;
   text-align-last: center;
 }
 
 .down-sections{
   width: 33%;
+  margin: 10px;
   text-align-last: center;
 }
 
