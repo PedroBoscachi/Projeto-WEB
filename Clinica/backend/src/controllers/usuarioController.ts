@@ -52,4 +52,16 @@ router.put("/editar", login, (request, response) => {
   });
 });
 
+router.post("/excluir", login, (request, response) => {
+  const cpf = request.body.cpf;
+
+  let deleted = userService.deleteUser(cpf);
+
+  return response.json({
+    error: false,
+    message: "Usuário deletado com sucesso",
+    user: deleted,
+  });
+});
+
 module.exports = router;

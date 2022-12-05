@@ -2,8 +2,10 @@ import { Component, Inject, OnInit } from '@angular/core';
 import { FormBuilder, Validators } from '@angular/forms';
 import { MAT_DIALOG_DATA } from '@angular/material/dialog';
 import { Router } from '@angular/router';
+import { DialogDeleteUserService } from 'src/app/services/dialog-delete-user.service';
 import { MyProfileService } from 'src/app/services/my-profile.service';
 import { SnackBarService } from 'src/app/services/snack-bar.service';
+import { DialogDeleteUserComponent } from '../dialog-delete-user/dialog-delete-user.component';
 
 @Component({
   selector: 'app-dialog-my-profile',
@@ -18,7 +20,7 @@ export class DialogMyProfileComponent implements OnInit {
   hideConfirmPassword: boolean = true;
   disable: boolean = true;
   disableClass: string = 'disableClass';
-  formDialog: string = 'disable-form'
+  formDialog: string = 'disable-form';
 
   myProfileForm = this.formBuilder.group({
     name: ['', Validators.required],
@@ -36,7 +38,8 @@ export class DialogMyProfileComponent implements OnInit {
     private myProfile: MyProfileService,
     private formBuilder: FormBuilder,
     private snackBar: SnackBarService,
-    private router: Router
+    private router: Router,
+    private dialog: DialogDeleteUserService
   ) {
     this.message = data.message;
     this.param = data.params;
@@ -51,14 +54,17 @@ export class DialogMyProfileComponent implements OnInit {
         this.myProfileForm.patchValue({ birthDate: aniversario });
       },
       (error) => {
-        this.snackBar.openSnackBar('Não foi possivel recuperar os dados!', 'OK')
+        this.snackBar.openSnackBar(
+          'Não foi possivel recuperar os dados!',
+          'OK'
+        );
       }
     );
   }
 
   toogleEdit() {
     if (this.disable == true) {
-      this.formDialog = 'no-disable-form'
+      this.formDialog = 'no-disable-form';
       this.disable = false;
     } else {
       this.disable = true;
@@ -68,7 +74,10 @@ export class DialogMyProfileComponent implements OnInit {
   updateUser() {
     const data = this.myProfileForm.value;
 
-    if (this.myProfileForm.value.password !== this.myProfileForm.value.confirmPassword) {
+    if (
+      this.myProfileForm.value.password !==
+      this.myProfileForm.value.confirmPassword
+    ) {
       this.snackBar.openSnackBar('Erro! Senhas diferentes!', 'OK');
     } else {
       this.myProfile.updateUser(data).subscribe({
@@ -76,14 +85,18 @@ export class DialogMyProfileComponent implements OnInit {
           this.snackBar.openSnackBar('Atualizado com sucesso!', 'OK');
         },
         error: () => {
-          this.snackBar.openSnackBar('Não foi possivel atualizar!', 'OK')
-        }
-      })
+          this.snackBar.openSnackBar('Não foi possivel atualizar!', 'OK');
+        },
+      });
     }
   }
 
   toDate(date: any) {
     let parts = date.split('-');
     return `${parts[2]?.substring(0, 2)}/${parts[1]}/${parts[0]}`;
+  }
+
+  openModalDeleteUser() {
+    this.dialog.openForm();
   }
 }

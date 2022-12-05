@@ -14,17 +14,26 @@ export class MyProfileService {
   returnUser(): Observable<any> {
     let body = {
       token: localStorage.getItem('token'),
-      cpf: localStorage.getItem('cpf')
+      cpf: localStorage.getItem('cpf'),
     };
-    return this.http.post<any>(this.url+'/meu-perfil', body);
+    return this.http.post<any>(this.url + '/meu-perfil', body);
   }
 
-  updateUser(user:Object): Observable<any>{
+  updateUser(user: Object): Observable<any> {
     let body = {
       user: user,
-      token: localStorage.getItem('token')
+      token: localStorage.getItem('token'),
     };
 
-    return this.http.put<any>(this.url+'/editar', body);
+    return this.http.put<any>(this.url + '/editar', body);
+  }
+
+  deleteUser(): Observable<any> {
+    let body = {
+      cpf: localStorage.getItem('cpf'),
+      token: localStorage.getItem('token'),
+    };
+
+    return this.http.post<any>(this.url + '/excluir', body);
   }
 }
