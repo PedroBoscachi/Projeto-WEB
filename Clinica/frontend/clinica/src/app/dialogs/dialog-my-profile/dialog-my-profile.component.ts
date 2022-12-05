@@ -2,10 +2,9 @@ import { Component, Inject, OnInit } from '@angular/core';
 import { FormBuilder, Validators } from '@angular/forms';
 import { MAT_DIALOG_DATA } from '@angular/material/dialog';
 import { Router } from '@angular/router';
-import { DialogDeleteUserService } from 'src/app/services/dialog-delete-user.service';
 import { MyProfileService } from 'src/app/services/my-profile.service';
 import { SnackBarService } from 'src/app/services/snack-bar.service';
-import { DialogDeleteUserComponent } from '../dialog-delete-user/dialog-delete-user.component';
+import { DialogDeleteUserService } from '../services/dialog-delete-user.service';
 
 @Component({
   selector: 'app-dialog-my-profile',

@@ -1,6 +1,5 @@
 import { Component, OnInit } from '@angular/core';
 import { Router } from '@angular/router';
-import { DialogDeleteUserService } from 'src/app/services/dialog-delete-user.service';
 import { MyProfileService } from 'src/app/services/my-profile.service';
 
 @Component({

@@ -1,13 +1,11 @@
-import { DialogDeleteScheduleComponent } from './../pages/dialog-delete-schedule/dialog-delete-schedule.component';
-import { DialogDeleteUserComponent } from './../pages/dialog-delete-user/dialog-delete-user.component';
+import { DialogDeleteScheduleComponent } from '../dialog-delete-schedule/dialog-delete-schedule.component';
 import { MatDialog } from '@angular/material/dialog';
 import { Injectable } from '@angular/core';
 
 @Injectable({
-  providedIn: 'root'
+  providedIn: 'root',
 })
 export class DialogDeleteSchedulingService {
-
   constructor(private dialog: MatDialog) {}
 
   openForm(message?: string, params?: any) {
@@ -15,7 +13,7 @@ export class DialogDeleteSchedulingService {
       .open(DialogDeleteScheduleComponent, {
         data: { message, params },
         disableClose: true,
-        panelClass: 'my-custom-dialog-class',
+        panelClass: 'generic-dialog',
         closeOnNavigation: false,
         width: '360px',
       })

@@ -1,12 +1,12 @@
-import { DialogDeleteSchedulingService } from './../../services/dialog-delete-scheduling.service';
-import { DialogDeleteScheduleComponent } from './../dialog-delete-schedule/dialog-delete-schedule.component';
+import { DialogDeleteSchedulingService } from '../../dialogs/services/dialog-delete-scheduling.service';
+import { DialogDeleteScheduleComponent } from '../../dialogs/dialog-delete-schedule/dialog-delete-schedule.component';
 import { Component, OnInit } from '@angular/core';
 import { Scheduling } from 'src/app/models/scheduling';
-import { DialogSchedulingService } from 'src/app/services/dialog-scheduling.service';
 import { MySchedulingsService } from 'src/app/services/my-schedulings.service';
 import { Location } from '@angular/common';
 import { Router } from '@angular/router';
 import { SnackBarService } from 'src/app/services/snack-bar.service';
+import { DialogSchedulingService } from 'src/app/dialogs/services/dialog-scheduling.service';
 
 @Component({
   selector: 'app-my-schedules',
@@ -81,11 +81,11 @@ export class MySchedulesComponent implements OnInit {
       this.snackBar.openSnackBar('Consulta cancelada com sucesso!', 'Ok');
       if (!this.dados.length) this.show = true;
     }); */
-    console.log(id)
-    this.deleteDialog.openForm("", id).then(()=>{
+    console.log(id);
+    this.deleteDialog.openForm('', id).then(() => {
       this.dados.length = 0;
       this.getSchedulings();
-    })
+    });
   }
 
   formatDate = (date: string) => {

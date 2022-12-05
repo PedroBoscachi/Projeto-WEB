@@ -1,15 +1,15 @@
 .title-dialog {
   text-align: center;
   font-weight: bold;
-  color: #004AAD;
+  color: #004aad;
 }
 
-::ng-deep .my-custom-dialog-class mat-dialog-container {
+::ng-deep .generic-dialog mat-dialog-container {
   background-color: #ededed;
 }
 
 .buttons-dialog {
-  margin-top: 20px;
+  margin: 20px 0;
   display: flex;
   align-items: center;
   justify-content: center;
@@ -26,35 +26,34 @@
   border: 0;
 }
 
-
 input,
 label {
-  color: #004AAD;
+  color: #004aad;
   font-size: 1rem;
 }
 
 ::ng-deep .mat-focused .mat-form-field-label {
-  color: #004AAD !important;
+  color: #004aad !important;
 }
 
 ::ng-deep.mat-form-field-underline {
-  background-color: #004AAD !important;
+  background-color: #004aad !important;
 }
 
 ::ng-deep.mat-form-field-ripple {
-  background-color: #004AAD !important;
+  background-color: #004aad !important;
 }
 
-.label{
-  color: #004AAD;
+.label {
+  color: #004aad;
 }
 
-.showPassword{
-  color: #004AAD;
+.showPassword {
+  color: #004aad;
 }
 
-input::placeholder{
-  color: #BFD7FF;
+input::placeholder {
+  color: #bfd7ff;
   font-size: 14px;
 }
 
@@ -65,5 +64,5 @@ input::placeholder{
 
 .delete-wrapper {
   text-align: center;
-  margin-top: 8px;
+  margin: 0 !important;
 }

@@ -1,6 +1,6 @@
 import { Injectable } from '@angular/core';
 import { MatDialog } from '@angular/material/dialog';
-import { DialogSchedulingComponent } from '../pages/dialog-scheduling/dialog-scheduling.component';
+import { DialogSchedulingComponent } from '../dialog-scheduling/dialog-scheduling.component';
 
 @Injectable({
   providedIn: 'root',
@@ -13,7 +13,7 @@ export class DialogSchedulingService {
       .open(DialogSchedulingComponent, {
         data: { message },
         disableClose: true,
-        panelClass: 'my-custom-dialog-class',
+        panelClass: 'generic-dialog',
         closeOnNavigation: false,
         width: '335px',
       })

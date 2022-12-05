@@ -1,6 +1,6 @@
-import { DialogMyProfileComponent } from './../pages/dialog-my-profile/dialog-my-profile.component';
 import { Injectable } from '@angular/core';
 import { MatDialog } from '@angular/material/dialog';
+import { DialogMyProfileComponent } from '../dialog-my-profile/dialog-my-profile.component';
 
 @Injectable({
   providedIn: 'root',
@@ -13,7 +13,7 @@ export class DialogMyProfileService {
       .open(DialogMyProfileComponent, {
         data: { message, params },
         disableClose: true,
-        panelClass: 'my-custom-dialog-class',
+        panelClass: 'generic-dialog',
         closeOnNavigation: false,
         width: '335px',
       })

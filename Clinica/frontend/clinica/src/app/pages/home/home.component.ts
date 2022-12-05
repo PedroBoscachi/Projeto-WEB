@@ -1,6 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { Router } from '@angular/router';
-import { DialogMyProfileService } from 'src/app/services/dialog-my-profile.service';
+import { DialogMyProfileService } from 'src/app/dialogs/services/dialog-my-profile.service';
 import { MyProfileService } from 'src/app/services/my-profile.service';
 import { SnackBarService } from 'src/app/services/snack-bar.service';
 
