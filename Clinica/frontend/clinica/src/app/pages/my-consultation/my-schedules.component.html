@@ -1,7 +1,16 @@
 <div class="container">
   <h2 class="titulo">Minhas Consultas</h2>
+  <<<<<<< HEAD
   <div *ngIf="isFetchingConsults" class="lds-heart loading"></div>
   <div *ngIf="isFetchingConsults" class="lds-heart"><div></div></div>
+  =======
+  <div *ngIf="show" class="heart-consultations">
+    <div class="lds-heart">
+      <div></div>
+    </div>
+    <p>Você ainda não possui consultas agendadas!</p>
+  </div>
+  >>>>>>> 6c50332599a8c5aa4255b298a11c6b4cf5e9d683
 
   <div *ngIf="!isFetchingConsults" class="consultations">
     <div *ngFor="let scheduling of dados; index as i">

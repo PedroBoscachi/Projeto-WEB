@@ -35,6 +35,22 @@ mat-divider {
   gap: 10px;
 }
 
+.heart-consultations {
+  display: flex;
+  align-items: center;
+  justify-content: space-evenly;
+  flex-direction: column;
+  border-radius: 10px;
+  text-align: center;
+  margin: 0 auto;
+  font-size: 22px;
+  font-weight: bold;
+  color: #004aad;
+  background-color: #bfd7ff;
+  width: 600px;
+  height: 200px;
+}
+
 .lds-heart {
   display: inline-block;
   position: relative;

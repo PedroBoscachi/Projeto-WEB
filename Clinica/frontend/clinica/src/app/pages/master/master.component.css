@@ -79,12 +79,6 @@ a {
   color: #bfd7ff;
 }
 
-main {
-  display: grid;
-  place-items: center;
-  overflow-x: hidden;
-}
-
 .my-profile-wrapper {
   display: flex;
   justify-content: center;
@@ -128,4 +122,10 @@ mat-divider {
 
 ::ng-deep .mat-menu-content {
   padding: 0 !important;
+}
+
+main {
+  display: flex;
+  align-items: center;
+  justify-content: center;
 }

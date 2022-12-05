@@ -37,19 +37,9 @@ optgroup {
   opacity: 1;
 }
 
-.btn-schedule {
-  padding: 0.7rem 1.2rem;
-  min-height: 30px;
-  background-color: #d9d9d9;
-  font-weight: bold;
-  border: 0;
-  color: #004aad;
-  border-radius: 5px;
-  text-transform: uppercase;
-}
-
-.disabled-btn {
-  opacity: 0.6;
-  pointer-events: none;
-  cursor: default;
+.content {
+  width: 100%;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
 }
