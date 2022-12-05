@@ -2,11 +2,11 @@
   text-align: center;
   font-weight: bold;
   font-size: medium;
-  color: #004aad;
+  color: #ededed;
 }
 
-::ng-deep .generic-dialog mat-dialog-container {
-  background-color: #ededed;
+::ng-deep .my-custom-dialog-class mat-dialog-container {
+  background-color: #004aad;
 }
 
 .buttons-dialog {

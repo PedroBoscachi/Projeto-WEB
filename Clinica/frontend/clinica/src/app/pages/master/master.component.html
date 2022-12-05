@@ -4,18 +4,41 @@
       <img id="logo" src="/assets/images/logo.png" alt="imagem da logo" routerLink="/home/pagina-inicial"/>
       <h1 id="title" routerLink="/home/pagina-inicial">Lapri Care</h1>
     </div>
+
     <div class="my-profile-wrapper">
-      <a mat-button [matMenuTriggerFor]="menu" class="button-menu">
-        <mat-icon>person</mat-icon>
-      </a>
-      <mat-menu class="mat-menu" #menu="matMenu">
-        <a class="button-matmenu" mat-menu-item routerLink="/home/pagina-inicial" routerLinkActive="selected">Home</a>
-        <a class="button-matmenu" mat-menu-item routerLink="/home/agendar-consulta" routerLinkActive="selected">Agendar Consulta</a>
-        <a class="button-matmenu" mat-menu-item routerLink="/home/meus-agendamentos" routerLinkActive="selected">Minhas Consultas</a>
-        <a class="button-matmenu" mat-menu-item (click)="openFormMyProfile()">Meu Perfil</a>
-        <mat-divider></mat-divider>
-        <a class="button-matmenu" mat-menu-item routerLink="/">Sair</a>
-      </mat-menu>
+      <div class="wrapper">
+        <a mat-button [matMenuTriggerFor]="menu" class="button-menu">
+          <mat-icon>person</mat-icon>
+        </a>
+        <mat-menu class="mat-menu" #menu="matMenu">
+          <a
+            class="button-matmenu"
+            mat-menu-item
+            routerLink="/home/pagina-inicial"
+            routerLinkActive="selected"
+            >Home</a
+          >
+          <a
+            class="button-matmenu"
+            mat-menu-item
+            routerLink="/home/agendar-consulta"
+            routerLinkActive="selected"
+            >Agendar Consulta</a
+          >
+          <a
+            class="button-matmenu"
+            mat-menu-item
+            routerLink="/home/meus-agendamentos"
+            routerLinkActive="selected"
+            >Minhas Consultas</a
+          >
+          <a class="button-matmenu" mat-menu-item (click)="openFormMyProfile()"
+            >Meu Perfil</a
+          >
+          <mat-divider></mat-divider>
+          <a class="button-matmenu" mat-menu-item routerLink="/">Sair</a>
+        </mat-menu>
+      </div>
     </div>
   </div>
 </header>

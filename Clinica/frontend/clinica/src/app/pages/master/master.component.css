@@ -1,20 +1,21 @@
 header {
   padding: 1rem 2rem;
-  background: #004AAD;
+  background: #004aad;
   z-index: 100;
   position: sticky;
-  width: 100%;
+  width: 100vw;
+  display: flex;
+  justify-content: center;
+  align-items: center;
 }
 
 .container {
-  margin: 0 auto;
+  max-width: 90vw !important;
   display: flex;
-  align-items: center;
-  justify-content: space-between;
 }
 
 #title {
-  color: #BFD7FF;
+  color: #bfd7ff;
   font-family: "Rosarivo", serif;
   letter-spacing: 2px;
   font-size: 2rem;
@@ -36,16 +37,22 @@ header {
 }
 
 .logo-wrapper {
+  flex: 1;
+  width: auto;
+
   display: flex;
-  align-items: center;
-  justify-content: start;
   gap: 1rem;
+  margin-left: 5rem;
 }
 
 .my-profile-wrapper {
+  flex: 1;
+  margin-right: 5rem;
+}
+
+.wrapper {
   display: flex;
-  align-items: center;
-  justify-content: start;
+  justify-content: flex-end;
 }
 
 .hover {
@@ -84,36 +91,36 @@ header {
   border-radius: 50%;
   height: 64px;
   width: 64px;
-  background-color: #004AAD;
+  background-color: #004aad;
   text-align: center;
   display: flex;
   align-items: center;
   justify-content: center;
 }
 
-.button-menu  mat-icon {
-  color:#004AAD;
+.button-menu mat-icon {
+  color: #004aad;
   padding: 8px;
-  background-color: #BFD7FF;
-  outline: 3px solid #BFD7FF;
-  border: #004AAD 2px solid;
+  background-color: #bfd7ff;
+  outline: 3px solid #bfd7ff;
+  border: #004aad 2px solid;
   border-radius: 50%;
   height: auto;
   width: auto;
 }
 
 ::ng-deep .mat-menu {
-  background: #BFD7FF;
+  background: #bfd7ff;
 }
 
 .button-matmenu {
-  color:#004AAD;
+  color: #004aad;
   text-align: center;
- padding: 0 10px;
+  padding: 0 10px;
 }
 
 mat-divider {
-  background-color: #004AAD;
+  background-color: #004aad;
 }
 
 ::ng-deep .mat-menu-content {
