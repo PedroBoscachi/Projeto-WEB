@@ -1,10 +1,19 @@
 import { UserDTO } from "../dtos/UserDTO";
 import { User } from "../models/User";
 
-const listUsers: User[] = [];
+const listUsers: User[] = [{
+  id: '1dd55d1c-c25b-4148-a630-11babfc03669',
+  name: '111111',
+  lastName: '11111',
+  cpf: '11111111111',
+  phone: '11111111111',
+  birthDate: new Date('2022-12-23T03:00:00.000Z'),
+  password: '$2b$10$e098yl.zIFesksWZyYmNDuIFrYw.Qx2c56SwDvHRv/vEGesSzLfXC'
+}];
 
 export class UserRepository {
   saveUser(user: User): User {
+    console.log(user)
     listUsers.push(user);
     return user;
   }
