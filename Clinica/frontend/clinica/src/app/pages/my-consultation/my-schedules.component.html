@@ -1,19 +1,21 @@
 <div class="container">
   <h2 class="titulo">Minhas Consultas</h2>
-  <div *ngIf="!show" class="lds-heart loading"></div>
-  <div *ngIf="!show" class="lds-heart"><div></div></div>
+  <div *ngIf="isFetchingConsults" class="lds-heart loading"></div>
+  <div *ngIf="isFetchingConsults" class="lds-heart"><div></div></div>
 
-  <div class="consultations">
+  <div *ngIf="!isFetchingConsults" class="consultations">
     <div *ngFor="let scheduling of dados; index as i">
       <div class="card">
         <div>
           <h3>
-            <b>{{ scheduling.doctor }}</b>
+            <b>{{ scheduling.doctor }} | {{ scheduling.specialization }}</b>
           </h3>
           <mat-divider></mat-divider>
-          <p><b>Local:</b>{{ scheduling.local }}</p>
-          <p><b>Data:</b>{{scheduling.date.toString().substring(0, 10)}}</p>
-        <p><b>Horário:</b>{{scheduling.date.toString().substring(11, 16)}}</p>
+          <p><b>Local: </b>{{ scheduling.local }}</p>
+          <p><b>Data: </b>{{ scheduling.date.toString().substring(0, 10) }}</p>
+          <p>
+            <b>Horário: </b>{{ scheduling.date.toString().substring(11, 16) }}
+          </p>
         </div>
         <div>
           <mat-divider></mat-divider>
@@ -25,13 +27,16 @@
             >
               Editar
             </button>
-            <button class="button-card cancelar" (click)="deleteScheduling(scheduling.id)" mat-raised-button>
+            <button
+              class="button-card cancelar"
+              (click)="deleteScheduling(scheduling.id)"
+              mat-raised-button
+            >
               Cancelar
             </button>
           </div>
         </div>
       </div>
     </div>
-
   </div>
 </div>

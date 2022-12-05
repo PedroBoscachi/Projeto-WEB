@@ -4,6 +4,7 @@ import { DialogSchedulingService } from 'src/app/services/dialog-scheduling.serv
 import { MySchedulingsService } from 'src/app/services/my-schedulings.service';
 import { Location } from '@angular/common';
 import { Router } from '@angular/router';
+import { SnackBarService } from 'src/app/services/snack-bar.service';
 
 @Component({
   selector: 'app-my-schedules',
@@ -11,11 +12,13 @@ import { Router } from '@angular/router';
   styleUrls: ['./my-schedules.component.css'],
 })
 export class MySchedulesComponent implements OnInit {
-  show = false;
+  isFetchingConsults = false;
   constructor(
     private myScheduling: MySchedulingsService,
-    private myDialogScheduling: DialogSchedulingService
-  , private router : Router) {}
+    private myDialogScheduling: DialogSchedulingService,
+    private router: Router,
+    private snackBar: SnackBarService
+  ) {}
 
   ngOnInit(): void {
     this.getSchedulings();
@@ -28,37 +31,32 @@ export class MySchedulesComponent implements OnInit {
   temp: any[] = [];
 
   getSchedulings() {
+    this.isFetchingConsults = true;
     this.myScheduling.getSchedulings(this.token!, this.cpf!).subscribe(
       (data) => {
         this.temp = data.schedulings;
         this.temp.forEach((element) => {
           this.dados.push(element);
         });
-        console.log(data);
-        console.log(this.dados);
-        console.log('Deu Certo');
+        this.isFetchingConsults = false;
+        if (!this.dados.length)
+          this.snackBar.openSnackBar('Não há consultas agendadas!', 'Ok');
       },
       (erro) => {
+        this.isFetchingConsults = false;
         console.log('Deu erro');
       }
     );
   }
 
   editScheduling() {
-    this.myDialogScheduling.openForm();
+    this.myDialogScheduling.openForm('Massa');
   }
 
-  recarregar(){
-    window.location.reload();
-  }
-
-  deleteScheduling(id : string){
-    this.myScheduling.deleteScheduling(id, this.token!).subscribe(
-      (data) =>{
-        console.log(data);
-        this.recarregar();
-        this.router.navigate(['/home/meus-agendamentos']);
-      }
-    )
+  deleteScheduling(id: string) {
+    this.myScheduling.deleteScheduling(id, this.token!).subscribe((data) => {
+      this.dados = this.dados.filter((consult) => consult.id !== id);
+      this.snackBar.openSnackBar('Consulta cancelada com sucesso!', 'Ok');
+    });
   }
 }
