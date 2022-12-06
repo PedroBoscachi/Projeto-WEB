@@ -9,8 +9,10 @@ header {
   height: 90px;
 }
 
-.container {
+.containera {
+  width: 95%;
   display: flex;
+  align-items: center;
 }
 
 #title {
@@ -130,4 +132,10 @@ main {
   display: flex;
   align-items: center;
   justify-content: center;
+}
+
+@media screen and (max-width: 768px) {
+  img {
+    display: none;
+  }
 }

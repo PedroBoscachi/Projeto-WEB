@@ -62,3 +62,15 @@ a {
   padding-left: 15px;
   font-weight: bold;
 }
+
+@media screen and (max-width: 1000px) {
+  .content-wrapper {
+    gap: 3rem;
+    flex-direction: column;
+  }
+
+  section {
+    width: 60vw;
+    min-width: 300px;
+  }
+}
