@@ -94,6 +94,7 @@
           (click)="saveConsult()"
           mat-raised-button
           mat-dialog-close
+          [ngClass]="disabledSelect() ? 'disabled-btn' : 'save'"
         >
           Atualizar
         </button>

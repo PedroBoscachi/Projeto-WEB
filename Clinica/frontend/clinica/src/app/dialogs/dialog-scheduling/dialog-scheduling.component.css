@@ -26,6 +26,10 @@ mat-option {
   gap: 10px;
 }
 
+.disabled-btn{
+  background-color: #424242 !important;
+}
+
 .button-dialog {
   width: 100%;
 }
