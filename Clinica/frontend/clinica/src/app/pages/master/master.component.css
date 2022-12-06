@@ -1,5 +1,4 @@
 header {
-  padding: 1rem 2rem;
   background: #004aad;
   z-index: 100;
   position: sticky;
@@ -7,10 +6,11 @@ header {
   display: flex;
   justify-content: center;
   align-items: center;
+  height: 90px;
 }
 
 .container {
-  max-width: 90vw !important;
+  width: 80% !important;
   display: flex;
 }
 
@@ -23,7 +23,7 @@ header {
   font-weight: bold;
 }
 
-#title:hover{
+#title:hover {
   cursor: pointer;
 }
 
@@ -32,7 +32,7 @@ header {
   height: auto;
 }
 
-#logo:hover{
+#logo:hover {
   cursor: pointer;
 }
 

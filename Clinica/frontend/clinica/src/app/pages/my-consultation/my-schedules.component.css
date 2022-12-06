@@ -1,9 +1,11 @@
 .consultations {
-  display: grid;
-  grid-template-columns: repeat(4, 23.4%);
-  grid-template-rows: repeat(2, 1fr);
+  max-width: 90%;
   gap: 30px;
+  width: fit-content;
   margin: 0 auto;
+  display: grid;
+  grid-template-columns: 1fr 1fr 1fr 1fr;
+  margin-bottom: 1rem;
 }
 
 .button-card {
@@ -11,9 +13,11 @@
 }
 
 .card {
+  justify-self: flex-start;
+  align-self: flex-start;
   background-color: #004aad;
   color: #ededed;
-  width: 100%;
+
   display: flex;
   flex: 1;
   flex-direction: column;

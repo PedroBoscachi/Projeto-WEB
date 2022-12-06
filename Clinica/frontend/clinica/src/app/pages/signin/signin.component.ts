@@ -48,7 +48,6 @@ export class SigninComponent implements OnInit {
       (data) => {
         this.retornado = data;
         this.goToHome();
-        console.log(this.retornado);
       },
       (error) => {
         this.snackBar.openSnackBar('Falha na autenticação', 'OK');
