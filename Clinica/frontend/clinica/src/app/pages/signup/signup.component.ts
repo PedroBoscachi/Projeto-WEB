@@ -59,7 +59,7 @@ export class SignupComponent implements OnInit {
       return this.snackBar.openSnackBar('Erro! Senhas diferentes!', 'OK');
 
     if (this.signupForm.value.password!.length < 8)
-      return this.snackBar.openSnackBar('Erro! Insira uma senha maior que 8 caracteres!', 'OK');
+      return this.snackBar.openSnackBar('Erro! Insira com pelo menos 8 caracteres!', 'OK');
 
     localStorage.setItem('nome', this.signupForm.value.firstName!);
     this.signupService.signup(user).subscribe((data) => {
