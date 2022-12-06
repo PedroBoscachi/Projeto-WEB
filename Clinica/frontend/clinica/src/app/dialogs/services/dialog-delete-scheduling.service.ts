@@ -13,7 +13,7 @@ export class DialogDeleteSchedulingService {
       .open(DialogDeleteScheduleComponent, {
         data: { message, params },
         disableClose: true,
-        panelClass: 'generic-dialog',
+        panelClass: 'delete-schedule-dialog',
         closeOnNavigation: false,
         width: '360px',
       })

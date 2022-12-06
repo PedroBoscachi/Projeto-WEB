@@ -46,14 +46,12 @@
 
       <mat-form-field color="accent">
         <mat-label class="label">Data de Nascimento</mat-label>
-        <input
-          matInput
-          formControlName="birthDate"
-          mask="00/00/0000"
-          placeholder="Ex. 01/10/2002"
-          value="birth"
-          [readonly]="disable"
-        />
+        <input [matDatepicker]="picker" matInput formControlName="birthDate" />
+        <div class="btn-calendar" matSuffix>
+          <mat-datepicker-toggle *ngIf="!disable" matSuffix matIconSuffix [for]="picker">
+          </mat-datepicker-toggle>
+          <mat-datepicker #picker></mat-datepicker>
+        </div>
       </mat-form-field>
 
       <mat-form-field color="accent" *ngIf="disable == false">
@@ -110,7 +108,6 @@
           [disabled]="myProfileForm.invalid"
           (click)="updateUser()"
           *ngIf="disable == false"
-          mat-dialog-close
         >
           Atualizar
         </button>

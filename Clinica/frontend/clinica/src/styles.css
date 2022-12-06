@@ -38,6 +38,26 @@ button:hover {
   filter: brightness(0.9);
 }
 
+mat-calendar {
+  background-color: #bfd7f7 !important;
+}
+
+mat-calendar div, mat-calendar button, mat-calendar{
+  color: #004aad !important;
+}
+
+mat-calendar th, mat-calendar td {
+  color: #004aad !important;
+  font-weight: bolder !important;
+}
+
+.mat-calendar-body-selected {
+  background-color: #bfd7f7;
+  color: #fff;
+}
+
+
+
 .input-form {
   width: 100%;
 }

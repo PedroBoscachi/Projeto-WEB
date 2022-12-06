@@ -38,6 +38,7 @@ export class SignupComponent implements OnInit {
 
   register(): void {
     const birth = new Date(this.signupForm.value.birthDate as string);
+    const ano = this.signupForm.value.birthDate!.toString().split(" ");
 
     const user = new User(
       this.signupForm.value.firstName as string,
@@ -48,26 +49,28 @@ export class SignupComponent implements OnInit {
       this.signupForm.value.password as string
     );
 
-    if (!this.isValidCPF(this.signupForm.value.cpf as string)) {
+    if (!this.isValidCPF(this.signupForm.value.cpf as string))
       return this.snackBar.openSnackBar('Digite um cpf válido', 'OK');
-    }
 
-    if (
-      this.signupForm.value.password !== this.signupForm.value.confirmPassword
-    ) {
-      this.snackBar.openSnackBar('Erro! Senhas diferentes!', 'OK');
-    } else {
-      localStorage.setItem('nome', this.signupForm.value.firstName!);
-      this.signupService.signup(user).subscribe((data) => {
-        this.valores = data;
-        console.log(this.valores);
-        if (birth instanceof Date) {
-          console.log('É uma data');
-        }
-      });
-      this.snackBar.openSnackBar('Cadastrado com sucesso!', 'OK');
-      this.router.navigate(['/']);
-    }
+    if (parseInt(ano[3]) > 2004)
+      return this.snackBar.openSnackBar('Erro! Você precisa ser maior de idade!', 'OK');
+
+    if (this.signupForm.value.password !== this.signupForm.value.confirmPassword)
+      return this.snackBar.openSnackBar('Erro! Senhas diferentes!', 'OK');
+
+    if (this.signupForm.value.password!.length < 8)
+      return this.snackBar.openSnackBar('Erro! Insira uma senha maior que 8 caracteres!', 'OK');
+
+    localStorage.setItem('nome', this.signupForm.value.firstName!);
+    this.signupService.signup(user).subscribe((data) => {
+      this.valores = data;
+      console.log(this.valores);
+      if (birth instanceof Date) {
+        console.log('É uma data');
+      }
+    });
+    this.snackBar.openSnackBar('Cadastrado com sucesso!', 'OK');
+    this.router.navigate(['/']);
   }
 
   isValidCPF(cpf: string) {

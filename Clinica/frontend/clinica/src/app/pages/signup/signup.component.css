@@ -26,6 +26,11 @@ main {
   margin-bottom: 1rem;
 }
 
+.btn-submit {
+  align-self: center;
+  margin: 0 !important;
+}
+
 #logo {
   width: 20%;
   height: auto;
@@ -70,12 +75,6 @@ label {
   font-weight: bold;
   cursor: pointer;
   text-decoration: 0;
-}
-
-.btn-calendar {
-  background-color: transparent;
-  box-shadow: 0;
-  border: 0;
 }
 
 @media screen and (min-width: 1025px) {

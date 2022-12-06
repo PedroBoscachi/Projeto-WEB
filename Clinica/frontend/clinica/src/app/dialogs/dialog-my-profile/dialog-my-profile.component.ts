@@ -48,9 +48,7 @@ export class DialogMyProfileComponent implements OnInit {
   ngOnInit(): void {
     this.myProfile.returnUser().subscribe(
       (response) => {
-        let aniversario = this.toDate(response.user.birthDate);
         this.myProfileForm.patchValue(response.user);
-        this.myProfileForm.patchValue({ birthDate: aniversario });
       },
       (error) => {
         this.snackBar.openSnackBar(
@@ -72,28 +70,32 @@ export class DialogMyProfileComponent implements OnInit {
 
   updateUser() {
     const data = this.myProfileForm.value;
+    const ano = this.myProfileForm.value.birthDate!.toString().split(" ");
+
+    if (parseInt(ano[3]) > 2004)
+    return this.snackBar.openSnackBar('Erro! Você precisa ser maior de idade!', 'OK');
 
     if (
       this.myProfileForm.value.password !==
       this.myProfileForm.value.confirmPassword
-    ) {
-      this.snackBar.openSnackBar('Erro! Senhas diferentes!', 'OK');
-    } else {
-      this.myProfile.updateUser(data).subscribe({
-        next: () => {
-          window.location.reload()
-          this.snackBar.openSnackBar('Atualizado com sucesso!', 'OK');
-        },
-        error: () => {
-          this.snackBar.openSnackBar('Não foi possivel atualizar!', 'OK');
-        },
-      });
-    }
-  }
+    )
+      return this.snackBar.openSnackBar('Erro! Senhas diferentes!', 'OK');
 
-  toDate(date: any) {
-    let parts = date.split('-');
-    return `${parts[2]?.substring(0, 2)}/${parts[1]}/${parts[0]}`;
+    if (this.myProfileForm.value.password!.length < 8)
+      return this.snackBar.openSnackBar(
+        'Erro! Insira uma senha maior que 8 caracteres!',
+        'OK'
+      );
+
+    this.myProfile.updateUser(data).subscribe({
+      next: () => {
+        window.location.reload();
+        this.snackBar.openSnackBar('Atualizado com sucesso!', 'OK');
+      },
+      error: () => {
+        this.snackBar.openSnackBar('Não foi possivel atualizar!', 'OK');
+      },
+    });
   }
 
   openModalDeleteUser() {
