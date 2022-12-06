@@ -2,7 +2,6 @@
   <h1 class="title-dialog">Meu Perfil</h1>
   <div class="form-dialog">
     <form [id]="formDialog" class="form-wrapper" [formGroup]="myProfileForm">
-
       <mat-form-field color="accent">
         <mat-label class="label">Nome</mat-label>
         <input matInput formControlName="name" [readonly]="disable" />
@@ -126,8 +125,8 @@
 
       <p class="delete-wrapper">
         <a (click)="openModalDeleteUser()" mat-dialog-close class="delete"
-          >Deseja excluir sua conta?</a
-        >
+          >Deseja excluir sua <span>conta?</span>
+        </a>
       </p>
     </form>
   </div>

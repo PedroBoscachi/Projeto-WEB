@@ -66,3 +66,8 @@ input::placeholder {
   text-align: center;
   margin: 0 !important;
 }
+
+span {
+  font-weight: bold;
+  color: rgba(192, 41, 41, 0.938);
+}

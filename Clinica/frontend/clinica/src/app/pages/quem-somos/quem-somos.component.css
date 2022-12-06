@@ -1,9 +1,10 @@
-.container {
+.containera {
   display: flex;
   flex-direction: column;
   justify-content: center;
   align-items: center;
   max-width: 90% !important;
+  margin: 1rem auto;
 }
 
 .top-content {
@@ -74,4 +75,22 @@ mat-icon {
   height: 30px;
   width: 30px;
   font-size: 30px;
+}
+
+@media screen and (max-width: 890px) {
+  section {
+    min-width: 300px;
+  }
+  .containera {
+    align-items: center;
+    justify-content: center;
+  }
+  .top-content {
+    align-items: center;
+    flex-direction: column;
+  }
+  .down-content {
+    align-items: center;
+    flex-direction: column;
+  }
 }

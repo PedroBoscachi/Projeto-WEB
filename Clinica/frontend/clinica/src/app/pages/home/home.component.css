@@ -74,6 +74,7 @@
 
   .button-informacoes {
     width: 150%;
+    min-width: 300px;
 
     align-self: center;
   }
