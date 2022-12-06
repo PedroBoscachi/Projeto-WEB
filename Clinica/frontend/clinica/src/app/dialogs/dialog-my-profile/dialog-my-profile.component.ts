@@ -82,10 +82,7 @@ export class DialogMyProfileComponent implements OnInit {
       return this.snackBar.openSnackBar('Erro! Senhas diferentes!', 'OK');
 
     if (this.myProfileForm.value.password!.length < 8)
-      return this.snackBar.openSnackBar(
-        'Erro! Insira uma senha maior que 8 caracteres!',
-        'OK'
-      );
+      return this.snackBar.openSnackBar('Erro! Insira uma senha com pelo menos 8 caracteres!', 'OK');
 
     this.myProfile.updateUser(data).subscribe({
       next: () => {
